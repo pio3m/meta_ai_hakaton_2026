@@ -14,3 +14,13 @@
 !tools/build_web.py
 **/__pycache__/
 **/*.pyc
+
+!backend/
+!backend/**
+!pyproject.toml
+!uv.lock
+!web/
+!web/**
+
+**/__pycache__/
+**/*.pyc

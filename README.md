@@ -1,6 +1,8 @@
 # Chess Corp — grywalny POC
 
-Jedna neonowa ulica z oryginalnych grafik, ruch WASD po ograniczonym pasie chodnika, cztery klatki animacji, Buddy, dialogi i zadanie: rozmowa → identyfikator przy wejściu po lewej → powrót. Dane sceny, dialogów i questu w `content/*.json`. Brak płatnych usług i backendu. Oryginały `grafika/` nie były zmieniane.
+> **POC 02 jest zaimplementowany.** Uruchomienie: `docker compose up --build -d`, gra: http://localhost:8080. Domyślnie działa mock bez wywołań Meta. Podejdź do Buddy'ego, E, przewiń dialog zadania E/Enter; potem wpisuj wiadomość i wysyłaj Enter. Esc zamyka rozmowę. [Szczegółowy raport POC 02](docs/POC02_REPORT.md).
+
+Jedna neonowa ulica z oryginalnych grafik, ruch WASD po ograniczonym pasie chodnika, cztery klatki animacji, Buddy, dialogi i zadanie: rozmowa → identyfikator przy wejściu po lewej → powrót. Dane sceny, dialogów i questu w `content/*.json`. POC 02 dodaje backend rozmów FastAPI; domyślny tryb mock nie korzysta z płatnych usług. Oryginały `grafika/` nie były zmieniane.
 
 ## Uruchomienie lokalne (PowerShell)
 

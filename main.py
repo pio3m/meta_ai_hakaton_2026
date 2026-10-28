@@ -2,10 +2,11 @@ import asyncio
 import sys
 import pygame
 from game.data import ROOT, load_content
+from game.chat import Chat
 from game.player import Player
 from game.world import World
 from game.quests import Quest
-from game.interactions import nearest_entity, interact
+from game.interactions import nearest_entity, conversation_entity, interact
 from game.ui import UI, CYAN, GOLD
 
 class Game:
@@ -19,12 +20,53 @@ class Game:
         self.reset()
 
     def reset(self):
+        if hasattr(self, 'chat'):
+            self.chat.cancel()
+        self.chat = Chat()
+        pygame.key.stop_text_input()
         self.player = Player(self.scene['player_spawn'])
         self.quest = Quest(self.quest_data)
         self.dialogue = None
         self.line_index = 0
 
+    def text_input(self, text):
+        if self.chat.open and not self.dialogue:
+            self.chat.insert(text)
+
     def key(self, key):
+        if key == pygame.K_ESCAPE:
+            self.dialogue = None
+            self.chat.open = False
+            pygame.key.stop_text_input()
+            return
+        if self.chat.open and not self.dialogue:
+            if key == pygame.K_RETURN:
+                self.chat.submit(self.quest)
+            elif key == pygame.K_BACKSPACE and self.chat.cursor:
+                i = self.chat.cursor
+                self.chat.text = self.chat.text[:i-1]+self.chat.text[i:]
+                self.chat.cursor -= 1
+            elif key == pygame.K_DELETE:
+                i = self.chat.cursor
+                self.chat.text = self.chat.text[:i]+self.chat.text[i+1:]
+            elif key == pygame.K_LEFT:
+                self.chat.cursor = max(0,self.chat.cursor-1)
+            elif key == pygame.K_RIGHT:
+                self.chat.cursor = min(len(self.chat.text),self.chat.cursor+1)
+            elif key == pygame.K_HOME:
+                self.chat.cursor = 0
+            elif key == pygame.K_END:
+                self.chat.cursor = len(self.chat.text)
+            elif key == pygame.K_PAGEUP:
+                self.chat.scroll += 5
+            elif key == pygame.K_PAGEDOWN:
+                self.chat.scroll = max(0,self.chat.scroll-5)
+            elif key == pygame.K_F2 and not self.chat.pending:
+                self.chat.language = 'en' if self.chat.language=='pl' else 'pl'
+            elif key == pygame.K_F3 and self.chat.error:
+                self.chat.text = self.chat.last_message
+                self.chat.cursor = len(self.chat.text)
+            return
         if key == pygame.K_r and not self.dialogue:
             self.reset()
         elif key == pygame.K_ESCAPE:
@@ -34,14 +76,22 @@ class Game:
                 self.line_index += 1
                 if self.line_index >= len(self.dialogue['lines']):
                     self.dialogue = None
+                    if self.chat.open:
+                        pygame.key.start_text_input()
             elif key == pygame.K_e:
                 result = interact(self.player.position,self.world.entities,self.quest)
+                entity = conversation_entity(self.player.position,self.world.entities,self.quest)
+                if result is None and entity and entity['id']=='buddy':
+                    result = 'waiting'
+                if entity and entity['id']=='buddy':
+                    self.chat.open = True
                 if result:
                     self.dialogue = self.dialogues[result]
                     self.line_index = 0
 
     def update(self, dt, keys):
-        if not self.dialogue:
+        self.chat.poll()
+        if not self.dialogue and not self.chat.open:
             self.player.move(int(keys[pygame.K_d])-int(keys[pygame.K_a]),int(keys[pygame.K_s])-int(keys[pygame.K_w]),dt,self.world)
 
     def draw(self, screen):
@@ -60,7 +110,9 @@ class Game:
             pygame.draw.ellipse(screen,(5,16,23),(x-22,y-7,44,10))
             screen.blit(sprite,(round(x-36),round(y-90)))
         self.ui.text(screen,'Buddy',(buddy['position'][0]-23,buddy['position'][1]-106),CYAN,True)
-        self.ui.draw(screen,self.quest,nearest_entity(self.player.position,self.world.entities,self.quest),self.dialogue,self.line_index)
+        self.ui.draw(screen,self.quest,conversation_entity(self.player.position,self.world.entities,self.quest),self.dialogue,self.line_index)
+        if self.chat.open and not self.dialogue:
+            self.ui.draw_chat(screen,self.chat)
 
 async def main(frame_limit=None, screenshot=None):
     pygame.init()
@@ -77,6 +129,10 @@ async def main(frame_limit=None, screenshot=None):
                     running = False
                 elif event.type == pygame.KEYDOWN:
                     game.key(event.key)
+                elif event.type == pygame.TEXTINPUT:
+                    game.text_input(event.text)
+                elif event.type == pygame.MOUSEWHEEL and game.chat.open and not game.dialogue:
+                    game.chat.scroll = max(0,game.chat.scroll+event.y*3)
             game.update(dt,pygame.key.get_pressed())
             game.draw(screen)
             pygame.display.flip()
@@ -90,6 +146,7 @@ async def main(frame_limit=None, screenshot=None):
                 running = False
             await asyncio.sleep(0)
     finally:
+        game.chat.cancel()
         pygame.quit()
     return frames
 

@@ -33,3 +33,6 @@ Thumbs.db
 
 # Downloaded runtime sources used only for diagnosis
 /docs/*.diagnostic.txt
+
+# Verified build dependency cache
+/.cache/

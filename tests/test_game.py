@@ -73,6 +73,7 @@ def test_keyboard_quest_and_render(monkeypatch):
             g.update(.02,pygame.key.get_pressed())
             assert g.player.position==before
             while g.dialogue: g.key(pygame.K_RETURN)
+            g.key(pygame.K_ESCAPE)
         assert g.quest.complete and g.quest.reward_count==1
         for _ in range(100): g.key(pygame.K_e)
         g.key(pygame.K_ESCAPE)

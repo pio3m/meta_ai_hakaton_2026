@@ -4,10 +4,47 @@ import hashlib
 import subprocess
 import sys
 import urllib.request
+import http.client
+import os
+import time
 
 ROOT = Path(__file__).resolve().parent.parent
 WHEEL_PATH = 'cp312/pygame_ce-2.5.7-cp312-cp312-wasm32_bi_emscripten.whl'
 CDN = 'https://pygame-web.github.io/cdn/'
+
+SHA256 = '4f2caa3020592950565f3649c41e2eeacd001be93da892d60e5a4a43d893a323'
+
+
+def fetch_runtime():
+    cache = Path(os.getenv('CHESS_CORP_RUNTIME_CACHE',str(ROOT/'.cache/runtime')))/Path(WHEEL_PATH).name
+    if cache.is_file():
+        payload = cache.read_bytes()
+        if hashlib.sha256(payload).hexdigest() == SHA256:
+            return payload
+    for attempt in range(3):
+        try:
+            started = time.monotonic()
+            chunks = []
+            size = 0
+            with urllib.request.urlopen(CDN+WHEEL_PATH,timeout=15) as response:
+                while True:
+                    chunk = response.read(65536)
+                    if not chunk:
+                        break
+                    chunks.append(chunk)
+                    size += len(chunk)
+                    if time.monotonic()-started > 60 or size > 5000000:
+                        raise TimeoutError('Runtime download exceeded limit')
+            payload = b''.join(chunks)
+            if hashlib.sha256(payload).hexdigest() != SHA256:
+                raise ValueError('Pygame WASM wheel checksum mismatch')
+            cache.parent.mkdir(parents=True,exist_ok=True)
+            cache.write_bytes(payload)
+            return payload
+        except (OSError,http.client.HTTPException,ValueError):
+            if attempt == 2:
+                raise
+            print('Runtime download interrupted; retrying',attempt+2,flush=True)
 
 
 def patch_html(html):
@@ -29,6 +66,7 @@ def patch_html(html):
 '''
     html = html.replace(marker, replacement)
     html = html.replace('<title>web_app</title>', '<title>Chess Corp</title>')
+    html = html.replace('</head>', '<script src="chat_bridge.js"></script></head>')
     overlay = '''
 <style>
 #chess-start {position:fixed;inset:0;z-index:1000000;display:grid;place-content:center;text-align:center;background:#081622;color:#daedf0;font:18px Arial;padding:24px}
@@ -73,18 +111,18 @@ def main():
     subprocess.run([sys.executable, str(ROOT/'tools/package_web.py')], cwd=ROOT, check=True)
     subprocess.run([sys.executable, '-m', 'pygbag', '--build', 'web_app'], cwd=ROOT, check=True)
     build = ROOT/'web_app/build/web'
+    import shutil
+    shutil.copy2(ROOT/'web/chat_bridge.js', build/'chat_bridge.js')
     target = build/'runtime'/WHEEL_PATH
     target.parent.mkdir(parents=True, exist_ok=True)
-    with urllib.request.urlopen(CDN+WHEEL_PATH, timeout=60) as response:
-        payload = response.read()
-    if len(payload) < 1000000 or not payload.startswith(b'PK'):
-        raise ValueError('Invalid pygame WASM wheel downloaded')
-    if hashlib.sha256(payload).hexdigest() != '4f2caa3020592950565f3649c41e2eeacd001be93da892d60e5a4a43d893a323':
-        raise ValueError('Pygame WASM wheel checksum mismatch')
+    payload = fetch_runtime()
     target.write_bytes(payload)
     print('Bundled pygame WASM SHA256:', hashlib.sha256(payload).hexdigest())
     index = build/'index.html'
     index.write_text(patch_html(index.read_text(encoding='utf-8')),encoding='utf-8')
 
 if __name__ == '__main__':
-    main()
+    if '--fetch-runtime' in sys.argv:
+        fetch_runtime()
+    else:
+        main()

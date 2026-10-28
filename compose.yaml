@@ -4,3 +4,20 @@ services:
     build: .
     ports:
       - "127.0.0.1:${CHESS_CORP_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      BUDDY_MODE: ${BUDDY_MODE:-mock}
+      MODEL_API_KEY: ${MODEL_API_KEY:-}
+      META_MODEL: ${META_MODEL:-muse-spark-1.3}
+      META_API_BASE_URL: ${META_API_BASE_URL:-https://api.meta.ai/v1}
+      META_TIMEOUT_SECONDS: ${META_TIMEOUT_SECONDS:-25}
+      META_ALLOW_PAID_REQUESTS: ${META_ALLOW_PAID_REQUESTS:-false}
+      BUDDY_HISTORY_PAIRS: ${BUDDY_HISTORY_PAIRS:-10}
+      BUDDY_MAX_SESSIONS: ${BUDDY_MAX_SESSIONS:-100}
+      BUDDY_SESSION_TTL_SECONDS: ${BUDDY_SESSION_TTL_SECONDS:-3600}
