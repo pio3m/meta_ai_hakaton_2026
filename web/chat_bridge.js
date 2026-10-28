@@ -2,6 +2,13 @@
 (() => {
   const responses = new Map();
   let counter = 0;
+  let demoConsumed = false;
+  window.chessCorpDemoSession = () => {
+    if(demoConsumed)return '';
+    demoConsumed=true;
+    const session = new URLSearchParams(location.search).get('demo_session') || '';
+    return /^demo_[a-f0-9]{32}$/.test(session) ? session : '';
+  };
   // The Emscripten FFI is byte-oriented. Escape Unicode on both JSON boundaries.
   const encodeResponse = (value) => JSON.stringify(value).replace(/[-￿]/g,
     char => '\\u' + char.charCodeAt(0).toString(16).padStart(4, '0'));

@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field, SecretStr, field_validator
 
 class Settings(BaseModel):
     mode: Literal['mock', 'meta'] = 'mock'
+    inspector_token: SecretStr = SecretStr('')
     api_key: SecretStr = SecretStr('')
     model: str = Field(default='muse-spark-1.3', min_length=1, max_length=120)
     base_url: str = 'https://api.meta.ai/v1'
@@ -25,6 +26,7 @@ class Settings(BaseModel):
     @classmethod
     def from_env(cls):
         return cls(mode=os.getenv('BUDDY_MODE', 'mock'),
+                   inspector_token=os.getenv('ADMIN_TOKEN',''),
                    api_key=os.getenv('MODEL_API_KEY', ''),
                    model=os.getenv('META_MODEL', 'muse-spark-1.3'),
                    base_url=os.getenv('META_API_BASE_URL', 'https://api.meta.ai/v1'),

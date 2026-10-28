@@ -38,6 +38,11 @@ def _native_request(payload):
 class Chat:
     def __init__(self,transport=send_chat):
         self.session_id = uuid.uuid4().hex
+        if sys.platform == 'emscripten':
+            import platform
+            demo_session=str(platform.window.chessCorpDemoSession())
+            if demo_session:
+                self.session_id=demo_session
         self.transport = transport
         self.open = False
         self.text = ''

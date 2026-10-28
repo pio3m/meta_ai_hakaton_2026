@@ -4,6 +4,7 @@ from typing import Protocol
 import httpx
 from backend.models import ChatRequest, Message
 from backend.settings import Settings
+from backend.inspector import record_request, record_response, record_status
 
 class ProviderError(Exception):
     def __init__(self, status_code, public_message):
@@ -35,6 +36,7 @@ def build_messages(request, history):
 
 class MockProvider:
     async def reply(self, request, history):
+        record_request({'model':'mock','messages':build_messages(request,history)},sent=False)
         await asyncio.sleep(0.35)
         previous = next((m.content for m in reversed(history) if m.role=='user'), None)
         if request.language == 'en':
@@ -59,16 +61,22 @@ class MetaProvider:
             raise ProviderError(503, 'AI niedostępne: płatne wywołania Meta nie zostały włączone przez właściciela.')
         if not settings.api_key.get_secret_value():
             raise ProviderError(503, 'AI niedostępne: brak konfiguracji klucza Meta na serwerze.')
+        payload={'model':settings.model,'messages':build_messages(request,history),
+                 'max_completion_tokens':1024,'reasoning_effort':'minimal'}
+        record_request(payload)
         try:
             response = await self.client.post(
                 settings.base_url + '/chat/completions',
                 headers={'Authorization':'Bearer '+settings.api_key.get_secret_value()},
-                json={'model':settings.model, 'messages':build_messages(request,history),
-                      'max_completion_tokens':1024, 'reasoning_effort':'minimal'},
+                json=payload,
                 timeout=settings.timeout,
             )
+            record_status(response.status_code)
             response.raise_for_status()
             data = response.json()
+            if not isinstance(data,dict):
+                raise ValueError("Invalid response")
+            record_response(data)
             reply = data['choices'][0]['message']['content']
             if not isinstance(reply,str) or not reply.strip():
                 raise ValueError('Empty reply')
