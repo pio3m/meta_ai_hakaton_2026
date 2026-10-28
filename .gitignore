@@ -1,0 +1,35 @@
+# Python environments and caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Generated web builds and distributions
+/web_app/
+/build/
+/dist/
+*.egg-info/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.log
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Original duplicated scaffold (kept locally)
+/chess-corp-poc-codex/
+
+# Downloaded runtime sources used only for diagnosis
+/docs/*.diagnostic.txt

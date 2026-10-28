@@ -1,0 +1,10 @@
+{
+  "id": "first_day",
+  "title": "Pierwszy dzień w Chess Corp",
+  "steps": [
+    {"id": "meet_buddy", "type": "talk_to_npc", "target": "buddy", "objective": "Porozmawiaj z Buddy'm"},
+    {"id": "collect_badge", "type": "interact_with_object", "target": "corporate_entrance", "objective": "Odbierz identyfikator przy wejściu", "grant_item": "employee_badge"},
+    {"id": "return_to_buddy", "type": "talk_to_npc", "target": "buddy", "objective": "Wróć do Buddy'ego"}
+  ],
+  "completion_message": "QUEST COMPLETED — Pierwszy dzień zaliczony!"
+}

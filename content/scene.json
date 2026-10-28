@@ -1,0 +1,1 @@
+{"id":"corporate_street","background":"assets/processed/street.png","player_spawn":[350,440],"walkable_bounds":[36,422,924,482],"blocked_areas":[],"entities":[{"id":"buddy","type":"npc","position":[540,440],"interaction_radius":65,"label":"Buddy"},{"id":"corporate_entrance","type":"interactable","position":[235,432],"interaction_radius":60,"label":"Wejście Chess Corp"}]}

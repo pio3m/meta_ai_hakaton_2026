@@ -1,0 +1,6 @@
+name: chess-corp
+services:
+  game:
+    build: .
+    ports:
+      - "127.0.0.1:${CHESS_CORP_PORT:-8080}:80"

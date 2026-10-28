@@ -1,0 +1,14 @@
+[project]
+name = "chess-corp-poc"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame-ce>=2.5.8",
+]
+
+[dependency-groups]
+dev = [
+    "pillow>=13.0.0",
+    "pygbag>=0.9.3",
+    "pytest>=9.1.1",
+]

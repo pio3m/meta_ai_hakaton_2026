@@ -1,0 +1,16 @@
+**
+!Dockerfile
+!nginx.conf
+!main.py
+!game/
+!game/**
+!content/
+!content/**
+!assets/
+!assets/processed/
+!assets/processed/**
+!tools/
+!tools/package_web.py
+!tools/build_web.py
+**/__pycache__/
+**/*.pyc
