@@ -1,5 +1,7 @@
 # Chess Corp — grywalny POC
 
+[Dokumentacja projektu i raporty zmian](docs/README.md).
+
 > **AI Inspector:** [panel właściciela](http://localhost:8080/admin) i [widok jury](http://localhost:8080/admin/jury). Logowanie właściciela: `ADMIN_TOKEN` z lokalnego `.env`. [Instrukcja prezentacji i zabezpieczeń](docs/AI_INSPECTOR.md).
 
 > **POC 02 jest zaimplementowany.** Uruchomienie: `docker compose up --build -d`, gra: http://localhost:8080. Domyślnie działa mock bez wywołań Meta. Podejdź do Buddy'ego, E, przewiń dialog zadania E/Enter; potem wpisuj wiadomość i wysyłaj Enter. Esc zamyka rozmowę. [Szczegółowy raport POC 02](docs/POC02_REPORT.md).

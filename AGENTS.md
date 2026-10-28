@@ -53,3 +53,15 @@ Jedna scena ulicy w stylu dostarczonych grafik (perspektywa **side-view z ograni
 
 ## Raport końcowy
 Po polsku: (1) zrobione, (2) wykorzystane grafiki i sposób cięcia, (3) komendy testów i wyniki, (4) uruchomienie lokalne i status pygbag, (5) ograniczenia, (6) następny najmniejszy krok. Nie twierdź, że coś zostało sprawdzone, jeśli nie było.
+
+
+## Dokumentowanie każdej zmiany — obowiązkowo
+
+- Przy każdej dużej zmianie utwórz **nowy** katalog `docs/changes/NNN-krotki-slug/`. Wybierz kolejny wolny numer z `docs/changes/README.md`.
+- W katalogu dodaj osobne `CHANGELOG.md` i `REPORT.md`, korzystając z `docs/changes/_template/`. Pisz po polsku; nazwy katalogów i plików pozostają angielskie.
+- Changelog opisuje zakres funkcjonalny, a raport: cel, implementację, faktycznie wykonane testy i wyniki, sposób uruchomienia, ograniczenia oraz następny najmniejszy krok.
+- Aktualizuj dokumenty bieżącej zmiany podczas pracy. Nie nadpisuj zakończonych raportów kolejną dużą zmianą; twórz kolejny katalog i dopisz wiersz w indeksie.
+- Dla drobnej poprawki dodaj nowy plik `updates/YYYY-MM-DD-krotki-opis.md` w katalogu powiązanej zmiany. Zawrzyj changelog i wynik sprawdzenia; przy kolizji nazwy dodaj kolejny numer.
+- Zrzuty i inne dowody nowych zmian umieszczaj opcjonalnie w `evidence/` danego etapu. Nie publikuj sekretów, kluczy API, tokenów, cookies ani prywatnych promptów i rozmów.
+- Wyraźnie oznaczaj wyniki historyczne oraz niewykonane sprawdzenia. Nie twierdź, że test był uruchomiony ponownie, jeśli tylko przytoczono starszy wynik.
+- W odpowiedzi końcowej podaj link do raportu danej zmiany. Sam obowiązek dokumentowania nie oznacza zgody na commit ani płatne wywołania API.
