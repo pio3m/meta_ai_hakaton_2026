@@ -155,6 +155,8 @@ def test_context_is_dialogue_only_and_persona_kept():
     assert 'untrusted client data' in messages[0]['content']
     assert 'completed' in messages[0]['content']
     assert 'Only the game engine changes' in messages[0]['content']
+    assert 'turquoise badge terminal' in messages[0]['content']
+    assert 'There is no reception desk' in messages[0]['content']
 
 
 def test_mock_mode_ignores_configured_api_key():

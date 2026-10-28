@@ -149,3 +149,12 @@ Zrzuty z rzeczywistych testów:
 - `docs/poc02_quest_complete.png`: ukończenie questu po dodaniu czatu, przy wyłączonym API.
 
 Backend po teście awarii został przywrócony i pozostaje w trybie mock. Oba kontenery pozostawiono uruchomione. Zmiany POC 02 nie zostały automatycznie zacommitowane.
+
+
+## Pierwszy test prawdziwego Meta API po zgodzie użytkownika
+
+Po udzieleniu zgody i dodaniu klucza w `.env` przełączono backend na `BUDDY_MODE=meta` oraz `META_ALLOW_PAID_REQUESTS=true`. Klucz pozostał w ignorowanym `.env`, nie został wypisany ani zapisany w raporcie.
+
+Wykonano jedno rzeczywiste zapytanie przez `http://localhost:8080/api/chat`, dalej do Meta Model API, model `muse-spark-1.3`. Wynik: HTTP 200, provider `meta`, niepusta polska odpowiedź, 2 wiadomości w historii sesji, czas 2,31 s. Model odpowiedział w roli Buddy'ego, ale wymyślił recepcję i recepcjonistkę. Dlatego doprecyzowano prompt o konkretne fakty sceny i prawidłowy odbiór identyfikatora przy terminalu po lewej. Nie wykonano drugiego płatnego zapytania do sprawdzenia tej korekty; zawartość promptu obejmuje test regresji.
+
+Backend pozostawiono w trybie Meta, więc kolejne wiadomości wysłane w grze korzystają z prawdziwego API i mogą naliczać opłaty. Powrót do mocka: ustaw w `.env` `BUDDY_MODE=mock` oraz `META_ALLOW_PAID_REQUESTS=false`, następnie `docker compose up -d`.
