@@ -2,6 +2,16 @@
 
 [Dokumentacja projektu i raporty zmian](docs/README.md).
 
+> **POC 03.5 — Dynamic Quests & Puzzles:** Director obsługuje **COLLECT**, **SEQUENCE** i **LOGIC_PUZZLE**. W trybie mock naciśnij **F4 przed ukończeniem pierwszego questu**, aby wybrać scenariusz. Zagadkę otwiera **E**, cyfry wpisują odpowiedź, **Enter** sprawdza, **Esc** zamyka. Błędna kolejność terminali zeruje sekwencję. [Raport i wyniki POC 03.5](docs/changes/008-dynamic-quests-puzzles/REPORT.md).
+
+Aktualizacja: `docker compose up --build -d`, potem zamknij starą kartę i otwórz [grę](http://localhost:8080/) w nowej. Inspector `/admin` pokazuje typ questu, plan, walidację i wynik wykonania. Nowe plany mają wersję 2; plany wersji 1 nadal działają jako COLLECT. Director pozostaje domyślnie mock, z `DIRECTOR_ALLOW_PAID_REQUESTS=false`.
+
+
+> **POC 03 — AI Game Director:** po ukończeniu pierwszego questu automatycznie powstaje zadanie zebrania nośnika danych. Podejdź do wskazanego obiektu i naciśnij **E**. **Esc** zamyka rozmowę, **G** ponawia nieudaną generację, **R** rozpoczyna nową sesję. Director domyślnie działa jako **mock**, także gdy Buddy korzysta z Meta. [Raport POC 03 i instrukcja konfiguracji](docs/changes/006-ai-game-director/REPORT.md).
+
+Historyczna weryfikacja POC 03: **75 testów**, Pygame **12 klatek**, pełne przejście obu questów w przeglądarce przez Docker Compose. Wyniki dalszych sekcji dotyczą historycznie POC 01. Do rozmów i Directora potrzebny jest uruchomiony backend; najprościej użyć `docker compose up --build -d`. Szczegóły aktualnych testów i ograniczeń są w raporcie POC 03.
+
+
 > **AI Inspector:** [panel właściciela](http://localhost:8080/admin) i [widok jury](http://localhost:8080/admin/jury). Logowanie właściciela: `ADMIN_TOKEN` z lokalnego `.env`. [Instrukcja prezentacji i zabezpieczeń](docs/AI_INSPECTOR.md).
 
 > **POC 02 jest zaimplementowany.** Uruchomienie: `docker compose up --build -d`, gra: http://localhost:8080. Domyślnie działa mock bez wywołań Meta. Podejdź do Buddy'ego, E, przewiń dialog zadania E/Enter; potem wpisuj wiadomość i wysyłaj Enter. Esc zamyka rozmowę. [Szczegółowy raport POC 02](docs/POC02_REPORT.md).

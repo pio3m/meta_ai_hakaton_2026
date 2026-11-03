@@ -15,6 +15,9 @@ class Session:
     updated_at: float
     lock: asyncio.Lock = field(default_factory=asyncio.Lock)
     users: int = 0
+    director_result: dict | None = None
+    director_error: dict | None = None
+    director_execution_events: list = field(default_factory=list)
 
 class HistoryRepository(Protocol):
     def turn(self, session_id: str) -> AsyncContextManager[Session]: ...

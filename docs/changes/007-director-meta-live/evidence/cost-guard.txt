@@ -1,0 +1,4 @@
+attempted=1
+paid_permission_after_attempt=false
+api_calls_in_inspector=1
+buddy_api_calls=0

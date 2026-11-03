@@ -12,6 +12,8 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     environment:
+      DIRECTOR_MODE: ${DIRECTOR_MODE:-mock}
+      DIRECTOR_ALLOW_PAID_REQUESTS: ${DIRECTOR_ALLOW_PAID_REQUESTS:-false}
       BUDDY_MODE: ${BUDDY_MODE:-mock}
       ADMIN_TOKEN: ${ADMIN_TOKEN:-}
       MODEL_API_KEY: ${MODEL_API_KEY:-}

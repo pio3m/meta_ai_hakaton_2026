@@ -3,6 +3,7 @@ import sys
 import pygame
 from game.data import ROOT, load_content
 from game.chat import Chat
+from game.director import Director
 from game.player import Player
 from game.world import World
 from game.quests import Quest
@@ -22,6 +23,10 @@ class Game:
     def reset(self):
         if hasattr(self, 'chat'):
             self.chat.cancel()
+        if hasattr(self,"director"): self.director.cancel()
+        selected_mock = self.director.mock_type if hasattr(self,"director") else "COLLECT"
+        self.director = Director(self.scene)
+        self.director.mock_type = selected_mock
         self.chat = Chat()
         pygame.key.stop_text_input()
         self.player = Player(self.scene['player_spawn'])
@@ -30,18 +35,27 @@ class Game:
         self.line_index = 0
 
     def text_input(self, text):
-        if self.chat.open and not self.dialogue:
+        if self.director.answer_open:
+            self.director.insert_answer(text)
+        elif self.chat.open and not self.dialogue:
             self.chat.insert(text)
 
     def key(self, key):
         if key == pygame.K_ESCAPE:
+            self.director.answer_open = False
             self.dialogue = None
             self.chat.open = False
             pygame.key.stop_text_input()
             return
+        if self.director.answer_open:
+            if key == pygame.K_BACKSPACE: self.director.answer = self.director.answer[:-1]
+            elif key == pygame.K_RETURN:
+                self.director.submit_answer(self.player.position,self.quest)
+                if not self.director.answer_open: pygame.key.stop_text_input()
+            return
         if self.chat.open and not self.dialogue:
             if key == pygame.K_RETURN:
-                self.chat.submit(self.quest)
+                self.chat.submit(self.quest,self.director.context())
             elif key == pygame.K_BACKSPACE and self.chat.cursor:
                 i = self.chat.cursor
                 self.chat.text = self.chat.text[:i-1]+self.chat.text[i:]
@@ -69,6 +83,11 @@ class Game:
             return
         if key == pygame.K_r and not self.dialogue:
             self.reset()
+        elif key == pygame.K_F4 and not self.dialogue and self.director.state=='idle':
+            kinds=('COLLECT','SEQUENCE','LOGIC_PUZZLE')
+            self.director.mock_type=kinds[(kinds.index(self.director.mock_type)+1)%3]
+        elif key == pygame.K_g and not self.dialogue:
+            self.director.start(self.quest,self.chat.session_id,self.chat.language,retry=True)
         elif key == pygame.K_ESCAPE:
             self.dialogue = None
         elif key in (pygame.K_e, pygame.K_RETURN):
@@ -79,6 +98,9 @@ class Game:
                     if self.chat.open:
                         pygame.key.start_text_input()
             elif key == pygame.K_e:
+                if self.director.interact(self.player.position,self.quest):
+                    if self.director.answer_open: pygame.key.start_text_input()
+                    return
                 result = interact(self.player.position,self.world.entities,self.quest)
                 entity = conversation_entity(self.player.position,self.world.entities,self.quest)
                 if result is None and entity and entity['id']=='buddy':
@@ -91,7 +113,9 @@ class Game:
 
     def update(self, dt, keys):
         self.chat.poll()
-        if not self.dialogue and not self.chat.open:
+        self.director.start(self.quest,self.chat.session_id,self.chat.language)
+        self.director.poll(self.quest)
+        if not self.dialogue and not self.chat.open and not self.director.answer_open:
             self.player.move(int(keys[pygame.K_d])-int(keys[pygame.K_a]),int(keys[pygame.K_s])-int(keys[pygame.K_w]),dt,self.world)
 
     def draw(self, screen):
@@ -111,6 +135,7 @@ class Game:
             screen.blit(sprite,(round(x-36),round(y-90)))
         self.ui.text(screen,'Buddy',(buddy['position'][0]-23,buddy['position'][1]-106),CYAN,True)
         self.ui.draw(screen,self.quest,conversation_entity(self.player.position,self.world.entities,self.quest),self.dialogue,self.line_index)
+        if not self.dialogue: self.director.draw(screen,self.ui,self.player.position)
         if self.chat.open and not self.dialogue:
             self.ui.draw_chat(screen,self.chat)
 
@@ -147,6 +172,7 @@ async def main(frame_limit=None, screenshot=None):
             await asyncio.sleep(0)
     finally:
         game.chat.cancel()
+        game.director.cancel()
         pygame.quit()
     return frames
 

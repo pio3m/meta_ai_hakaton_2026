@@ -12,11 +12,12 @@
   // The Emscripten FFI is byte-oriented. Escape Unicode on both JSON boundaries.
   const encodeResponse = (value) => JSON.stringify(value).replace(/[-￿]/g,
     char => '\\u' + char.charCodeAt(0).toString(16).padStart(4, '0'));
-  window.chessCorpChatSend = (encoded) => {
+  window.chessCorpRequestSend = (encoded, path) => {
+    if (!["/api/chat","/api/director","/api/director/execution"].includes(path)) throw new Error("Invalid endpoint");
     const id = String(++counter);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 35000);
-    fetch('/api/chat', {
+    fetch(path, {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: encoded, signal: controller.signal,
     }).then(async (response) => {
@@ -29,6 +30,7 @@
     }).finally(() => clearTimeout(timer));
     return id;
   };
+  window.chessCorpChatSend = encoded => window.chessCorpRequestSend(encoded, '/api/chat');
   window.chessCorpChatPoll = (id) => {
     const result = responses.get(String(id)) || '';
     if (result) responses.delete(String(id));

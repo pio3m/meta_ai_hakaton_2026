@@ -17,3 +17,7 @@ Zacznij od [szablonu changelogu](_template/CHANGELOG.md) i [szablonu raportu](_t
 | 003 | Pierwsze prawdziwe wywołanie Muse Spark | [Zmiany](003-meta-live/CHANGELOG.md) | [Raport](003-meta-live/REPORT.md) |
 | 004 | AI Inspector i widok jury | [Zmiany](004-ai-inspector/CHANGELOG.md) | [Raport](004-ai-inspector/REPORT.md) |
 | 005 | Organizacja dokumentacji zmian | [Zmiany](005-change-documentation/CHANGELOG.md) | [Raport](005-change-documentation/REPORT.md) |
+| 006 | POC 03 — AI Game Director | [Zmiany](006-ai-game-director/CHANGELOG.md) | [Raport](006-ai-game-director/REPORT.md) |
+| 007 | POC 03 — rzeczywisty Director Muse Spark | [Zmiany](007-director-meta-live/CHANGELOG.md) | [Raport](007-director-meta-live/REPORT.md) |
+| 008 | POC 03.5 — dynamiczne questy i zagadki | [Zmiany](008-dynamic-quests-puzzles/CHANGELOG.md) | [Raport](008-dynamic-quests-puzzles/REPORT.md) |
+| 009 | DirectorPlanV2 — kontrolowany test Muse Spark LIVE | [Zmiany](009-director-v2-meta-live/CHANGELOG.md) | [Raport](009-director-v2-meta-live/REPORT.md) |

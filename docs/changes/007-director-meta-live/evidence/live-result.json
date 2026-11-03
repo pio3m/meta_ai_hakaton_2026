@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-11-02T19:57:20.912146+00:00",
+  "kind": "director",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "state": "ok",
+  "sent_to_model": true,
+  "elapsed_ms": 2930.4,
+  "usage": {
+    "completion_tokens": 434,
+    "prompt_tokens": 649,
+    "total_tokens": 1083
+  },
+  "upstream_status": 200,
+  "validation": {
+    "valid": true,
+    "errors": []
+  },
+  "response_json": {
+    "create_quest": {
+      "action": "create_quest",
+      "quest": {
+        "completion": {
+          "target": "director_package",
+          "type": "collect_object"
+        },
+        "completion_message": "Dziękujemy! Chess Corp docenia Twoją efektywność.",
+        "description": "Po pierwszym dniu pracy Dyrekcja zgubiła chip z danymi na tej samej ulicy. Znajdź go po wschodniej stronie i odbierz klawiszem E.",
+        "id": "director_delivery",
+        "objective": "Zbierz chip z danymi na wschodniej stronie ulicy",
+        "title": "Dostawa dla Dyrekcji"
+      }
+    },
+    "place_object": {
+      "action": "place_object",
+      "appearance": "data_chip",
+      "id": "director_package",
+      "label": "Pakiet Dyrekcji",
+      "spawn_point": "east_side"
+    },
+    "schema_version": 1
+  },
+  "validated_plan": {
+    "schema_version": 1,
+    "create_quest": {
+      "action": "create_quest",
+      "quest": {
+        "id": "director_delivery",
+        "title": "Dostawa dla Dyrekcji",
+        "description": "Po pierwszym dniu pracy Dyrekcja zgubiła chip z danymi na tej samej ulicy. Znajdź go po wschodniej stronie i odbierz klawiszem E.",
+        "objective": "Zbierz chip z danymi na wschodniej stronie ulicy",
+        "completion_message": "Dziękujemy! Chess Corp docenia Twoją efektywność.",
+        "completion": {
+          "type": "collect_object",
+          "target": "director_package"
+        }
+      }
+    },
+    "place_object": {
+      "action": "place_object",
+      "id": "director_package",
+      "label": "Pakiet Dyrekcji",
+      "spawn_point": "east_side",
+      "appearance": "data_chip"
+    }
+  },
+  "error": null,
+  "director_calls_observed": 1,
+  "buddy_calls_observed": 0,
+  "browser_quest_completed": true
+}

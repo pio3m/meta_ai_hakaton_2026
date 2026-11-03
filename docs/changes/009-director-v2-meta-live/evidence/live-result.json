@@ -1,0 +1,103 @@
+{
+  "started_at": "2026-11-02T20:25:47.719982+00:00",
+  "kind": "director",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "quest_type": "COLLECT",
+  "state": "ok",
+  "sent_to_model": true,
+  "upstream_status": 200,
+  "elapsed_ms": 1852.52,
+  "usage": {
+    "completion_tokens": 361,
+    "prompt_tokens": 1023,
+    "total_tokens": 1384
+  },
+  "reply": "{\"create_quest\": {\"action\": \"create_quest\", \"quest\": {\"completion\": {\"target\": \"director_package\", \"type\": \"collect_object\"}, \"completion_message\": \"Dostarczono paczkę. Dobra robota pierwszego dnia.\", \"description\": \"Kurier zostawił ważną paczkę na ulicy. Znajdź ją i przynieś do biura.\", \"id\": \"director_delivery\", \"objective\": \"Odnajdź i podnieś paczkę dyrektora\", \"title\": \"Pierwsze zlecenie kurierskie\"}}, \"place_objects\": [{\"action\": \"place_object\", \"appearance\": \"data_chip\", \"id\": \"director_package\", \"label\": \"Pakunek dyrektora\", \"spawn_point\": \"east_side\"}], \"puzzle\": null, \"quest_type\": \"COLLECT\", \"schema_version\": 2, \"sequence\": []}",
+  "response_json": {
+    "create_quest": {
+      "action": "create_quest",
+      "quest": {
+        "completion": {
+          "target": "director_package",
+          "type": "collect_object"
+        },
+        "completion_message": "Dostarczono paczkę. Dobra robota pierwszego dnia.",
+        "description": "Kurier zostawił ważną paczkę na ulicy. Znajdź ją i przynieś do biura.",
+        "id": "director_delivery",
+        "objective": "Odnajdź i podnieś paczkę dyrektora",
+        "title": "Pierwsze zlecenie kurierskie"
+      }
+    },
+    "place_objects": [
+      {
+        "action": "place_object",
+        "appearance": "data_chip",
+        "id": "director_package",
+        "label": "Pakunek dyrektora",
+        "spawn_point": "east_side"
+      }
+    ],
+    "puzzle": null,
+    "quest_type": "COLLECT",
+    "schema_version": 2,
+    "sequence": []
+  },
+  "validated_plan": {
+    "schema_version": 2,
+    "quest_type": "COLLECT",
+    "create_quest": {
+      "action": "create_quest",
+      "quest": {
+        "id": "director_delivery",
+        "title": "Pierwsze zlecenie kurierskie",
+        "description": "Kurier zostawił ważną paczkę na ulicy. Znajdź ją i przynieś do biura.",
+        "objective": "Odnajdź i podnieś paczkę dyrektora",
+        "completion_message": "Dostarczono paczkę. Dobra robota pierwszego dnia.",
+        "completion": {
+          "type": "collect_object",
+          "target": "director_package"
+        }
+      }
+    },
+    "place_objects": [
+      {
+        "action": "place_object",
+        "id": "director_package",
+        "label": "Pakunek dyrektora",
+        "spawn_point": "east_side",
+        "appearance": "data_chip"
+      }
+    ],
+    "sequence": [],
+    "puzzle": null
+  },
+  "validation": {
+    "valid": true,
+    "errors": []
+  },
+  "execution": {
+    "status": "completed",
+    "progress": 1,
+    "mistakes": 0,
+    "attempts": 0,
+    "message": "Nośnik odebrany.",
+    "events": 1,
+    "source": "client_events_replayed"
+  },
+  "error": null,
+  "director_calls": 1,
+  "buddy_calls": 0,
+  "browser_completed": true,
+  "client_accepted": true,
+  "request_contract": {
+    "schema_version": 2,
+    "offered_types": [
+      "COLLECT",
+      "SEQUENCE",
+      "LOGIC_PUZZLE"
+    ],
+    "forced_type": null,
+    "mock_type_sent_to_model": false
+  }
+}

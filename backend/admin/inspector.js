@@ -17,18 +17,23 @@
   function lock(message=''){
     epoch++;logged=false;selected=null;$('login').hidden=false;$('dashboard').hidden=true;
     $('call-list').replaceChildren();$('detail').hidden=true;
-    for(const id of ['prompt','reply','message','context','error','facts'])$(id).replaceChildren();
+    for(const id of ['prompt','reply','message','context','error','facts','director-json','validation','execution'])$(id).replaceChildren();
     $('jury-token').value='';$('demo-access').hidden=true;$('login-error').textContent=message;
   }
   function tokenText(usage){return usage?`${usage.prompt_tokens??'?'} wej. / ${usage.completion_tokens??'?'} wyj. / ${usage.total_tokens??'?'} razem`:'brak danych';}
   function show(row){
     $('detail').hidden=false;$('selection-help').hidden=true;
-    const fields={Czas:new Date(row.started_at).toLocaleString('pl-PL'),Stan:row.state,Dostawca:row.provider,Model:row.model,'Czas wykonania':row.elapsed_ms===null?'w toku':`${row.elapsed_ms} ms`,Tokeny:tokenText(row.usage),'Status HTTP Meta':row.upstream_status??'—'};
+    const fields={Typ:row.kind==='director'?'Game Director':'Buddy',Czas:new Date(row.started_at).toLocaleString('pl-PL'),Stan:row.state,Dostawca:row.provider,Model:row.model,'Czas wykonania':row.elapsed_ms===null?'w toku':`${row.elapsed_ms} ms`,Tokeny:tokenText(row.usage),'Status HTTP Meta':row.upstream_status??'—'};
+    if(row.kind==='director')fields['Typ questu']=row.quest_type??'oczekiwanie';
     if(!jury)fields.Sesja=row.session_id;
     $('facts').replaceChildren();
     for(const [key,value] of Object.entries(fields)){
       const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;$('facts').append(dt,dd);
     }
+    $('director-section').hidden=row.kind!=='director';
+    $('director-json').textContent=JSON.stringify(jury?row.validated_plan:row.response_json,null,2);
+    $('execution').textContent=JSON.stringify(row.execution,null,2);
+    $('validation').textContent=JSON.stringify(row.validation,null,2);
     $('context').textContent=JSON.stringify(row.context,null,2);
     $('message').textContent=row.message;
     $('reply').textContent=row.reply??(row.state==='pending'?'Buddy pisze…':'Brak odpowiedzi');
@@ -43,13 +48,13 @@
     if(busy)return;busy=true;const current=epoch;
     try{
       const data=await api('/calls');if(current!==epoch)return;logged=true;$('login').hidden=true;$('dashboard').hidden=false;
-      $('connection').textContent='● Na żywo';$('metrics').textContent=`Tryb: ${data.mode} · ${data.calls.length}/200 wywołań`;
+      $('connection').textContent='● Na żywo';$('metrics').textContent=`Buddy: ${data.mode} · Director: ${data.director_mode} · ${data.calls.length}/200 wywołań`;
       $('empty').hidden=data.calls.length>0;
       if($('follow').checked||!data.calls.some(row=>row.id===selected))selected=data.calls[0]?.id||null;
       $('call-list').replaceChildren();
       for(const row of data.calls){
         const button=document.createElement('button');button.className='call'+(row.id===selected?' active':'');
-        const title=document.createElement('strong');title.textContent=row.message.slice(0,70)||'Wywołanie Buddy';
+        const title=document.createElement('strong');title.textContent=(row.kind==='director'?'[Director '+(row.quest_type??'?')+'] ':'[Buddy] ')+row.message.slice(0,70)||'Wywołanie Buddy';
         const meta=document.createElement('span');meta.textContent=`${new Date(row.started_at).toLocaleTimeString('pl-PL')} · ${row.model}`;
         const status=document.createElement('span');status.className=row.state;status.textContent=`${row.state} · ${row.elapsed_ms===null?'w toku':row.elapsed_ms+' ms'} · tokeny: ${row.usage?.total_tokens??'—'}`;
         button.append(title,meta,status);button.addEventListener('click',()=>{$('follow').checked=false;selected=row.id;refresh();});$('call-list').append(button);

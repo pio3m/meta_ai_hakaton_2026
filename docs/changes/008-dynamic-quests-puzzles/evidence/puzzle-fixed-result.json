@@ -1,0 +1,18 @@
+{
+  "quest_type": "LOGIC_PUZZLE",
+  "provider": "mock",
+  "validation": {
+    "valid": true,
+    "errors": []
+  },
+  "execution": {
+    "status": "completed",
+    "progress": 1,
+    "mistakes": 1,
+    "attempts": 2,
+    "message": "Poprawna odpowiedź.",
+    "events": 2,
+    "source": "client_events_replayed"
+  },
+  "sent_to_model": false
+}

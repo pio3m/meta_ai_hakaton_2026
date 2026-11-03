@@ -1,11 +1,20 @@
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+class DirectorContext(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    id: Literal['director_delivery']
+    title: str = Field(min_length=3,max_length=64)
+    objective: str = Field(min_length=3,max_length=100)
+    status: Literal['active','completed']
+    quest_type: Literal['COLLECT','SEQUENCE','LOGIC_PUZZLE'] = 'COLLECT'
+
 class GameContext(BaseModel):
     model_config = ConfigDict(extra='forbid')
     quest_id: Literal['first_day'] = 'first_day'
     quest_status: Literal['not_started', 'in_progress', 'completed'] = 'not_started'
     has_badge: bool = False
+    director_quest: DirectorContext | None = None
 
 class ChatRequest(BaseModel):
     model_config = ConfigDict(extra='forbid')

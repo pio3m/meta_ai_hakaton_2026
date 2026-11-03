@@ -1,0 +1,5 @@
+director_attempts=1
+buddy_api_blocked=true
+buddy_calls=0
+paid_permission_after_attempt=false
+no_type_override=true

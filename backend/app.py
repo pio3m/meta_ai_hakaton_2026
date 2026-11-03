@@ -12,12 +12,14 @@ from backend.history import MemoryHistory, SessionCapacityError
 from backend.providers import MockProvider, MetaProvider, ProviderError
 
 
-def create_app(settings=None, provider=None, repository=None):
+def create_app(settings=None, provider=None, repository=None, director_provider=None):
     settings = settings or Settings.from_env()
     @asynccontextmanager
     async def lifespan(app):
         async with httpx.AsyncClient(follow_redirects=False, trust_env=False) as client:
             app.state.provider = provider or (MockProvider() if settings.mode=='mock' else MetaProvider(settings,client))
+            from backend.director import MockDirector, MetaDirector
+            app.state.director = director_provider or (MockDirector(settings) if settings.director_mode=="mock" else MetaDirector(settings,client))
             yield
     app = FastAPI(title='Chess Corp Buddy API', lifespan=lifespan)
     app.state.history = repository or MemoryHistory(settings.history_pairs, settings.max_sessions, settings.session_ttl)
@@ -25,6 +27,8 @@ def create_app(settings=None, provider=None, repository=None):
     store=CallStore(secrets=(settings.api_key.get_secret_value(),settings.inspector_token.get_secret_value()))
     app.state.inspector=store
     register_inspector(app,settings,store)
+    from backend.director_routes import register_director
+    register_director(app,settings,store)
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(request: Request, exc):

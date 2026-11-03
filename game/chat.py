@@ -7,9 +7,13 @@ import uuid
 MAX_MESSAGE = 600
 
 async def send_chat(payload):
+    return await send_request(payload)
+
+async def send_request(payload,path="/api/chat"):
+    if path not in ("/api/chat","/api/director","/api/director/execution"): raise ValueError("Invalid endpoint")
     if sys.platform == 'emscripten':
         import platform
-        request_id = str(platform.window.chessCorpChatSend(json.dumps(payload,ensure_ascii=True)))
+        request_id = str(platform.window.chessCorpRequestSend(json.dumps(payload,ensure_ascii=True),path))
         for _ in range(800):
             result = str(platform.window.chessCorpChatPoll(request_id))
             if result:
@@ -17,12 +21,12 @@ async def send_chat(payload):
             await asyncio.sleep(0.05)
         return {'error':'Buddy nie odpowiedział na czas. Spróbuj ponownie.'}
     # Native desktop: urllib runs on a worker, never inside the frame loop.
-    return await asyncio.to_thread(_native_request,payload)
+    return await asyncio.to_thread(_native_request,payload,path)
 
-def _native_request(payload):
+def _native_request(payload,path="/api/chat"):
     import urllib.request
     import urllib.error
-    url = os.getenv('CHESS_CORP_API_URL','http://127.0.0.1:8080').rstrip('/')+'/api/chat'
+    url = os.getenv('CHESS_CORP_API_URL','http://127.0.0.1:8080').rstrip('/')+path
     request = urllib.request.Request(url,data=json.dumps(payload).encode('utf-8'),headers={'Content-Type':'application/json'})
     try:
         with urllib.request.urlopen(request,timeout=35) as response:
@@ -65,13 +69,14 @@ class Chat:
         self.text = self.text[:self.cursor]+text+self.text[self.cursor:]
         self.cursor += len(text)
 
-    def submit(self,quest):
+    def submit(self,quest,director_context=None):
         if self.pending or not self.text.strip():
             return
         message = self.text.strip()
         payload = {'session_id':self.session_id,'npc_id':'buddy','message':message,'language':self.language,
                    'context':{'quest_id':quest.data['id'],'quest_status':'completed' if quest.complete else 'in_progress' if quest.index else 'not_started',
                               'has_badge':'employee_badge' in quest.inventory}}
+        if director_context: payload['context']['director_quest']=director_context
         self.error = ''
         self.last_message = message
         self.text = ''

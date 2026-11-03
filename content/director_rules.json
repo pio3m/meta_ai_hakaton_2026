@@ -1,0 +1,25 @@
+{
+  "scenario_id": "first_dynamic_quest",
+  "allowed_actions": [
+    "create_quest",
+    "place_object"
+  ],
+  "quest_id": "director_delivery",
+  "object_id": "director_package",
+  "appearance": "data_chip",
+  "interaction_radius": 52,
+  "spawn_points": {
+    "east_side": [
+      780,
+      452
+    ],
+    "west_side": [
+      100,
+      452
+    ],
+    "center_side": [
+      385,
+      452
+    ]
+  }
+}

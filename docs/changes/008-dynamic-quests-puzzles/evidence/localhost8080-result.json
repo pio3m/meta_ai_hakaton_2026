@@ -1,0 +1,18 @@
+{
+  "quest_type": "SEQUENCE",
+  "provider": "mock",
+  "validation": {
+    "valid": true,
+    "errors": []
+  },
+  "execution": {
+    "status": "completed",
+    "progress": 3,
+    "mistakes": 0,
+    "attempts": 3,
+    "message": "Terminal zatwierdzony: 3/3.",
+    "events": 3,
+    "source": "client_events_replayed"
+  },
+  "sent_to_model": false
+}

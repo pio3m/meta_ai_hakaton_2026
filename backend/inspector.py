@@ -23,16 +23,16 @@ class CallStore:
             value = re.sub(r'\b(?:owner_|jury_|admin_)[A-Za-z0-9_-]{20,}', '[REDACTED]', value)
             value = re.sub(r'(?i)\b(api[_-]?key|password|secret)\s*[:=]\s*[^\s,;]+', r'\1=[REDACTED]', value)
             return value
-        if isinstance(value, list):
+        if isinstance(value, (list,tuple)):
             return [self.clean(v) for v in value]
         if isinstance(value, dict):
             return {k: '[REDACTED]' if k.lower() in ('authorization','api_key','model_api_key','admin_token','cookie') else self.clean(v) for k,v in value.items()}
         return value
 
-    def start(self, body, mode, model):
+    def start(self, body, mode, model, kind="buddy"):
         call_id = uuid.uuid4().hex
         self.calls[call_id] = self.clean(dict(
-            id=call_id, session_id=body.session_id, npc_id=body.npc_id,
+            kind=kind, quest_type=None, execution=None, validation=None, response_json=None, validated_plan=None, id=call_id, session_id=body.session_id, npc_id=body.npc_id,
             started_at=datetime.now(timezone.utc).isoformat(), state='pending',
             provider=mode, model=model if mode=='meta' else 'mock', requested_model=model if mode=='meta' else None,
             context=body.context.model_dump(), language=body.language, message=body.message,
@@ -64,10 +64,17 @@ class CallStore:
 
     def list(self, session_id=None, jury=False):
         allowed = ('id','started_at','state','provider','model','message','reply','context','language',
-                   'elapsed_ms','usage','error','sent_to_model','upstream_status','reply_truncated')
+                   'elapsed_ms','usage','error','sent_to_model','upstream_status','reply_truncated','kind','validation','validated_plan','quest_type','execution')
         # Project before copying so polling does not duplicate every full prompt.
-        return [copy.deepcopy({k:v for k,v in row.items() if (k in allowed if jury else k not in ('_start','request_payload'))})
-                for row in reversed(self.calls.values()) if session_id is None or row['session_id']==session_id]
+        rows=[]
+        for row in reversed(self.calls.values()):
+            if session_id is not None and row['session_id']!=session_id: continue
+            value=copy.deepcopy({k:v for k,v in row.items() if (k in allowed if jury else k not in ('_start','request_payload','response_json','validated_plan'))})
+            if jury and row.get('kind')=='director':
+                value['reply']='Plan zatwierdzony' if row.get('validation') and row['validation'].get('valid') else 'Brak zatwierdzonego planu'
+            rows.append(value)
+        return rows
+
 
 
 

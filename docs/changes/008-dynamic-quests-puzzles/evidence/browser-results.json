@@ -1,0 +1,56 @@
+[
+  {
+    "quest_type": "LOGIC_PUZZLE",
+    "provider": "mock",
+    "sent_to_model": false,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "execution": {
+      "status": "completed",
+      "progress": 1,
+      "mistakes": 2,
+      "attempts": 3,
+      "message": "Poprawna odpowiedź.",
+      "events": 3,
+      "source": "client_events_replayed"
+    }
+  },
+  {
+    "quest_type": "SEQUENCE",
+    "provider": "mock",
+    "sent_to_model": false,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "execution": {
+      "status": "completed",
+      "progress": 3,
+      "mistakes": 2,
+      "attempts": 6,
+      "message": "Terminal zatwierdzony: 3/3.",
+      "events": 6,
+      "source": "client_events_replayed"
+    }
+  },
+  {
+    "quest_type": "COLLECT",
+    "provider": "mock",
+    "sent_to_model": false,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "execution": {
+      "status": "completed",
+      "progress": 1,
+      "mistakes": 0,
+      "attempts": 0,
+      "message": "Nośnik odebrany.",
+      "events": 1,
+      "source": "client_events_replayed"
+    }
+  }
+]

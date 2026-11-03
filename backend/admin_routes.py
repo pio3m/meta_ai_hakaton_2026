@@ -107,7 +107,7 @@ def register_inspector(app,settings,store):
 
     @router.get('/api/calls',dependencies=[Depends(access.owner)])
     async def calls():
-        return {'calls':store.list(),'limit':200,'mode':settings.mode}
+        return {'calls':store.list(),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode}
 
     @router.get('/api/calls/{call_id}',dependencies=[Depends(access.owner)])
     async def detail(call_id: str):
@@ -135,7 +135,7 @@ def register_inspector(app,settings,store):
     @router.get('/jury/api/calls')
     async def jury_calls(request: Request):
         session_id=access.jury_session(request.cookies.get(JURY_COOKIE,''))
-        return {'calls':store.list(session_id=session_id,jury=True),'limit':200,'mode':settings.mode}
+        return {'calls':store.list(session_id=session_id,jury=True),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode}
 
     @router.post('/jury/api/logout')
     async def jury_logout(response: Response):
