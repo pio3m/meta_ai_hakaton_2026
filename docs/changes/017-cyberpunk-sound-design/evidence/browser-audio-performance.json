@@ -1,0 +1,85 @@
+{
+  "before-play": {
+    "audio": null,
+    "meter": {
+      "rms": 0,
+      "peak": 0,
+      "contexts": [],
+      "outputNodes": 0
+    },
+    "browser_raf_hz": 26.49
+  },
+  "audio-on": {
+    "audio": {
+      "available": true,
+      "unlocked": true,
+      "muted": false,
+      "ambient": "corporate_street",
+      "ambient_busy": true,
+      "ambient_starts": {
+        "corporate_street": 1
+      },
+      "sfx_played": {},
+      "loaded_sounds": 14,
+      "errors": []
+    },
+    "meter": {
+      "rms": 0.022674673749290077,
+      "peak": 0.063262939453125,
+      "contexts": [
+        "running"
+      ],
+      "outputNodes": 1
+    },
+    "browser_raf_hz": 29.99
+  },
+  "audio-muted": {
+    "audio": {
+      "available": true,
+      "unlocked": true,
+      "muted": true,
+      "ambient": null,
+      "ambient_busy": false,
+      "ambient_starts": {
+        "corporate_street": 1
+      },
+      "sfx_played": {},
+      "loaded_sounds": 14,
+      "errors": []
+    },
+    "meter": {
+      "rms": 0,
+      "peak": 0,
+      "contexts": [
+        "running"
+      ],
+      "outputNodes": 1
+    },
+    "browser_raf_hz": 28.51
+  },
+  "audio-restored": {
+    "audio": {
+      "available": true,
+      "unlocked": true,
+      "muted": false,
+      "ambient": "corporate_street",
+      "ambient_busy": true,
+      "ambient_starts": {
+        "corporate_street": 2
+      },
+      "sfx_played": {},
+      "loaded_sounds": 14,
+      "errors": []
+    },
+    "meter": {
+      "rms": 0.024755862166028483,
+      "peak": 0.06298828125,
+      "contexts": [
+        "running"
+      ],
+      "outputNodes": 1
+    },
+    "browser_raf_hz": 29.99
+  },
+  "success": true
+}

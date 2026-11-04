@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "BUDDY_MODE": "meta",
+    "META_ALLOW_PAID_REQUESTS": "true",
+    "DIRECTOR_MODE": "meta",
+    "DIRECTOR_ALLOW_PAID_REQUESTS": "true",
+    "WORLD_AI_MODE": "meta",
+    "WORLD_AI_ALLOW_PAID_REQUESTS": "true",
+    "WORLD_AI_GLOBAL_LIMIT": "50",
+    "ASSET_AI_MODE": "meta",
+    "ASSET_AI_ALLOW_PAID_REQUESTS": "false",
+    "ASSET_AI_GLOBAL_LIMIT": "3"
+  },
+  "counter_preserved": true,
+  "ledger_at_configuration": {
+    "calls": 12,
+    "tokens": 35076,
+    "last_started_wall": 1793809903.4597797
+  }
+}

@@ -36,3 +36,14 @@ Thumbs.db
 
 # Verified build dependency cache
 /.cache/
+
+# Private asset request metadata and durable spending guard stay local.
+assets/generated/hacker_emblem.json
+assets/generated/.*-paid-attempt.json
+assets/generated/*.pending.*
+
+assets/generated/*.private.json
+assets/generated/.world-ai-*.json
+
+assets/generated/.session-jobs-spend*
+assets/generated/.asset-refresh*

@@ -51,7 +51,8 @@ class MockDirector:
     async def generate(self,request,rules):
         record_request(director_payload(request,self.settings,rules),sent=False)
         await asyncio.sleep(.35)
-        return json.dumps(mock_plan_v2(request.session_id,request.mock_type or "COLLECT",request.language),ensure_ascii=False)
+        from game.i18n import localize_plan
+        return json.dumps(localize_plan(mock_plan_v2(request.session_id,request.mock_type or "COLLECT",request.language),request.language),ensure_ascii=False)
 
 class MetaDirector:
     def __init__(self,settings,client):

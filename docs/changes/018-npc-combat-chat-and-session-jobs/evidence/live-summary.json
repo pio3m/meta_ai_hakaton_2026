@@ -1,0 +1,14 @@
+{
+  "first_session_titles": [
+    "Szumy z neonowej ulicy",
+    "Gorący towar w kryjówce"
+  ],
+  "second_session_titles": [
+    "Cewki dla ulicznego grajka",
+    "Mgła dla zmęczonego kuriera"
+  ],
+  "both_fresh_meta": true,
+  "npc_reply_id": "employee",
+  "npc_reply_provider": "meta",
+  "asset_regenerations_in_this_change": 0
+}

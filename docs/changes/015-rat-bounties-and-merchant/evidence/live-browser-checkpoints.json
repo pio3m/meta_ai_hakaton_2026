@@ -1,0 +1,582 @@
+{
+  "checkpoints": [
+    {
+      "name": "live-bar-bounty",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "active",
+          "contract_index": 0,
+          "kills": 0,
+          "target": 3,
+          "claimed_contracts": [],
+          "enemies": [
+            {
+              "id": "rat-0-0",
+              "position": [
+                170.0,
+                455.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-1",
+              "position": [
+                410.0,
+                465.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-2",
+              "position": [
+                740.0,
+                450.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            }
+          ],
+          "events": [
+            "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka."
+          ]
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "merchant",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "bar",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER"
+        ],
+        "player_position": [
+          491.84000000000054,
+          446.415
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "bartender",
+            "source": "FALLBACK",
+            "position": [
+              451.8,
+              450.1
+            ],
+            "state": "WAIT",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "memory": [
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Barman: Zamówienie gotowe. Następny gość!",
+              "Barman INSPECT_TERMINAL / completed",
+              "Gracz w pobliżu Barman",
+              "Barman: Witaj w Cybroschligger. Co podać?",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka."
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "source": "FALLBACK",
+            "position": [
+              413.5,
+              464.5
+            ],
+            "state": "WAIT",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "memory": [
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Barman: Co podać? Dziś plotki są w cenie napoju.",
+              "Gościni TALK_TO / completed",
+              "Gracz w pobliżu Gościni",
+              "Gościni: Posłuchać plotek i odpocząć po pracy.",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka."
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "source": "FALLBACK",
+            "position": [
+              733.6,
+              451.6
+            ],
+            "state": "TALK_TO",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "memory": [
+              "Nyx PATROL / completed",
+              "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Nyx TALK_TO / completed",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka.",
+              "Nyx PATROL / completed"
+            ]
+          }
+        ],
+        "events": [
+          "Gracz w pobliżu Gościni",
+          "Gościni: Posłuchać plotek i odpocząć po pracy.",
+          "Nyx TALK_TO / completed",
+          "Barman INSPECT_TERMINAL / completed",
+          "Gracz w pobliżu Barman",
+          "Barman: Witaj w Cybroschligger. Co podać?",
+          "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka.",
+          "Nyx PATROL / completed"
+        ]
+      }
+    },
+    {
+      "name": "live-bar-meta",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "active",
+          "contract_index": 0,
+          "kills": 0,
+          "target": 3,
+          "claimed_contracts": [],
+          "enemies": [
+            {
+              "id": "rat-0-0",
+              "position": [
+                170.0,
+                455.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-1",
+              "position": [
+                410.0,
+                465.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-2",
+              "position": [
+                740.0,
+                450.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            }
+          ],
+          "events": [
+            "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka."
+          ]
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "merchant",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "bar",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER"
+        ],
+        "player_position": [
+          103.33999999999999,
+          454.745
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "bartender",
+            "source": "FALLBACK",
+            "position": [
+              517.2,
+              455.9
+            ],
+            "state": "INSPECT_TERMINAL",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "memory": [
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Lokalny rytm: BAR • CYBROSCHLIGGER",
+              "Barman PATROL / completed",
+              "Barman: Co podać? Dziś plotki są w cenie napoju.",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Barman TALK_TO / completed"
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "source": "FALLBACK",
+            "position": [
+              596.6,
+              462.0
+            ],
+            "state": "PATROL",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "memory": [
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Lokalny rytm: BAR • CYBROSCHLIGGER",
+              "Gościni PATROL / completed",
+              "Barman: Co podać? Dziś plotki są w cenie napoju.",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Gościni TALK_TO / completed"
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "source": "FALLBACK",
+            "position": [
+              651.5,
+              462.5
+            ],
+            "state": "TALK_TO",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "memory": [
+              "Nyx TALK_TO / expired",
+              "Bar żyje kontraktem na szczury: barman kieruje łowcę, gościni komentuje, Nyx szykuje sprzęt.",
+              "Nyx MOVE_TO / completed",
+              "Nyx REACT_TO_PLAYER / expired",
+              "Lokalny rytm: BAR • CYBROSCHLIGGER",
+              "Nyx PATROL / completed"
+            ]
+          }
+        ],
+        "events": [
+          "Lokalny rytm: BAR • CYBROSCHLIGGER",
+          "Barman PATROL / completed",
+          "Gościni PATROL / completed",
+          "Nyx PATROL / completed",
+          "Barman: Co podać? Dziś plotki są w cenie napoju.",
+          "Gościni: Jeszcze jeden napój i żadnych raportów!",
+          "Barman TALK_TO / completed",
+          "Gościni TALK_TO / completed"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "world_results": [
+    {
+      "location_id": "corporate_street",
+      "plan": {
+        "schema_version": 1,
+        "summary": "Ulica startowa: Buddy czeka, Security patroluje, Hacker bada terminal, Employee zabiega o uwage.",
+        "decisions": [
+          {
+            "npc_id": "buddy",
+            "goal": "Pilnować rekruta przy buddy_post",
+            "mood": "calm",
+            "actions": [
+              {
+                "action": "WAIT",
+                "target_id": "none",
+                "route": [],
+                "duration_s": 6,
+                "text": "Stoje na posterunku, pilnuje rekruta."
+              }
+            ]
+          },
+          {
+            "npc_id": "security",
+            "goal": "Obserwować terminale i Hackera",
+            "mood": "alert",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "security_gate",
+                  "center",
+                  "data_terminal"
+                ],
+                "duration_s": 12,
+                "text": "Patrol: brama, centrum, terminal danych."
+              }
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "goal": "Zbadać badge_terminal ukradkiem",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "badge_terminal",
+                "route": [],
+                "duration_s": 5,
+                "text": "Idę zerknąć na terminal badge."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "badge_terminal",
+                "route": [],
+                "duration_s": 7,
+                "text": "Skanuje logi, szukam tropu danych."
+              }
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "goal": "Zaistnieć przed Security i awansować",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "center",
+                "route": [],
+                "duration_s": 4,
+                "text": "Idę na środek być widocznym."
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "security",
+                "route": [],
+                "duration_s": 5,
+                "text": "Panie oficerze! Wszystko według procedur, prawda?"
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "meta",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "f33b5859728f4870acf532241c3375ac",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 1,
+        "global_paid_calls": 1,
+        "tokens_used_or_reserved": 2405,
+        "token_budget": 150000,
+        "max_output_tokens": 2400,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 2
+      },
+      "cached": true
+    },
+    {
+      "location_id": "bar",
+      "plan": {
+        "schema_version": 2,
+        "location_id": "bar",
+        "summary": "Bar żyje kontraktem na szczury: barman kieruje łowcę, gościni komentuje, Nyx szykuje sprzęt.",
+        "decisions": [
+          {
+            "npc_id": "bartender",
+            "goal": "Wysłać łowcę na deratyzację i ogarnąć bar.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 6,
+                "text": "Szczury czekają na ulicy. Trzy ogony to 30 KR."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "bar_counter",
+                "route": [],
+                "duration_s": 8,
+                "text": "Sprawdzam kontrakt, potem nalewam."
+              }
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "goal": "Plotkować o kontrakcie i wspierać łowcę.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 7,
+                "text": "Serio puszczasza go na szczury? Daj mu napój na drogę!"
+              }
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "goal": "Przygotować sprzęt dla łowcy szczurów.",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "bar_market",
+                "route": [],
+                "duration_s": 6,
+                "text": "Wracam na stoisko, towar sam się nie sprzeda."
+              },
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 6,
+                "text": "Wracaj z nagrodą, sprzedam ci pałkę i pancerz."
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "meta",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "eee0e402e8bc40269ca7a5af53a8cc46",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 2,
+        "global_paid_calls": 2,
+        "tokens_used_or_reserved": 5699,
+        "token_budget": 150000,
+        "max_output_tokens": 2400,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 1
+      },
+      "cached": false
+    },
+    {
+      "location_id": "bar",
+      "plan": {
+        "schema_version": 2,
+        "location_id": "bar",
+        "summary": "Lokalny rytm: BAR • CYBROSCHLIGGER",
+        "decisions": [
+          {
+            "npc_id": "bartender",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_counter",
+                  "bar_table"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bar_guest",
+                "route": [],
+                "duration_s": 8,
+                "text": "Co podać? Dziś plotki są w cenie napoju."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "bar_counter",
+                "route": [],
+                "duration_s": 8,
+                "text": "Zamówienie gotowe. Następny gość!"
+              }
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_table",
+                  "bar_corner"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 8,
+                "text": "Jeszcze jeden napój i żadnych raportów!"
+              }
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_market",
+                  "bar_storage"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 8,
+                "text": "Nowy łowca? Mam dla niego sprzęt."
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "fallback",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "WORLD_MIN_INTERVAL",
+      "call_id": "c2499ab9b5bd4335855535a23dc8f248",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 2,
+        "global_paid_calls": 2,
+        "tokens_used_or_reserved": 5699,
+        "token_budget": 150000,
+        "max_output_tokens": 2400,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 1
+      },
+      "cached": false
+    }
+  ]
+}

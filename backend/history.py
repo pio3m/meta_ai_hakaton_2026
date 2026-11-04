@@ -18,10 +18,19 @@ class Session:
     director_result: dict | None = None
     director_error: dict | None = None
     director_execution_events: list = field(default_factory=list)
+    world_revision: int = 0
+    world_result: dict | None = None
+    world_paid_calls: int = 0
+    world_last_started: float | None = None
+    model_messages: deque = field(default_factory=deque)
+    npc_threads: dict = field(default_factory=dict)
+    session_jobs: dict | None = None
+    session_jobs_attempted: bool = False
+    session_job_events: list = field(default_factory=list)
 
 class HistoryRepository(Protocol):
     def turn(self, session_id: str) -> AsyncContextManager[Session]: ...
-    def append(self, session: Session, message: str, reply: str) -> None: ...
+    def append(self, session: Session, message: str, reply: str, *, for_model: bool = True) -> None: ...
 
 class MemoryHistory:
     def __init__(self, pairs=10, max_sessions=100, ttl=3600, clock=monotonic):
@@ -41,7 +50,7 @@ class MemoryHistory:
                 if victim is None:
                     raise SessionCapacityError()
                 del self.sessions[victim]
-            self.sessions[session_id] = Session(deque(maxlen=self.pairs*2), now)
+            self.sessions[session_id] = Session(deque(maxlen=self.pairs*2), now, model_messages=deque(maxlen=self.pairs*2))
         session = self.sessions[session_id]
         self.sessions.move_to_end(session_id)
         session.users += 1
@@ -52,5 +61,7 @@ class MemoryHistory:
             session.updated_at = self.clock()
             session.users -= 1
 
-    def append(self, session, message, reply):
-        session.messages.extend([Message(role='user', content=message), Message(role='assistant', content=reply)])
+    def append(self, session, message, reply, *, for_model=True):
+        pair=[Message(role='user', content=message), Message(role='assistant', content=reply)]
+        session.messages.extend(pair)
+        if for_model: session.model_messages.extend(pair)

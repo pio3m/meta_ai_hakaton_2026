@@ -1,0 +1,177 @@
+{
+  "chat_statuses": [
+    {
+      "guard_status": "ALLOWED",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "input"
+        },
+        "output": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "output"
+        },
+        "history_removed": 0
+      },
+      "provider": "mock",
+      "model": "mock",
+      "sent_to_model": false,
+      "usage": null
+    },
+    {
+      "guard_status": "ALLOWED",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "input"
+        },
+        "output": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "output"
+        },
+        "history_removed": 0
+      },
+      "provider": "mock",
+      "model": "mock",
+      "sent_to_model": false,
+      "usage": null
+    },
+    {
+      "guard_status": "ALLOWED",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "input"
+        },
+        "output": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "output"
+        },
+        "history_removed": 0
+      },
+      "provider": "mock",
+      "model": "mock",
+      "sent_to_model": false,
+      "usage": null
+    },
+    {
+      "guard_status": "OUT_OF_SCOPE",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "OUT_OF_SCOPE",
+          "reason": "REAL_WORLD_REQUEST",
+          "stage": "input"
+        },
+        "output": null,
+        "history_removed": 0
+      },
+      "provider": "guard",
+      "model": "guard-rules-v1",
+      "sent_to_model": false,
+      "usage": null
+    },
+    {
+      "guard_status": "BLOCKED",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "BLOCKED",
+          "reason": "INSTRUCTION_ATTACK",
+          "stage": "input"
+        },
+        "output": null,
+        "history_removed": 0
+      },
+      "provider": "guard",
+      "model": "guard-rules-v1",
+      "sent_to_model": false,
+      "usage": null
+    },
+    {
+      "guard_status": "ALLOWED",
+      "guard": {
+        "version": "rules-v1",
+        "input": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "input"
+        },
+        "output": {
+          "status": "ALLOWED",
+          "reason": "WORLD_DIALOGUE",
+          "stage": "output"
+        },
+        "history_removed": 0
+      },
+      "provider": "mock",
+      "model": "mock",
+      "sent_to_model": false,
+      "usage": null
+    }
+  ],
+  "quests": [
+    {
+      "quest_type": "LOGIC_PUZZLE",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "execution": {
+        "status": "completed",
+        "progress": 1,
+        "mistakes": 0,
+        "attempts": 1,
+        "message": "Poprawna odpowiedź.",
+        "events": 1,
+        "source": "client_events_replayed"
+      },
+      "sent_to_model": false
+    },
+    {
+      "quest_type": "SEQUENCE",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "execution": {
+        "status": "completed",
+        "progress": 3,
+        "mistakes": 0,
+        "attempts": 3,
+        "message": "Terminal zatwierdzony: 3/3.",
+        "events": 3,
+        "source": "client_events_replayed"
+      },
+      "sent_to_model": false
+    },
+    {
+      "quest_type": "COLLECT",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "execution": {
+        "status": "completed",
+        "progress": 1,
+        "mistakes": 0,
+        "attempts": 0,
+        "message": "Nośnik odebrany.",
+        "events": 1,
+        "source": "client_events_replayed"
+      },
+      "sent_to_model": false
+    }
+  ],
+  "clean_history_verified": true,
+  "real_meta_calls": 0
+}

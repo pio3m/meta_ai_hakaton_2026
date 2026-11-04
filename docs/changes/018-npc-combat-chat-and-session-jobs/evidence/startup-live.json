@@ -1,0 +1,76 @@
+{
+  "jobs": [
+    {
+      "status": 200,
+      "data": {
+        "plan": {
+          "schema_version": 1,
+          "jobs": [
+            {
+              "id": "job_a",
+              "title": "Cewki dla ulicznego grajka",
+              "description": "Zbierz 2 przegrzane cewki z ulicy. Nagroda przyzna się sama po podniesieniu.",
+              "item_label": "Przegrzana cewka plazmowa",
+              "reward": 32,
+              "placements": [
+                {
+                  "location_id": "corporate_street",
+                  "slot": "A"
+                },
+                {
+                  "location_id": "bar",
+                  "slot": "A"
+                }
+              ]
+            },
+            {
+              "id": "job_b",
+              "title": "Mgła dla zmęczonego kuriera",
+              "description": "Znajdź zgubiony inhalator w kryjówce. Wystarczy go podnieść, kredyty wpadną same.",
+              "item_label": "Inhalator z neuro-mgłą",
+              "reward": 22,
+              "placements": [
+                {
+                  "location_id": "hacker_hideout",
+                  "slot": "B"
+                }
+              ]
+            }
+          ]
+        },
+        "provider": "meta",
+        "call_id": "c154fea5f55d4cda87e9c052ac81c4c6",
+        "generation": "fresh-session",
+        "validation": {
+          "valid": true,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "chats": [
+    {
+      "status": 200,
+      "data": {
+        "session_id": "4918dcc2e1a6403583ca9df82199e24b",
+        "npc_id": "employee",
+        "reply": "Jestem młodszym analitykiem w Chess Corp, dział logistyki i raportów. Pilnuję danych z ulicy i robię wszystko, żeby szefostwo to zauważyło. Szczerze? Celuję w awans i dam z siebie wszystko.",
+        "status": "ok",
+        "provider": "meta",
+        "guard_status": "ALLOWED",
+        "guard_reason": "WORLD_DIALOGUE",
+        "history": [
+          {
+            "role": "user",
+            "content": "Kim jestes i czym zajmujesz sie w Chess Corp?"
+          },
+          {
+            "role": "assistant",
+            "content": "Jestem młodszym analitykiem w Chess Corp, dział logistyki i raportów. Pilnuję danych z ulicy i robię wszystko, żeby szefostwo to zauważyło. Szczerze? Celuję w awans i dam z siebie wszystko."
+          }
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

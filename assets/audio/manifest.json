@@ -1,0 +1,156 @@
+[
+  {
+    "file": "ambient_street.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 8.0,
+    "peak": 0.2537,
+    "sha256": "075c37302eec6674f3a440b11fe19083851d4fd4f7f4e05ad667e349decf96ed",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "ambient_bar.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 8.0,
+    "peak": 0.1832,
+    "sha256": "e038d52a9f2c4554c25109cad6d2a6de2914590c0cd9d6595dd9679e9f1e74ae",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "ambient_hideout.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 8.0,
+    "peak": 0.1538,
+    "sha256": "d1735f58853eefa3ba5f672b3ea6d004be2bbfb72031545c097edd94f09d9719",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "ambient_lobby.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 8.0,
+    "peak": 0.1005,
+    "sha256": "a0da2544836f3cd6af81c7fbe0da910ff6d2361a76c707990b0cbcbce88813e6",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "conversation.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.16,
+    "peak": 0.2511,
+    "sha256": "dada0d59822e6d8adabff164339c20eea1421cd0f0170ca0e251766667061571",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "shop_open.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.22,
+    "peak": 0.1897,
+    "sha256": "162991033024ca33d04280d8bb73c846edca62dad7e74737b59f8f44b779cef3",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "shop_close.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.18,
+    "peak": 0.1932,
+    "sha256": "137ec506251ddc8608f6fe84199ae8fa006dffe2e5fec7aeb7873187678ff973",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "purchase.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.28,
+    "peak": 0.2513,
+    "sha256": "e77c35a1e1d29e17a36cf4b7f2c9851a975d0fc11187c0374b1ae458a56d9fbf",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "credits.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.48,
+    "peak": 0.2514,
+    "sha256": "a4e8a8485eb7e300b02e737b4c2bf699fa80db6a2b13d22aa0d54650c994dfba",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "swing.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.14,
+    "peak": 0.5149,
+    "sha256": "bf24c37e539dd3f09a0883770f9d0de553a7fed658cd49e53a1437322a3264e0",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "hit.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.14,
+    "peak": 0.294,
+    "sha256": "9df9e051e743ab8f9f8b38b2be2c83a3198b4f7c038b8db25578ef5f7b89b409",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "rat_down.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.25,
+    "peak": 0.2424,
+    "sha256": "5af441138364649ba29218cb0f0d5d01308537ee4eae206f35f4813b044aeedc",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "heal.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.44,
+    "peak": 0.2515,
+    "sha256": "39f7377ae0b329a65bd54fdb6947c6f8dd67b01c9fcf28da1b9c1a45e6a4b2be",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "door.wav",
+    "sample_rate": 22050,
+    "channels": 1,
+    "bits": 16,
+    "duration_s": 0.32,
+    "peak": 0.1701,
+    "sha256": "b32cd9a85875437aea5765290d20c6e11a0a8d71e26d5c8869e8ee33f0aa0a50",
+    "source": "ORIGINAL_SYNTHESIS",
+    "license": "CC0-1.0"
+  }
+]

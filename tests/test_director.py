@@ -179,6 +179,8 @@ def test_buddy_receives_director_context(status):
     from backend.providers import build_messages,MockProvider
     body={**BODY,'message':'Co teraz?','context':{**BODY['context'],'director_quest':{'id':'director_delivery','title':'Nośnik danych','objective':'Odbierz nośnik po lewej.','status':status}}}
     request=ChatRequest(**body)
-    assert 'director_delivery' in build_messages(request,[])[0]['content']
+    messages=build_messages(request,[])
+    assert 'director_delivery' not in messages[0]['content']
+    assert any(m['role']=='user' and 'director_delivery' in m['content'] for m in messages)
     reply=asyncio.run(MockProvider().reply(request,[]))
     assert ('ukończone' if status=='completed' else 'Odbierz nośnik po lewej.') in reply

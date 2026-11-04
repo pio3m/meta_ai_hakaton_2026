@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "locations": {
+    "buddy_post": [
+      540,
+      440
+    ],
+    "buddy_left": [
+      520,
+      440
+    ],
+    "buddy_right": [
+      560,
+      440
+    ],
+    "security_gate": [
+      700,
+      450
+    ],
+    "west_corner": [
+      100,
+      460
+    ],
+    "center": [
+      385,
+      460
+    ],
+    "badge_terminal": [
+      235,
+      432
+    ],
+    "data_terminal": [
+      850,
+      448
+    ],
+    "east_corner": [
+      900,
+      466
+    ]
+  },
+  "terminals": [
+    "badge_terminal",
+    "data_terminal"
+  ],
+  "npcs": [
+    {
+      "id": "buddy",
+      "name": "Buddy",
+      "personality": "Friendly, ironic corporate guide; protects the recruit.",
+      "goal": "Pomóc graczowi przetrwać pierwszy dzień.",
+      "mood": "calm",
+      "position": [
+        540,
+        440
+      ],
+      "color": [
+        100,
+        224,
+        239
+      ],
+      "speed": 48
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "personality": "Methodical, suspicious security officer. Keeps order, defends himself against assaults and remembers provocation.",
+      "goal": "Pilnować terminali i obserwować Hackera.",
+      "mood": "alert",
+      "position": [
+        700,
+        450
+      ],
+      "color": [
+        112,
+        240,
+        159
+      ],
+      "speed": 70
+    },
+    {
+      "id": "hacker",
+      "name": "Hacker",
+      "personality": "Clever, secretive data hunter. Corporate espionage is fictional, never real hacking instructions.",
+      "goal": "Zdobyć trop danych korporacji, unikając Security.",
+      "mood": "curious",
+      "position": [
+        160,
+        466
+      ],
+      "color": [
+        239,
+        117,
+        226
+      ],
+      "speed": 84
+    },
+    {
+      "id": "employee",
+      "name": "Employee",
+      "personality": "Ambitious, anxious employee, eager to impress management.",
+      "goal": "Wykazać się i zdobyć awans.",
+      "mood": "ambitious",
+      "position": [
+        410,
+        476
+      ],
+      "color": [
+        245,
+        201,
+        117
+      ],
+      "speed": 65
+    }
+  ]
+}

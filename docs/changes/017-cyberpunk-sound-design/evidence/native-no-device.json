@@ -1,0 +1,17 @@
+{
+  "rendered_frames": 12,
+  "audio": {
+    "available": false,
+    "unlocked": true,
+    "muted": false,
+    "ambient": null,
+    "ambient_busy": false,
+    "ambient_starts": {},
+    "sfx_played": {},
+    "loaded_sounds": 0,
+    "errors": [
+      "Audio target 'unavailable-audio-driver' not available"
+    ]
+  },
+  "game_started": true
+}

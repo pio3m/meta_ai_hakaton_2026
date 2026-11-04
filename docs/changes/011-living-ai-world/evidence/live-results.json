@@ -1,0 +1,996 @@
+[
+  {
+    "id": "2562ca528b5542ab8537b47296961a90",
+    "started_at": "2026-11-04T12:58:49.568764+00:00",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 1235,
+      "prompt_tokens": 1514,
+      "total_tokens": 2749
+    },
+    "elapsed_ms": 11144.58,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 1,
+      "summary": "Buddy wita rekruta na posterunku, Security schodzi do centrum, Hacker bada badge terminal, Employee zabiega o uwage.",
+      "decisions": [
+        {
+          "npc_id": "buddy",
+          "goal": "Przywitac rekruta i zatrzymac go przy sobie",
+          "mood": "calm",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 6,
+              "text": "Hej rekrut! Podejdz blizej, ogarniemy ten dzien!"
+            }
+          ]
+        },
+        {
+          "npc_id": "security",
+          "goal": "Sprawdzic centrum i przypilnowac pracownikow",
+          "mood": "alert",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "center",
+              "route": [],
+              "duration_s": 8,
+              "text": "Idę na obchód, wszystko pod kontrolą."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "employee",
+              "route": [],
+              "duration_s": 5,
+              "text": "Pracowniku, widziałeś coś przy terminalach?"
+            }
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "goal": "Zdobyc trop przy badge terminalu",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 5,
+              "text": "Cicho, podchodze do terminala."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 8,
+              "text": "Tylko zerknę, czysty fikcyjny zapis."
+            }
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "goal": "Zwrocic uwage ochrony i wyroznic sie",
+          "mood": "ambitious",
+          "actions": [
+            {
+              "action": "WAIT",
+              "target_id": "none",
+              "route": [],
+              "duration_s": 4,
+              "text": "Rozgladam się, szukam szansy na awans."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "security",
+              "route": [],
+              "duration_s": 5,
+              "text": "Panie oficerze, wszystko gra, pilnuę porządku!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 1,
+      "global_paid_calls": 1,
+      "tokens_used_or_reserved": 2749,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 2
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": [
+        {
+          "npc_id": "employee",
+          "action": "WAIT",
+          "target_id": "none",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "hacker",
+          "action": "MOVE_TO",
+          "target_id": "badge_terminal",
+          "status": "expired",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "buddy",
+          "action": "REACT_TO_PLAYER",
+          "target_id": "player",
+          "status": "expired",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "employee",
+          "action": "TALK_TO",
+          "target_id": "security",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "security",
+          "action": "MOVE_TO",
+          "target_id": "center",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "hacker",
+          "action": "INSPECT_TERMINAL",
+          "target_id": "badge_terminal",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        },
+        {
+          "npc_id": "security",
+          "action": "TALK_TO",
+          "target_id": "employee",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "2562ca528b5542ab8537b47296961a90"
+        }
+      ],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "position": [
+            517.9,
+            440.0
+          ],
+          "state": "WAIT",
+          "goal": "Przywitac rekruta i zatrzymac go przy sobie",
+          "mood": "calm",
+          "memory": [
+            "Buddy REACT_TO_PLAYER / expired",
+            "Buddy wita rekruta na posterunku, Security schodzi do centrum, Hacker bada badge terminal, Employee zabiega o uwage.",
+            "Buddy REACT_TO_PLAYER / expired",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy PATROL / completed",
+            "Buddy REACT_TO_PLAYER / expired"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "position": [
+            890.5,
+            465.3
+          ],
+          "state": "PATROL",
+          "goal": "Sprawdzic centrum i przypilnowac pracownikow",
+          "mood": "alert",
+          "memory": [
+            "Buddy wita rekruta na posterunku, Security schodzi do centrum, Hacker bada badge terminal, Employee zabiega o uwage.",
+            "Employee: Panie oficerze, wszystko gra, pilnuę porządku!",
+            "Gracz w pobliżu Security",
+            "Security MOVE_TO / completed",
+            "Security: Pracowniku, widziałeś coś przy terminalach?",
+            "Security TALK_TO / completed"
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "position": [
+            825.1,
+            447.4
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zdobyc trop przy badge terminalu",
+          "mood": "curious",
+          "memory": [
+            "Buddy wita rekruta na posterunku, Security schodzi do centrum, Hacker bada badge terminal, Employee zabiega o uwage.",
+            "Hacker MOVE_TO / expired",
+            "Hacker: Tylko zerknę, czysty fikcyjny zapis.",
+            "Hacker INSPECT_TERMINAL / completed",
+            "Gracz w pobliżu Hacker",
+            "Hacker: Ten terminal skrywa więcej niż raporty."
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "position": [
+            260.4,
+            433.9
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zwrocic uwage ochrony i wyroznic sie",
+          "mood": "ambitious",
+          "memory": [
+            "Security: Pracowniku, widziałeś coś przy terminalach?",
+            "Gracz w pobliżu Employee",
+            "Employee MOVE_TO / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Employee TALK_TO / completed",
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni."
+          ]
+        }
+      ],
+      "recent_events": [
+        "Hacker INSPECT_TERMINAL / completed",
+        "Security TALK_TO / completed",
+        "Gracz w pobliżu Hacker",
+        "Employee TALK_TO / completed",
+        "Buddy PATROL / completed",
+        "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+        "Hacker: Ten terminal skrywa więcej niż raporty.",
+        "Buddy REACT_TO_PLAYER / expired"
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "4ab86930b6ec4c75992c30f6e1d884c8",
+    "started_at": "2026-11-04T12:59:19.541801+00:00",
+    "kind": "world",
+    "state": "error",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "sent_to_model": false,
+    "upstream_status": null,
+    "usage": null,
+    "elapsed_ms": 1.4,
+    "validation": {
+      "valid": false,
+      "stage": "budget",
+      "errors": [
+        "WORLD_MIN_INTERVAL"
+      ]
+    },
+    "validated_plan": null,
+    "plan_source": "FALLBACK",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 1,
+      "global_paid_calls": 1,
+      "tokens_used_or_reserved": 2749,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 2
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": [
+        {
+          "npc_id": "employee",
+          "action": "MOVE_TO",
+          "target_id": "center",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "hacker",
+          "action": "INSPECT_TERMINAL",
+          "target_id": "data_terminal",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "employee",
+          "action": "TALK_TO",
+          "target_id": "buddy",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "hacker",
+          "action": "TALK_TO",
+          "target_id": "security",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "buddy",
+          "action": "PATROL",
+          "target_id": "none",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "security",
+          "action": "PATROL",
+          "target_id": "none",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "employee",
+          "action": "INSPECT_TERMINAL",
+          "target_id": "badge_terminal",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "buddy",
+          "action": "REACT_TO_PLAYER",
+          "target_id": "player",
+          "status": "expired",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "hacker",
+          "action": "MOVE_TO",
+          "target_id": "west_corner",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "buddy",
+          "action": "WAIT",
+          "target_id": "none",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "security",
+          "action": "TALK_TO",
+          "target_id": "hacker",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        },
+        {
+          "npc_id": "security",
+          "action": "WAIT",
+          "target_id": "none",
+          "status": "completed",
+          "source": "FALLBACK",
+          "plan_id": "4ab86930b6ec4c75992c30f6e1d884c8"
+        }
+      ],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "position": [
+            543.3,
+            440.0
+          ],
+          "state": "PATROL",
+          "goal": "Pomóc rekrutowi.",
+          "mood": "calm",
+          "memory": [
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy WAIT / completed",
+            "Buddy PATROL / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy REACT_TO_PLAYER / expired",
+            "Buddy WAIT / completed"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "position": [
+            691.0,
+            457.2
+          ],
+          "state": "TALK_TO",
+          "goal": "Utrzymać porządek.",
+          "mood": "alert",
+          "memory": [
+            "Gracz w pobliżu Security",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Security TALK_TO / completed",
+            "Security WAIT / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Security PATROL / completed"
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "position": [
+            463.7,
+            454.1
+          ],
+          "state": "MOVE_TO",
+          "goal": "Znaleźć trop danych.",
+          "mood": "curious",
+          "memory": [
+            "Hacker MOVE_TO / completed",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Hacker: Ten terminal skrywa więcej niż raporty.",
+            "Hacker INSPECT_TERMINAL / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Hacker TALK_TO / completed"
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "position": [
+            318.9,
+            446.6
+          ],
+          "state": "MOVE_TO",
+          "goal": "Zasłużyć na awans.",
+          "mood": "ambitious",
+          "memory": [
+            "Employee MOVE_TO / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Employee TALK_TO / completed",
+            "Gracz w pobliżu Employee",
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+            "Employee INSPECT_TERMINAL / completed"
+          ]
+        }
+      ],
+      "recent_events": [
+        "Employee TALK_TO / completed",
+        "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+        "Gracz w pobliżu Employee",
+        "Buddy WAIT / completed",
+        "Hacker TALK_TO / completed",
+        "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+        "Security PATROL / completed",
+        "Employee INSPECT_TERMINAL / completed"
+      ]
+    },
+    "error": "WORLD_MIN_INTERVAL"
+  },
+  {
+    "id": "51b135acaf2f4e1b849d955829a23e96",
+    "started_at": "2026-11-04T12:59:49.557839+00:00",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 894,
+      "prompt_tokens": 1768,
+      "total_tokens": 2662
+    },
+    "elapsed_ms": 7106.3,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 1,
+      "summary": "Buddy trzyma posterunek, Security patroluje i zaczepia Hackera, Hacker podpuszcza Employee i wycofuje sie, Employee zaczepia gracza.",
+      "decisions": [
+        {
+          "npc_id": "buddy",
+          "goal": "Pilnować posterunku i czekać na rekruta.",
+          "mood": "calm",
+          "actions": [
+            {
+              "action": "WAIT",
+              "target_id": "none",
+              "route": [],
+              "duration_s": 8,
+              "text": "Stoję na posterunku, obserwuję ulicę."
+            }
+          ]
+        },
+        {
+          "npc_id": "security",
+          "goal": "Pilnować terminali i obserwować Hackera.",
+          "mood": "suspicious",
+          "actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "center",
+                "security_gate"
+              ],
+              "duration_s": 12,
+              "text": "Obchód: środek i brama pod kontrolą."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "hacker",
+              "route": [],
+              "duration_s": 5,
+              "text": "Hackerze, regulamin to nie wymówka. Widzę cię."
+            }
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "goal": "Zmylić Security i znaleźć trop danych.",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "TALK_TO",
+              "target_id": "employee",
+              "route": [],
+              "duration_s": 5,
+              "text": "Twój raport? Może kryje dostęp, o którym nie wiesz."
+            },
+            {
+              "action": "MOVE_TO",
+              "target_id": "west_corner",
+              "route": [],
+              "duration_s": 8,
+              "text": "Znikam na zachód, poczytać regulamin dalej."
+            }
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "goal": "Zaimponować graczowi i zdobyć awans.",
+          "mood": "ambitious",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 5,
+              "text": "Rekrucie! Widziałeś mój raport? Szef musi to docenić!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 2,
+      "global_paid_calls": 2,
+      "tokens_used_or_reserved": 5411,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 1
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": [],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "position": [
+            517.6,
+            440.0
+          ],
+          "state": "WAIT",
+          "goal": "Pilnować posterunku i czekać na rekruta.",
+          "mood": "calm",
+          "memory": [
+            "Buddy REACT_TO_PLAYER / expired",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy WAIT / completed",
+            "Buddy PATROL / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy REACT_TO_PLAYER / expired"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "position": [
+            264.2,
+            457.5
+          ],
+          "state": "TALK_TO",
+          "goal": "Pilnować terminali i obserwować Hackera.",
+          "mood": "suspicious",
+          "memory": [
+            "Security TALK_TO / completed",
+            "Security WAIT / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Security PATROL / completed",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Gracz w pobliżu Security"
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "position": [
+            140.5,
+            459.4
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zmylić Security i znaleźć trop danych.",
+          "mood": "curious",
+          "memory": [
+            "Hacker INSPECT_TERMINAL / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Hacker TALK_TO / completed",
+            "Gracz w pobliżu Hacker",
+            "Hacker MOVE_TO / completed"
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "position": [
+            392.7,
+            448.7
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zaimponować graczowi i zdobyć awans.",
+          "mood": "ambitious",
+          "memory": [
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+            "Employee INSPECT_TERMINAL / completed",
+            "Employee MOVE_TO / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Employee TALK_TO / completed",
+            "Gracz w pobliżu Employee"
+          ]
+        }
+      ],
+      "recent_events": [
+        "Gracz w pobliżu Hacker",
+        "Employee MOVE_TO / completed",
+        "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+        "Gracz w pobliżu Security",
+        "Buddy REACT_TO_PLAYER / expired",
+        "Employee TALK_TO / completed",
+        "Gracz w pobliżu Employee",
+        "Hacker MOVE_TO / completed"
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "2a7a8fe3d12243bb8122f4765e56c9a2",
+    "started_at": "2026-11-04T13:01:38.416983+00:00",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 650,
+      "prompt_tokens": 1514,
+      "total_tokens": 2164
+    },
+    "elapsed_ms": 6368.42,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 1,
+      "summary": "Buddy trzyma posterunek, ochrona patroluje, haker bada terminal, pracownik zagaja gracza.",
+      "decisions": [
+        {
+          "npc_id": "buddy",
+          "goal": "Pilnować posterunku i czekać na rekruta",
+          "mood": "calm",
+          "actions": [
+            {
+              "action": "WAIT",
+              "target_id": "none",
+              "route": [],
+              "duration_s": 6,
+              "text": "Czekam na rekruta, środowisko spokojne."
+            }
+          ]
+        },
+        {
+          "npc_id": "security",
+          "goal": "Obejść teren i upilnować terminale",
+          "mood": "alert",
+          "actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "security_gate",
+                "center",
+                "east_corner"
+              ],
+              "duration_s": 12,
+              "text": "Patrol: brama, centrum, wschód pod kontrolą."
+            }
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "goal": "Sprawdzić terminal badge bez zwracania uwagi",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 5,
+              "text": "Idę zerknąć na terminal identyfikatorów."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 7,
+              "text": "Skanuję plotki o danych, czysto i grzecznie."
+            }
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "goal": "Zagaić gracza i zabłysnąć przed szefem",
+          "mood": "ambitious",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 5,
+              "text": "Hej, nowy? Pokaż się z dobrej strony, szef patrzy!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 1,
+      "global_paid_calls": 3,
+      "tokens_used_or_reserved": 7575,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 0
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": [],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "position": [
+            539.3,
+            440.0
+          ],
+          "state": "PATROL",
+          "goal": "Pilnować posterunku i czekać na rekruta",
+          "mood": "calm",
+          "memory": [
+            "Buddy WAIT / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy PATROL / completed",
+            "Buddy REACT_TO_PLAYER / expired",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy WAIT / completed"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "position": [
+            326.3,
+            458.2
+          ],
+          "state": "TALK_TO",
+          "goal": "Obejść teren i upilnować terminale",
+          "mood": "alert",
+          "memory": [
+            "Security TALK_TO / completed",
+            "Security WAIT / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Security PATROL / completed",
+            "Gracz w pobliżu Security",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz."
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "position": [
+            384.5,
+            455.4
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Sprawdzić terminal badge bez zwracania uwagi",
+          "mood": "curious",
+          "memory": [
+            "Hacker INSPECT_TERMINAL / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Hacker TALK_TO / completed",
+            "Hacker MOVE_TO / completed",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Gracz w pobliżu Hacker"
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "position": [
+            278.1,
+            436.6
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zagaić gracza i zabłysnąć przed szefem",
+          "mood": "ambitious",
+          "memory": [
+            "Gracz w pobliżu Employee",
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+            "Employee INSPECT_TERMINAL / completed",
+            "Employee MOVE_TO / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Employee TALK_TO / completed"
+          ]
+        }
+      ],
+      "recent_events": [
+        "Buddy REACT_TO_PLAYER / expired",
+        "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+        "Hacker MOVE_TO / completed",
+        "Gracz w pobliżu Security",
+        "Employee TALK_TO / completed",
+        "Buddy WAIT / completed",
+        "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+        "Gracz w pobliżu Hacker"
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "30589f5482a947c096b6ad5ea32c47df",
+    "started_at": "2026-11-04T13:04:15.201737+00:00",
+    "kind": "world",
+    "state": "error",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "sent_to_model": false,
+    "upstream_status": null,
+    "usage": null,
+    "elapsed_ms": 1.4,
+    "validation": {
+      "valid": false,
+      "stage": "budget",
+      "errors": [
+        "WORLD_PAID_DISABLED"
+      ]
+    },
+    "validated_plan": null,
+    "plan_source": "FALLBACK",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 0,
+      "global_paid_calls": 3,
+      "tokens_used_or_reserved": 7575,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 0
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": [],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "position": [
+            517.7,
+            440.0
+          ],
+          "state": "REACT_TO_PLAYER",
+          "goal": "Pomóc rekrutowi.",
+          "mood": "calm",
+          "memory": [
+            "Buddy PATROL / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy REACT_TO_PLAYER / expired",
+            "Buddy WAIT / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Buddy PATROL / completed"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "position": [
+            303.4,
+            458.1
+          ],
+          "state": "TALK_TO",
+          "goal": "Utrzymać porządek.",
+          "mood": "alert",
+          "memory": [
+            "Security TALK_TO / completed",
+            "Security WAIT / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Security PATROL / completed",
+            "Gracz w pobliżu Security",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz."
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "position": [
+            363.2,
+            455.8
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Znaleźć trop danych.",
+          "mood": "curious",
+          "memory": [
+            "Hacker INSPECT_TERMINAL / completed",
+            "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+            "Hacker TALK_TO / completed",
+            "Hacker MOVE_TO / completed",
+            "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+            "Gracz w pobliżu Hacker"
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "position": [
+            260.6,
+            433.9
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Zasłużyć na awans.",
+          "mood": "ambitious",
+          "memory": [
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+            "Employee INSPECT_TERMINAL / completed",
+            "Employee MOVE_TO / completed",
+            "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+            "Employee TALK_TO / completed",
+            "Employee: Raport gotowy. Teraz niech ktoś to doceni."
+          ]
+        }
+      ],
+      "recent_events": [
+        "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+        "Employee TALK_TO / completed",
+        "Gracz w pobliżu Security",
+        "Hacker MOVE_TO / completed",
+        "Buddy PATROL / completed",
+        "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+        "Gracz w pobliżu Hacker",
+        "Employee: Raport gotowy. Teraz niech ktoś to doceni."
+      ]
+    },
+    "error": "WORLD_PAID_DISABLED"
+  }
+]

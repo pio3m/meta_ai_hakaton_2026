@@ -1,0 +1,8 @@
+{
+  "id": "cyber_rat",
+  "source": "META",
+  "model": "muse-image-1.0",
+  "sha256": "a62cf794f6ec7f76737cd0af2cae2e61068c66fc2927f82f88da08ab89c71ccf",
+  "generation_ms": 13173.02,
+  "preview_url": "/api/assets/cyber_rat.png"
+}

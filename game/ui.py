@@ -1,5 +1,6 @@
 import pygame
 from game.data import ROOT
+from game import i18n
 
 CYAN = (100, 224, 239)
 WHITE = (218, 237, 240)
@@ -7,12 +8,25 @@ GOLD = (245, 201, 117)
 
 class UI:
     def __init__(self):
+        i18n.initialize()
         self.font = pygame.font.Font(str(ROOT / 'assets/processed/font.ttf'), 16)
         self.small = pygame.font.Font(str(ROOT / 'assets/processed/font.ttf'), 13)
         self.title = pygame.font.Font(str(ROOT / 'assets/processed/font.ttf'), 23)
 
     def text(self, screen, text, pos, color=WHITE, small=False):
-        screen.blit((self.small if small else self.font).render(text, False, color), pos)
+        screen.blit((self.small if small else self.font).render(i18n.translate(text), False, color), pos)
+
+    @property
+    def language(self):return i18n.language()
+
+    def translate(self,text):return i18n.translate(text)
+
+    def ai_text(self,text,source_language):return i18n.original(text,source_language)
+
+    def draw_language(self,screen):
+        self.text(screen,'EN',(34,84),GOLD if self.language=='en' else WHITE,True)
+        self.text(screen,'/',(56,84),WHITE,True)
+        self.text(screen,'PL',(67,84),GOLD if self.language=='pl' else WHITE,True)
 
     def panel(self, screen, rect):
         pygame.draw.rect(screen, (8, 22, 34), rect)
@@ -22,6 +36,7 @@ class UI:
 
     def wrap(self, text, width):
         # Character fallback also wraps a single very long word.
+        text=i18n.translate(text)
         lines, line = [], ''
         for word in text.split():
             candidate = (line+' '+word).strip()
@@ -36,19 +51,16 @@ class UI:
                     lines.append(line)
                     line = ''
                 line += char
-        return lines+[line]
+        return [i18n.OriginalText(x) for x in lines+[line]] if isinstance(text,i18n.OriginalText) else lines+[line]
 
     def draw(self, screen, quest, target, dialogue, line_index):
-        self.panel(screen, (18,16,924,95))
+        self.panel(screen, (18,16,924,86))
         screen.blit(self.title.render('CHESS CORP',False,CYAN), (34,28))
         self.text(screen, '01 / PIERWSZY DZIEŃ', (34,62), small=True)
         objective = 'Pierwszy dzień zaliczony!' if quest.complete else quest.objective
         self.text(screen, objective, (310,34), GOLD if quest.complete else WHITE)
-        self.text(screen, 'Identyfikator: ' + ('ODEBRANY' if quest.inventory else 'brak'), (310,67), CYAN, True)
-        for i in range(3):
-            pygame.draw.rect(screen, CYAN if i < quest.index else (35,62,76), (820+i*33,70,25,6))
-        self.panel(screen, (18,502,924,29))
-        self.text(screen, 'WASD  Ruch     E  Interakcja     Enter  Dalej     Esc  Zamknij dialog     R  Nowy start', (30,510), small=True)
+        self.text(screen, 'Identyfikator: ' + ('ODEBRANY' if 'employee_badge' in quest.inventory else 'brak'), (310,67), CYAN, True)
+        self.draw_controls(screen)
         if target and not dialogue:
             prompt = '[E] Rozmawiaj' if target['id']=='buddy' else '[E] Odbierz identyfikator'
             x,y=target['position']
@@ -62,24 +74,24 @@ class UI:
             for i,line in enumerate(self.wrap(dialogue['lines'][line_index],725)):
                 self.text(screen,line,(115,326+i*21))
             self.text(screen,f"{line_index+1}/{len(dialogue['lines'])}    E / Enter: dalej    Esc: zamknij",(115,382),GOLD,True)
-        elif quest.complete:
-            self.panel(screen,(250,154,460,58))
-            self.text(screen,'ZADANIE UKOŃCZONE — witaj w zespole!',(270,166),GOLD)
-            self.text(screen,'R: rozpocznij ponownie lub zwiedzaj ulicę',(290,190),small=True)
+
+    def draw_controls(self,screen):
+        self.panel(screen,(18,502,924,29))
+        self.text(screen,'WASD Ruch  E Akcja  T Czat  F Drzwi  Spacja Cios  H Leczenie  J Questy  Tab Mapa  M Audio  R Restart',(30,510),small=True)
 
     def draw_chat(self,screen,chat):
         self.panel(screen,(60,126,840,364))
         provider = chat.provider or 'tryb ustala serwer'
-        self.text(screen,f'Buddy | {provider} | {chat.language.upper()}',(78,138),CYAN)
+        self.text(screen,f'{chat.npc_name} | {provider} | {chat.language.upper()}',(78,138),CYAN)
         self.text(screen,'Enter: wyślij | Esc: zamknij | F2: PL/EN | PgUp/PgDn: historia',(78,164),small=True)
         lines=[]
-        for entry in chat.history:
-            label = 'Ty: ' if entry['role']=='user' else 'Buddy: '
+        for entry_index,entry in enumerate(chat.history):
+            label = 'Ty: ' if entry['role']=='user' else chat.npc_name+': '
             color = WHITE if entry['role']=='user' else CYAN
-            lines.extend((line,color) for line in self.wrap(label+entry['content'],790))
+            lines.extend((line,color) for line in self.wrap(label+(self.ai_text(entry['content'],chat.history_languages[entry_index] if entry_index<len(chat.history_languages) else 'und') if entry['role']=='assistant' else i18n.OriginalText(entry['content'])),790))
             lines.append(('',WHITE))
         if not lines:
-            lines=[('Zapytaj Buddy’ego o Chess Corp lub swój pierwszy dzień.',WHITE)]
+            lines=[('Zapytaj '+chat.npc_name+' o Chess Corp lub jego sprawy.',WHITE)]
         visible=8
         chat.scroll=min(chat.scroll,max(0,len(lines)-visible))
         end=len(lines)-chat.scroll

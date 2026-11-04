@@ -1,0 +1,5 @@
+Visible language switch click: True
+final-en-shop {"health": 100, "max_health": 100, "credits": 0, "medkits": 1, "weapon_upgrade": false, "armor": false, "bounty_state": "available", "contract_index": -1, "kills": 0, "target": 0, "claimed_contracts": [], "enemies": [], "events": []}
+final-pl-shop {"health": 100, "max_health": 100, "credits": 0, "medkits": 1, "weapon_upgrade": false, "armor": false, "bounty_state": "available", "contract_index": -1, "kills": 0, "target": 0, "claimed_contracts": [], "enemies": [], "events": []}
+final-en-bartender-chat {"health": 100, "max_health": 100, "credits": 0, "medkits": 1, "weapon_upgrade": false, "armor": false, "bounty_state": "available", "contract_index": -1, "kills": 0, "target": 0, "claimed_contracts": [], "enemies": [], "events": ["Nyx: Witaj u Nyx. Wybierz sprzęt — płacisz kredytami z kontraktów."]}
+FINAL BROWSER PASS

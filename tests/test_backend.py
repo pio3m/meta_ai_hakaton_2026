@@ -153,7 +153,8 @@ def test_context_is_dialogue_only_and_persona_kept():
     request=ChatRequest(**body(context={'quest_id':'first_day','quest_status':'completed','has_badge':True}))
     messages=build_messages(request,[])
     assert 'untrusted client data' in messages[0]['content']
-    assert 'completed' in messages[0]['content']
+    assert 'context=' not in messages[0]['content']
+    assert any(m['role']=='user' and '"quest_status": "completed"' in m['content'] for m in messages)
     assert 'Only the game engine changes' in messages[0]['content']
     assert 'turquoise badge terminal' in messages[0]['content']
     assert 'There is no reception desk' in messages[0]['content']

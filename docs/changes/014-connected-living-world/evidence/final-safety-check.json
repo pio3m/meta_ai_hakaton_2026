@@ -1,0 +1,17 @@
+{
+  "http_ok": true,
+  "cache_loaded_without_inference": true,
+  "private_asset_metadata_not_in_web_bundle": true,
+  "actual_secret_scan": "clean",
+  "safe_configuration": {
+    "BUDDY_MODE": "mock",
+    "DIRECTOR_MODE": "mock",
+    "WORLD_AI_MODE": "mock",
+    "ASSET_AI_MODE": "mock",
+    "META_ALLOW_PAID_REQUESTS": "false",
+    "DIRECTOR_ALLOW_PAID_REQUESTS": "false",
+    "WORLD_AI_ALLOW_PAID_REQUESTS": "false",
+    "ASSET_AI_ALLOW_PAID_REQUESTS": "false"
+  },
+  "original_graphics_unchanged": true
+}

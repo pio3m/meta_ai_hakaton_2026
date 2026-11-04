@@ -37,7 +37,7 @@ def register_director(app, settings, store):
                         plan = parse_plan(raw)
                         validate_scene(plan, rules, scene)
                     result = {'plan': plan.model_dump(), 'provider': settings.director_mode,
-                              'validation': {'valid': True, 'errors': []}, 'call_id': call_id, 'cached': False}
+                              'validation': {'valid': True, 'errors': []}, 'call_id': call_id, 'cached': False,'language':body.language}
                     store.update(call_id, validation=result['validation'], validated_plan=result['plan'],
                                  quest_type=result['plan'].get('quest_type','COLLECT'),
                                  execution={'status':'active','progress':0,'mistakes':0,'attempts':0,'events':0,'source':'client_events_replayed'})

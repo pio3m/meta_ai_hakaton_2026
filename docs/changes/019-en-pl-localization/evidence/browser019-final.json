@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "selector_click": true,
+  "persistence": [
+    "EN",
+    "PL reload",
+    "EN reload"
+  ],
+  "npc_states": [
+    "Watching \u00b7 MOCK",
+    "Watching \u00b7 MOCK",
+    "Patrolling \u00b7 MOCK"
+  ],
+  "errors": [],
+  "paid_calls": 0
+}

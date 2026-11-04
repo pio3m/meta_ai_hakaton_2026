@@ -1,0 +1,26 @@
+[
+  {
+    "asset": {
+      "id": "cyber_rat",
+      "source": "META",
+      "model": "muse-image-1.0",
+      "sha256": "a62cf794f6ec7f76737cd0af2cae2e61068c66fc2927f82f88da08ab89c71ccf",
+      "generation_ms": 13173.02,
+      "preview_url": "/api/assets/cyber_rat.png",
+      "cached": false
+    },
+    "call_id": "2771b6d74bef4eb68f16d53945c8acaa"
+  },
+  {
+    "asset": {
+      "id": "merchant",
+      "source": "META",
+      "model": "muse-image-1.0",
+      "sha256": "7d0ef5d668259ad8703fff164fe8a29ddae43235b6973d70e3c3f5aef98cefcc",
+      "generation_ms": 14449.15,
+      "preview_url": "/api/assets/merchant.png",
+      "cached": false
+    },
+    "call_id": "57400c428ecb4d5bb100f2cecd86c83f"
+  }
+]

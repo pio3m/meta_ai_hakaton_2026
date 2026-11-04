@@ -1,0 +1,579 @@
+{
+  "pairs": {
+    "01 / PIERWSZY DZIEŃ": "01 / FIRST DAY",
+    "Porozmawiaj z Buddy'm": "Talk to Buddy",
+    "Odbierz identyfikator przy wejściu": "Collect your badge at the entrance",
+    "Wróć do Buddy'ego": "Return to Buddy",
+    "Pierwszy dzień zaliczony!": "First day complete!",
+    "QUEST COMPLETED — Pierwszy dzień zaliczony!": "QUEST COMPLETED — First day complete!",
+    "ODEBRANY": "COLLECTED",
+    "brak": "none",
+    "ukończony": "complete",
+    "[E] Rozmawiaj": "[E] Talk",
+    "[E] Odbierz identyfikator": "[E] Collect badge",
+    "WASD Ruch  E Akcja  T Czat  F Drzwi  Spacja Cios  H Leczenie  J Questy  Tab Mapa  M Audio  R Restart": "WASD Move  E Action  T Chat  F Doors  Space Attack  H Heal  J Jobs  Tab Map  M Audio  R Restart",
+    "Enter: wyślij | Esc: zamknij | F2: PL/EN | PgUp/PgDn: historia": "Enter: send | Esc: close | F2: EN/PL | PgUp/PgDn: history",
+    "tryb ustala serwer": "server selects mode",
+    "Ty: ": "You: ",
+    "Buddy pisze...": "Typing...",
+    "F3: przywróć wiadomość do ponowienia": "F3: restore your message to retry",
+    "Wpisz wiadomość. Zmiany questu wykonuje wyłącznie gra.": "Type a message. Only the game engine changes quests.",
+    "Guard (lokalnie)": "Guard (local)",
+    "M: wyciszono": "M: muted",
+    "ULICA CHESS CORP": "CHESS CORP STREET",
+    "KRYJÓWKA HAKERÓW": "HACKER HIDEOUT",
+    "LOBBY CHESS CORP": "CHESS CORP LOBBY",
+    "KRYJÓWKA": "HIDEOUT",
+    "ULICA": "STREET",
+    "CHESS CORP / RECEPCJA": "CHESS CORP / RECEPTION",
+    "CHESS CORP / MAPA": "CHESS CORP / MAP",
+    "OBRAZ / ORYGINAŁ": "IMAGE / ORIGINAL",
+    "OBRAZ / META": "IMAGE / META",
+    "Z ulicy: lewo — Kryjówka / środek — Lobby / prawo — Bar": "From the street: left — Hideout / centre — Lobby / right — Bar",
+    "Przy drzwiach F. Tab / Esc: zamknij mapę.": "F at a door. Tab / Esc: close map.",
+    "Lada baru": "Bar counter",
+    "Barman": "Bartender",
+    "Gościni": "Guest",
+    "Kontakt": "Contact",
+    "Recepcja": "Receptionist",
+    "Ochrona": "Lobby guard",
+    "Archiwum danych": "Data archive",
+    "Terminal korporacyjny": "Corporate terminal",
+    "Barman podaje syntetyczny napój. W barze krążą plotki o tajnym archiwum.": "The bartender serves a synthetic drink. Rumours of a secret archive circulate in the bar.",
+    "Odczytano fragment archiwum: ktoś z korporacji finansuje operację w mieście.": "Archive fragment read: someone at the corporation is funding an operation in the city.",
+    "Terminal potwierdza wizytę. W rejestrze widnieje wpis: projekt LIVING WORLD.": "The terminal confirms your visit. The register mentions project LIVING WORLD.",
+    "E / Enter: kup. Esc: zamknij.": "E / Enter: buy. Esc: close.",
+    "Wyprzedane / ulepszenie już posiadasz.": "Sold out / upgrade already owned.",
+    "Za mało kredytów. Barman płaci za kontrakty.": "Not enough credits. The bartender pays for contracts.",
+    "Ratunek: do 5 KR. Postęp kontraktu zachowany.": "Rescue costs up to 5 CR. Contract progress preserved.",
+    "Witaj u Nyx. Wybierz sprzęt — płacisz kredytami z kontraktów.": "Welcome to Nyx. Choose equipment — pay with contract credits.",
+    "Użyto apteczki: +45 HP": "Medkit used: +45 HP",
+    "Ulica oczyszczona. Wróć do Barmana po wypłatę.": "Street cleared. Return to the bartender for your reward.",
+    "NYX / SPRZĘT DLA ŁOWCÓW": "NYX / HUNTER EQUIPMENT",
+    "Góra/dół: wybór   Enter / E: kup   Esc: wyjdź": "Up/down: select   Enter / E: buy   Esc: leave",
+    "SYSTEM RATUNKOWY CHESS CORP": "CHESS CORP RESCUE SYSTEM",
+    "Pokonały cię cyber-szczury. Kontrakt zachowany.": "You were defeated. Contract progress preserved.",
+    "Enter: wróć na ulicę (koszt do 5 KR)": "Enter: return (costs up to 5 CR)",
+    "Oba kontrakty rozliczone. Dobra robota, łowco!": "Both contracts completed. Good work, hunter!",
+    "BARMAN: kolejny kontrakt | NYX: sklep": "BARTENDER: next contract | NYX: shop",
+    "BAR: kontrakty u Barmana / sklep Nyx": "BAR: bartender contracts / Nyx shop",
+    "Bronić się przed agresją gracza.": "Defend against the player's aggression.",
+    "Gracz pokonany. Enter: ratunek.": "You were defeated. Enter: rescue.",
+    "Ogłuszony": "Stunned",
+    "WRÓĆ DO BARMANA PO NAGRODĘ": "RETURN TO THE BARTENDER FOR YOUR REWARD",
+    "SPACJA: CIOS / H: APTECZKA": "SPACE: ATTACK / H: MEDKIT",
+    "DERATYZACJA / PIERWSZA ZMIANA": "RAT CONTROL / FIRST SHIFT",
+    "DERATYZACJA / ELITARNE SZKODNIKI": "RAT CONTROL / ELITE PESTS",
+    "Apteczka": "Medkit",
+    "H: przywraca 45 HP": "H: restores 45 HP",
+    "Pałka impulsowa +1": "Pulse baton +1",
+    "Obrażenia 1 -> 2 / stałe ulepszenie": "Damage 1 -> 2 / permanent upgrade",
+    "Pancerz uliczny": "Street armour",
+    "125 HP / ugryzienia -3 obrażenia": "125 HP / bite damage reduced by 3",
+    "ZADANIE": "QUEST",
+    "Limit 100 prób tej sesji. R: nowa rozgrywka.": "100-attempt session limit. R: new game.",
+    "F4: demo": "F4: demo",
+    "Director przygotowuje kolejny quest… Możesz chodzić po ulicy.": "The Director is preparing a quest… You can keep exploring.",
+    "TERMINAL ZAGADKI — wpisz samą liczbę": "PUZZLE TERMINAL — enter a number",
+    "Plan niezatwierdzony": "Plan not approved",
+    "Nie udało się odczytać planu.": "Could not read the plan.",
+    "Brak potwierdzenia wykonania w Inspectorze.": "Execution not confirmed by the Inspector.",
+    "[E] Odbierz nośnik": "[E] Collect data chip",
+    "[E] Rozwiąż zagadkę": "[E] Solve puzzle",
+    "G: ponów generowanie     R: nowa sesja": "G: retry generation     R: new session",
+    "Enter: sprawdź odpowiedź     Esc: zamknij": "Enter: check answer     Esc: close",
+    "Błędny terminal zeruje kolejność.": "A wrong terminal resets the sequence.",
+    "PRAWA": "RIGHT",
+    "LEWA": "LEFT",
+    "ŚRODEK": "CENTRE",
+    "Nośnik odebrany.": "Data chip collected.",
+    "Błędna kolejność. Sekwencja wyzerowana — zacznij od początku.": "Wrong order. Sequence reset — start again.",
+    "Błędna odpowiedź. Spróbuj ponownie; wpisz samą liczbę.": "Wrong answer. Try again; enter a number.",
+    "Poprawna odpowiedź.": "Correct answer.",
+    "NOWE ZLECENIA / TA SESJA": "NEW JOBS / THIS SESSION",
+    "Director wymyśla nowe zlecenia…": "The Director is creating new jobs…",
+    "Nowe zlecenia niedostępne. R: nowa sesja.": "New jobs unavailable. R: new session.",
+    "E przy przedmiocie: odbierz. Wypłata automatyczna. J / Esc: zamknij.": "E near an item: collect. Rewards are automatic. J / Esc: close.",
+    "Buddy nie odpowiedział na czas. Spróbuj ponownie.": "The NPC did not reply in time. Try again.",
+    "Brak połączenia z Buddy’m. Możesz kontynuować grę.": "Cannot reach the NPC. You can keep playing.",
+    "Nie udało się odczytać odpowiedzi. Spróbuj ponownie.": "Could not read the reply. Try again.",
+    "Buddy jest chwilowo niedostępny.": "The NPC is temporarily unavailable.",
+    "Backend jest chwilowo niedostępny. Możesz kontynuować grę.": "The server is temporarily unavailable. You can keep playing.",
+    "Gracz poza sceną": "Player outside the scene",
+    "Obiekt poza zasięgiem": "Object out of reach",
+    "Słyszę cię. Zapamiętam to.": "I hear you. I will remember that.",
+    "Sprawdzam terminal. Wszystko zostaje w raporcie.": "Inspecting the terminal. Everything goes in the report.",
+    "Hej, rekrucie! Podejdź, porozmawiajmy.": "Hey, recruit! Come over and talk.",
+    "Jestem tu. Co chcesz wiedzieć?": "I'm here. What would you like to know?",
+    "Stój na chwilę. Wszystko w porządku?": "Hold on a moment. Everything all right?",
+    "Pilnuję terminali. Z Hackerem lepiej ostrożnie.": "I guard the terminals. Be careful around Hacker.",
+    "Masz identyfikator? W takim razie spokojnego dnia.": "Got your badge? Have a quiet day, then.",
+    "Cicho, pogadajmy. Tylko bez Security.": "Quiet, let's talk. Not in front of Security.",
+    "Szukam danych. Korporacja ma sporo tajemnic.": "I'm looking for data. The corporation has plenty of secrets.",
+    "Jeśli ktoś pyta, rozmawialiśmy o regulaminie.": "If anyone asks, we were discussing regulations.",
+    "Masz chwilę? Chodzi o mój awans.": "Got a moment? It's about my promotion.",
+    "Mój raport jest gotowy. Zarząd musi go zauważyć.": "My report is ready. Management has to notice.",
+    "Jeśli spotkasz szefa, wspomnij o mnie, dobrze?": "If you meet the boss, put in a word for me, okay?",
+    "Pomóc graczowi przetrwać pierwszy dzień.": "Help the player survive their first day.",
+    "Pilnować terminali i obserwować Hackera.": "Guard the terminals and keep an eye on Hacker.",
+    "Zdobyć trop danych korporacji, unikając Security.": "Find a lead on corporate data while avoiding Security.",
+    "Wykazać się i zdobyć awans.": "Stand out and earn a promotion.",
+    "Obsługiwać gości i zbierać plotki.": "Serve guests and gather rumours.",
+    "Posłuchać plotek i odpocząć po pracy.": "Listen to rumours and relax after work.",
+    "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy": "Sell legal equipment to hunters and check stock.",
+    "Odczytać archiwum i chronić kryjówkę.": "Read the archive and protect the hideout.",
+    "Pilnować wejścia i pomóc Cipher.": "Watch the entrance and help Cipher.",
+    "Obsługiwać rekrutów i rejestrować wizyty.": "Help recruits and register visitors.",
+    "Patrolować lobby i strzec terminala.": "Patrol the lobby and guard the terminal.",
+    "Co podać? Dziś plotki są w cenie napoju.": "What can I get you? Rumours come with the drink today.",
+    "Zamówienie gotowe. Następny gość!": "Order ready. Next guest!",
+    "Witaj w Cybroschligger. Co podać?": "Welcome to Cybroschligger. What can I get you?",
+    "Napój i plotka. Podobno w kryjówce działa tajne archiwum.": "A drink and a rumour. They say the hideout holds a secret archive.",
+    "Wracaj, kiedy korporacja znowu da ci w kość.": "Come back when the corporation gets on your nerves again.",
+    "Jeszcze jeden napój i żadnych raportów!": "One more drink and no more reports!",
+    "Każda rozmowa zostawia po sobie ślad.": "Every conversation leaves a trace.",
+    "Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.": "Nyx. Medkits, pulse batons and armour. E opens the shop.",
+    "Kredyty z kontraktów Barmana zamienisz tu na sprzęt.": "Trade your bartender contract credits for equipment here.",
+    "Nowy łowca? Mam dla niego sprzęt.": "A new hunter? I've got the equipment.",
+    "Pakiet odszyfrowany. Korporacja czegoś szuka.": "Packet decrypted. The corporation is looking for something.",
+    "Pilnuj wejścia. Mamy nowy trop.": "Watch the entrance. We have a new lead.",
+    "Jestem Cipher. Tutaj nie mówimy prawdziwych nazwisk.": "I'm Cipher. We don't use real names here.",
+    "Terminal po prawej zawiera fragment archiwum. Sprawdź go.": "The terminal on the right holds an archive fragment. Check it.",
+    "Ten znak na ścianie oznacza, że dane wciąż są wolne.": "That sign means data is still free.",
+    "Wejście czyste. Możesz czytać dalej.": "Entrance clear. Keep reading.",
+    "Witamy w Chess Corp. Proszę przygotować identyfikator.": "Welcome to Chess Corp. Have your badge ready.",
+    "Rejestr wizyt uzupełniony.": "Visitor register updated.",
+    "Witamy w Chess Corp. W czym pomóc?": "Welcome to Chess Corp. How can I help?",
+    "Terminal po prawej rejestruje wizytę. Buddy czeka na ulicy.": "The terminal on the right registers your visit. Buddy is on the street.",
+    "Nawet tajemnice muszą mieć numer sprawy.": "Even secrets need a case number.",
+    "Obchód zakończony. W lobby spokojnie.": "Patrol complete. The lobby is quiet.",
+    "Witaj w Chess Corp. Pierwszy dzień? Spokojnie, pomogę ci.": "Welcome to Chess Corp. First day? Relax, I'll help you.",
+    "Odbierz identyfikator przy wejściu po lewej. Szukaj turkusowego terminala, potem wróć do mnie.": "Collect your badge at the entrance on the left. Find the turquoise terminal, then come back to me.",
+    "Tożsamość potwierdzona. Otrzymujesz identyfikator pracownika.": "Identity confirmed. You receive your employee badge.",
+    "Identyfikator jest już w twoim ekwipunku. Wróć do Buddy'ego.": "Your badge is now in your inventory. Return to Buddy.",
+    "Masz identyfikator! Teraz jesteś częścią Chess Corp.": "You've got your badge! You're part of Chess Corp now.",
+    "Pierwszy dzień zaliczony. Witaj w zespole!": "First day complete. Welcome to the team!",
+    "Wszystko gotowe. Do zobaczenia w biurze!": "All set. See you at the office!",
+    "Nadal czekam na twój identyfikator. Terminal znajdziesz po lewej.": "I'm still waiting for your badge. The terminal is on the left.",
+    "Masz pytania? Porozmawiajmy. Enter: otwórz rozmowę tekstową.": "Got questions? Let's talk. Enter opens text chat.",
+    "Terminal Chess Corp": "Chess Corp terminal",
+    "Zagubiony pakiet danych": "The missing data chip",
+    "Nośnik danych": "Data chip",
+    "Pakiet odzyskany. Drugie zadanie zaliczone!": "Data recovered. Follow-up quest complete!",
+    "Protokół trzech pieczątek": "The three-stamp protocol",
+    "Uruchom terminale zgodnie z kolejnością zleconą przez Dyrekcję.": "Activate the terminals in the order specified by management.",
+    "Aktywuj terminale w kolejności C, A, B.": "Activate terminals in order C, A, B.",
+    "Trzy pieczątki zatwierdzone. Procedura zakończona.": "Three stamps approved. Procedure complete.",
+    "Audyt logiczny": "Logic audit",
+    "Terminal audytu prosi o brakującą liczbę w raporcie.": "The audit terminal needs a missing number from the report.",
+    "Podejdź do terminala zagadki i wpisz rozwiązanie.": "Approach the puzzle terminal and enter your answer.",
+    "Wynik poprawny. Audyt zakończony.": "Correct answer. Audit complete.",
+    "Terminal audytu": "Audit terminal",
+    "Audyt liczy raporty w stałym rytmie.": "The audit counts reports at a steady rate.",
+    "Właściciel": "Owner",
+    "Otwórz grę ↗": "Open game ↗",
+    "Dostęp do inspektora": "Inspector access",
+    "Pełne prompty wymagają tokenu ADMIN_TOKEN z lokalnego pliku .env.": "Full prompts require the ADMIN_TOKEN from the local .env file.",
+    "Token dostępu": "Access token",
+    "Zaloguj": "Sign in",
+    "Łączenie…": "Connecting…",
+    "Śledź najnowsze": "Follow latest",
+    "Wyloguj": "Sign out",
+    "Prezentacja dla jury": "Jury demonstration",
+    "Utwórz wydzieloną sesję. Otwórz jej link gry, a widok jury uruchom w osobnym profilu lub oknie incognito. Nie loguj tam właściciela.": "Create an isolated demo session. Open its game link, then use a separate profile or incognito for the jury view. Do not sign in as owner there.",
+    "Utwórz sesję demonstracyjną": "Create demo session",
+    "Cofnij dostęp jury": "Revoke jury access",
+    "Dostęp jury ważny 30 minut. Nowa sesja unieważnia poprzedni dostęp.": "Jury access lasts 30 minutes. A new session revokes previous access.",
+    "Otwórz grę demonstracyjną ↗": "Open demo game ↗",
+    "Widok jury ↗": "Jury view ↗",
+    "Token jury — widoczny tylko teraz właścicielowi": "Jury token — shown to the owner only now",
+    "Wklej ten token na stronie /admin/jury. Token nie trafia do adresu URL.": "Paste this token on /admin/jury. It is not included in the URL.",
+    "Nowe grafiki Meta": "New Meta assets",
+    "Jawna generacja na żądanie. Każdy przycisk generacji oznacza jedno płatne wywołanie. Limit regeneracji określa ASSET_AI_GLOBAL_LIMIT w konfiguracji. Gra pobiera zmienione grafiki automatycznie w ciągu około 10 sekund.": "Explicit generation on demand. Each generation costs one API call. ASSET_AI_GLOBAL_LIMIT sets the limit. The game updates changed assets within about 10 seconds.",
+    "Cyber-szczur": "Cyber-rat",
+    "Emblemat kryjówki": "Hideout emblem",
+    "Wygeneruj nowy asset": "Generate new asset",
+    "Usuń zapisane pliki assetu": "Delete stored asset files",
+    "Pokazujesz tylko bieżącą sesję demo. Pełny prompt, historia rozmów i identyfikatory sesji są ukryte.": "Only the current demo session is shown. Full prompts, conversation histories and session identifiers are hidden.",
+    "Świat na żywo": "Live world",
+    "Dane świata JSON": "World snapshot (original JSON)",
+    "Wywołania": "Calls",
+    "ostatnie 200 / RAM": "last 200 / RAM",
+    "Brak wywołań. Inspektor nie wysyła zapytań do modelu. Uruchom grę — World AI planuje zachowania NPC.": "No calls yet. The Inspector never calls the model. Start the game to see World AI decisions.",
+    "Szczegóły wywołania": "Call details",
+    "Wybierz wywołanie z listy. Oczekujące pojawi się jeszcze przed odpowiedzią modelu.": "Select a call. Pending calls appear before the model responds.",
+    "Odpowiedź dostarczona graczowi": "Reply delivered to the player",
+    "Asset Generator / źródło i podgląd": "Asset Generator / source and preview",
+    "Kontekst gry": "Original game context",
+    "Wiadomość gracza": "Player message",
+    "Rzeczywisty payload wysłany do modelu": "Actual payload sent to the model",
+    "Odpowiedź": "Reply",
+    "Plan JSON / walidacja": "Original JSON plan / validation",
+    "Wykonanie (telemetria klienta; dozwolone akcje planu)": "Execution (client telemetry; allowed plan actions)",
+    "Błąd": "Error",
+    "Bez kluczy API i nagłówków autoryzacji · odświeżanie co 1 s · dane znikają po restarcie backendu": "No API keys or authorization headers · refreshes every second · data clears on backend restart",
+    "Jury / tylko sesja demo": "Jury / demo session only",
+    "Wklej token jury wygenerowany przez właściciela. Nie używaj tokenu ADMIN_TOKEN.": "Paste the jury token created by the owner. Do not use ADMIN_TOKEN.",
+    "Uruchom grę, aby zobaczyć NPC aktywnej sesji.": "Start the game to see the active session's NPCs.",
+    "W drodze": "Moving",
+    "Patroluje": "Patrolling",
+    "Obserwuje": "Watching",
+    "Rozmawia": "Talking",
+    "Bada terminal": "Inspecting terminal",
+    "Reaguje na gracza": "Reacting to player",
+    "Typ": "Type",
+    "Czas": "Time",
+    "Stan": "State",
+    "Dostawca": "Provider",
+    "Czas wykonania": "Latency",
+    "Tokeny": "Tokens",
+    "Źródło planu": "Plan source",
+    "Limity": "Limits",
+    "Sesja": "Session",
+    "Typ questu": "Quest type",
+    "Lokacja": "Location",
+    "brak danych": "unavailable",
+    "oczekiwanie": "waiting",
+    "Oczekiwanie": "Waiting",
+    "Brak odpowiedzi": "No reply",
+    "Brak": "None",
+    "Payload z miejsca wykonania HTTP; sekrety są maskowane.": "Payload captured at the HTTP call; secrets are redacted.",
+    "Asset z cache. Poniżej oryginalny payload historycznej generacji; teraz nie wywołano modelu.": "Cached asset. The original generation payload is shown below; no model was called now.",
+    "Guard odpowiedział lokalnie. Brak wywołania LLM.": "Guard answered locally. No LLM call.",
+    "Symulacja mock. Ten prompt NIE został wysłany do modelu.": "Mock simulation. This prompt was NOT sent to the model.",
+    "Żądanie nie zostało wysłane do modelu.": "The request was not sent to the model.",
+    "● Na żywo": "● Live",
+    "Brak połączenia — ponawiam odczyt…": "Disconnected — retrying read…",
+    "Sesja gotowa. Użyj linku gry demonstracyjnej powyżej.": "Session ready. Use the demo game link above.",
+    "Dostęp jury cofnięty.": "Jury access revoked.",
+    "Generowanie Meta… Zachowuję poprzedni asset do czasu poprawnego wyniku.": "Generating with Meta… Keeping the previous asset until a valid result arrives.",
+    "Pliki usunięte. Gra użyje grafiki zastępczej do następnej regeneracji.": "Files deleted. The game uses a fallback image until regeneration.",
+    "Usunąć tylko wygenerowane pliki tego assetu? Oryginały i liczniki kosztów pozostaną.": "Delete only this generated asset? Originals and spending counters will be preserved.",
+    "Ładowanie gry i środowiska Python… Pierwszy start może potrwać kilkadziesiąt sekund.": "Loading the game and Python runtime… The first start may take a little while.",
+    "Graj": "Play",
+    "WASD — ruch · E — rozmowa · Enter — dalej": "WASD — move · E — interact · Enter — continue",
+    "Po załadowaniu kliknij Graj, aby rozpocząć.": "Click Play when loading is complete.",
+    "Spróbuj ponownie": "Try again",
+    "Uruchamianie gry…": "Starting game…",
+    "Uruchamianie…": "Starting…",
+    "Gra jest gotowa. Kliknij Graj.": "The game is ready. Click Play.",
+    "Przygotowywanie Pygame…": "Preparing Pygame…",
+    "Ładowanie trwa dłużej niż zwykle. Kliknij Graj. Jeśli ekran się nie zmieni, sprawdź połączenie z Internetem i spróbuj ponownie.": "Loading is taking longer than usual. Click Play. If nothing changes, check your connection and try again.",
+    "Pomóc rekrutowi.": "Help the recruit.",
+    "Utrzymać porządek.": "Keep order.",
+    "Znaleźć trop danych.": "Find a data lead.",
+    "Zasłużyć na awans.": "Earn a promotion.",
+    "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.": "Local street rhythm: patrols, data and corporate ambitions.",
+    "Baterie dla Nyx": "Batteries for Nyx",
+    "Odbierz baterię przy barze. Nagroda zostanie wypłacona automatycznie.": "Collect the battery at the bar. Your reward is paid automatically.",
+    "Bateria": "Battery",
+    "Archiwum kuriera": "The courier archive",
+    "Odbierz paczkę z kryjówki hakerów. Nagroda zostanie wypłacona automatycznie.": "Collect the package in the hacker hideout. Your reward is paid automatically.",
+    "Paczka kuriera": "Courier package",
+    "Cel": "Goal",
+    "Nastrój": "Mood",
+    "Pozycja": "Position",
+    "calm": "calm",
+    "alert": "alert",
+    "curious": "curious",
+    "ambitious": "ambitious",
+    "suspicious": "suspicious",
+    "Nieprawidłowy token.": "Invalid token.",
+    "Zaloguj się do panelu właściciela.": "Sign in to the owner panel.",
+    "Dostęp jury wygasł lub został cofnięty.": "Jury access expired or was revoked.",
+    "Nieprawidłowe dane rozmowy (sesja, NPC, język lub długość wiadomości).": "Invalid conversation data (session, NPC, language or message length).",
+    "Rozmowa jest chwilowo niedostępna. Możesz kontynuować grę.": "Conversation is temporarily unavailable. You can keep playing.",
+    "Nowe zlecenia nie zostały zastosowane.": "New jobs were not applied.",
+    "Nie udało się wygenerować poprawnych nowych zleceń. Bez automatycznego ponowienia.": "Could not generate valid new jobs. No automatic retry.",
+    "Plan zatwierdzony": "Plan approved",
+    "Brak zatwierdzonego planu": "No approved plan",
+    "[Podgląd ucięty do 16000 znaków]": "[Preview truncated to 16000 characters]",
+    "Chess Corp — Pierwszy dzień": "Chess Corp — First day",
+    "Pierwszy dzień w Chess Corp": "First day at Chess Corp",
+    "Wejście Chess Corp": "Chess Corp entrance",
+    "Ja tylko czytam regulamin. Bardzo dokładnie.": "I am just reading the rules. Very carefully.",
+    "Kto dziś zatwierdza awanse? Pytam dla kolegi.": "Who approves promotions today? Asking for a colleague.",
+    "Raport gotowy. Teraz niech ktoś to doceni.": "Report complete. Now someone needs to appreciate it.",
+    "Ten terminal skrywa więcej niż raporty.": "This terminal holds more than reports.",
+    "Widzę cię. Od terminala trzy kroki wstecz.": "I see you. Three steps away from the terminal.",
+    "Nieobsługiwana wersja schematu": "Unsupported schema version",
+    "Nieprawidłowa akcja COLLECT": "Invalid COLLECT action",
+    "Nieprawidłowa akcja SEQUENCE": "Invalid SEQUENCE action",
+    "Nieprawidłowa liczba obiektów": "Invalid object count",
+    "Nieprawidłowa pozycja": "Invalid position",
+    "Nieprawidłowa próba": "Invalid attempt",
+    "Nieprawidłowa sekwencja": "Invalid sequence",
+    "Nieprawidłowa wersja": "Invalid version",
+    "Nieprawidłowe ID zadania": "Invalid quest ID",
+    "Nieprawidłowe pola planu": "Invalid plan fields",
+    "Nieprawidłowy obiekt lub miejsce": "Invalid object or location",
+    "Nieprawidłowy szablon zagadki": "Invalid puzzle template",
+    "Nieprawidłowy tekst": "Invalid text",
+    "Nieprawidłowy typ zadania": "Invalid quest type",
+    "Nieprawidłowy wygląd": "Invalid appearance",
+    "Niespójny warunek ukończenia": "Inconsistent completion condition",
+    "Powtórzone ID lub miejsca": "Duplicate IDs or locations",
+    "Sekwencja musi być permutacją trzech terminali": "Sequence must be a permutation of three terminals",
+    "Kolizja ze starą interakcją": "Collision with an existing interaction",
+    "w toku": "in progress",
+    "wej.": "input",
+    "wyj.": "output",
+    "razem": "total",
+    "Brak wysłanego payloadu.": "No payload was sent.",
+    "Błąd żądania.": "Request failed.",
+    "Wywołanie Buddy": "Buddy call",
+    "spokojny": "calm",
+    "czujny": "alert",
+    "ciekawy": "curious",
+    "ambitny": "ambitious",
+    "podejrzliwy": "suspicious",
+    "Ty:": "You:",
+    "UKOŃCZONE:": "COMPLETED:",
+    "GOTOWE /": "DONE /",
+    "Barman:": "Bartender:",
+    "Wygeneruj pierwszy dynamiczny quest po ukończeniu pierwszego dnia.": "Generate the first dynamic quest after completing the first day.",
+    "Dwa nowe zlecenia zbierackie bieżącej sesji": "Two new collection jobs for this session",
+    "Język": "Language",
+    "Najpierw ukończ pierwszy quest.": "Complete the first quest first.",
+    "Osiągnięto limit sesji. Spróbuj później.": "Session limit reached. Try again later.",
+    "Nie można zmieniać historii wykonania.": "Execution history cannot be changed.",
+    "Nieprawidłowy przebieg zadania.": "Invalid quest execution.",
+    "Osiągnięto limit sesji.": "Session limit reached.",
+    "Ta sesja ma już wykorzystaną próbę generacji. R rozpoczyna nową sesję.": "This session has already used its generation attempt. R starts a new session.",
+    "Buddy ma teraz zbyt wiele rozmów. Spróbuj później.": "Buddy has too many conversations. Try again later.",
+    "AI niedostępne: płatne wywołania Meta nie zostały włączone przez właściciela.": "AI unavailable: the owner has not enabled paid Meta requests.",
+    "AI niedostępne: brak konfiguracji klucza Meta na serwerze.": "AI unavailable: the server has no Meta API key.",
+    "Usługa Meta jest chwilowo niedostępna. Spróbuj później.": "Meta is temporarily unavailable. Try again later.",
+    "Nie udało się odczytać odpowiedzi Buddy’ego. Spróbuj ponownie.": "Could not read Buddy’s reply. Try again."
+  },
+  "patterns": [
+    [
+      "(.*) · (MOCK|META|FALLBACK)",
+      "$1 · $2"
+    ],
+    [
+      "> (.*)",
+      "> $1"
+    ],
+    [
+      "World AI / runda (\\d+) / (.*)",
+      "World AI / round $1 / $2"
+    ],
+    [
+      "(.*) \\| (.*) \\| (PL|EN)",
+      "$1 | $2 | $3"
+    ],
+    [
+      "(.*) (MOVE_TO|PATROL|WAIT|TALK_TO|INSPECT_TERMINAL|REACT_TO_PLAYER) / (completed|expired)",
+      "$1 $2 / $3"
+    ],
+    [
+      "Świat na żywo / (.*)",
+      "Live world / $1"
+    ],
+    [
+      "Nastrój: (.*) · Pozycja: (.*)",
+      "Mood: $1 · Position: $2"
+    ],
+    [
+      "Lokalny rytm: (.*)",
+      "Local activity: $1"
+    ],
+    [
+      "Identyfikator: (.*)",
+      "Badge: $1"
+    ],
+    [
+      "Pierwszy dzień: (.*)",
+      "First day: $1"
+    ],
+    [
+      "Przedmioty: (\\d+)",
+      "Items: $1"
+    ],
+    [
+      "(\\d+/\\d+)    E / Enter: dalej    Esc: zamknij",
+      "$1    E / Enter: continue    Esc: close"
+    ],
+    [
+      "Zapytaj (.*) o Chess Corp lub jego sprawy\\.",
+      "Ask $1 about Chess Corp or their own affairs."
+    ],
+    [
+      "Kupiono: (.*)",
+      "Purchased: $1"
+    ],
+    [
+      "Kontrakt zamknięty\\. \\+(\\d+) KR! Sprzęt kupisz u Nyx po prawej\\.",
+      "Contract complete. +$1 CR! Buy equipment from Nyx on the right."
+    ],
+    [
+      "(.*): pokonaj (\\d+) szczury na ulicy\\. Nagroda (\\d+) KR \\+ łup\\. Spacja: cios\\. H: apteczka\\.",
+      "$1: defeat $2 rats on the street. Reward $3 CR plus loot. Space: attack. H: medkit."
+    ],
+    [
+      "Na ulicy zostało (\\d+) szczurów\\. Wróć po nagrodę\\. Nyx sprzedaje sprzęt\\.",
+      "$1 rats left on the street. Return for your reward. Nyx sells equipment."
+    ],
+    [
+      "(\\d+)/(\\d+) HP \\| (\\d+) KR \\| H: (\\d+)",
+      "$1/$2 HP | $3 CR | H: $4"
+    ],
+    [
+      "SZCZURY (\\d+/\\d+) \\| (.*)",
+      "RATS $1 | $2"
+    ],
+    [
+      "(.*) \\[zapas (\\d+)\\]",
+      "$1 [stock $2]"
+    ],
+    [
+      "(.*) / (\\d+) KR",
+      "$1 / $2 CR"
+    ],
+    [
+      "([+\\-]?\\d+) KR",
+      "$1 CR"
+    ],
+    [
+      "Gracz uderzył (.*)\\. NPC broni się\\.",
+      "The player hit $1. The NPC fights back."
+    ],
+    [
+      "(.*) jest ogłuszony\\. Wróci do siebie\\.",
+      "$1 is stunned and will recover."
+    ],
+    [
+      "(.*) dochodzi do siebie\\.",
+      "$1 recovers."
+    ],
+    [
+      "Gracz pokonany przez (.*)",
+      "Player defeated by $1"
+    ],
+    [
+      "Zlikwidowano (.*) / \\+(\\d+) KR",
+      "Defeated $1 / +$2 CR"
+    ],
+    [
+      "\\[E\\] Aktywuj (.*)",
+      "[E] Activate $1"
+    ],
+    [
+      "UKOŃCZONE: (.*)",
+      "COMPLETE: $1"
+    ],
+    [
+      "Kolejność: (.*)   Postęp: (\\d+/3)",
+      "Order: $1   Progress: $2"
+    ],
+    [
+      "Szukaj: (.*) strona ulicy\\. Podejdź i naciśnij E\\.",
+      "Look on the $1 side of the street. Approach and press E."
+    ],
+    [
+      "Terminal zatwierdzony: (.*)",
+      "Terminal accepted: $1"
+    ],
+    [
+      "J: zlecenia (\\d+/2)",
+      "J: jobs $1"
+    ],
+    [
+      "GOTOWE / (.*)",
+      "COMPLETE / $1"
+    ],
+    [
+      "(.*) \\| (\\d+/\\d+) \\| (\\d+) KR",
+      "$1 | $2 | $3 CR"
+    ],
+    [
+      "(.*)   \\[E\\] Rozmawiaj",
+      "$1   [E] Talk"
+    ],
+    [
+      "\\[E\\] / \\[T\\] (.*)",
+      "[E] / [T] $1"
+    ],
+    [
+      "\\[F\\] (.*)",
+      "[F] $1"
+    ],
+    [
+      "Gracz w pobliżu (.*)",
+      "Player near $1"
+    ],
+    [
+      "Lokalny start: (.*)",
+      "Local start: $1"
+    ],
+    [
+      "Gracz odwiedził: (.*)",
+      "Player visited: $1"
+    ],
+    [
+      "Gracz rozmawia z (.*)",
+      "Player talks to $1"
+    ],
+    [
+      "Lokacja: (.*)",
+      "Location: $1"
+    ],
+    [
+      "Ten wpis jest już w twoim ekwipunku\\. (.*)",
+      "This entry is already in your inventory. $1"
+    ],
+    [
+      "(.*): (.*)",
+      "$1: $2"
+    ],
+    [
+      "Ile wynosi (\\d+) \\+ (\\d+)\\?",
+      "What is $1 + $2?"
+    ],
+    [
+      "Ile wynosi (\\d+) - (\\d+)\\?",
+      "What is $1 - $2?"
+    ],
+    [
+      "Podaj następną liczbę: (.*), \\? \\(stały przyrost\\)\\.",
+      "What is the next number: $1, ? (constant step)."
+    ],
+    [
+      "Nie udało się uruchomić gry: (.*)",
+      "Could not start the game: $1"
+    ],
+    [
+      "Nowy asset gotowy\\. Gra odświeży go automatycznie\\. (.*)",
+      "New asset ready. The game will update it automatically. $1"
+    ],
+    [
+      "\\[MOCK — bez AI\\] Pytasz: (.*)",
+      "[MOCK — no AI call] You asked: $1"
+    ],
+    [
+      "Cel: (.*)",
+      "Goal: $1"
+    ],
+    [
+      "Nastrój: (.*) · Pozycja: (.*)",
+      "Mood: $1 · Position: $2"
+    ],
+    [
+      "(.*) wej\\. / (.*) wyj\\. / (.*) razem",
+      "$1 input / $2 output / $3 total"
+    ],
+    [
+      "(.*) wywołań",
+      "$1 calls"
+    ],
+    [
+      "(.*) · tokeny: (.*)",
+      "$1 · tokens: $2"
+    ],
+    [
+      "w toku",
+      "pending"
+    ]
+  ]
+}

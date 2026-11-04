@@ -1,8 +1,10 @@
+import copy
+
 class World:
     def __init__(self, scene):
         self.bounds = scene['walkable_bounds']
         self.blocked = scene.get('blocked_areas', [])
-        self.entities = scene['entities']
+        self.entities = copy.deepcopy(scene['entities'])
 
     def constrain(self, x, y, dx, dy):
         left, top, right, bottom = self.bounds

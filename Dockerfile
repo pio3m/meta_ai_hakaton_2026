@@ -8,6 +8,8 @@ COPY main.py ./
 COPY game ./game
 COPY content ./content
 COPY assets/processed ./assets/processed
+COPY assets/audio ./assets/audio
+COPY assets/generated ./assets/generated
 COPY web ./web
 RUN python tools/build_web.py
 

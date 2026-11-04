@@ -1,0 +1,53 @@
+{
+  "jobs": [
+    {
+      "status": 200,
+      "data": {
+        "plan": {
+          "schema_version": 1,
+          "jobs": [
+            {
+              "id": "job_a",
+              "title": "Szumy z neonowej ulicy",
+              "description": "Zbierz porzucone neuro-wzmacniacze dla technika. Nagroda przyzna automat po podniesieniu.",
+              "item_label": "Neuro-wzmacniacz Kruk",
+              "reward": 32,
+              "placements": [
+                {
+                  "location_id": "corporate_street",
+                  "slot": "A"
+                },
+                {
+                  "location_id": "bar",
+                  "slot": "B"
+                }
+              ]
+            },
+            {
+              "id": "job_b",
+              "title": "Gorący towar w kryjówce",
+              "description": "Odnajdz rozlane fiolki syntetycznej adrenaliny. Premia wpadnie sama po zebraniu.",
+              "item_label": "Fiolka Adreny X",
+              "reward": 24,
+              "placements": [
+                {
+                  "location_id": "hacker_hideout",
+                  "slot": "A"
+                }
+              ]
+            }
+          ]
+        },
+        "provider": "meta",
+        "call_id": "7754c2df3b33402ab44884959e9a76fb",
+        "generation": "fresh-session",
+        "validation": {
+          "valid": true,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "chats": [],
+  "errors": []
+}

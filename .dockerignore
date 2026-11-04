@@ -24,3 +24,11 @@
 
 **/__pycache__/
 **/*.pyc
+
+!assets/generated/
+!assets/generated/*.png
+!assets/generated/*.public.json
+!assets/generated/README.md
+
+!assets/audio/
+!assets/audio/**

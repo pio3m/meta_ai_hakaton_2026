@@ -54,6 +54,7 @@ dependencies = [
 backend = [
     { name = "fastapi" },
     { name = "httpx" },
+    { name = "pillow" },
     { name = "pydantic" },
     { name = "uvicorn" },
 ]
@@ -70,6 +71,7 @@ requires-dist = [{ name = "pygame-ce", specifier = ">=2.5.8" }]
 backend = [
     { name = "fastapi", specifier = ">=0.162.0" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pillow", specifier = ">=13.0.0" },
     { name = "pydantic", specifier = ">=2.14.1" },
     { name = "uvicorn", specifier = ">=0.54.0" },
 ]

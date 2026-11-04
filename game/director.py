@@ -18,7 +18,7 @@ class Director:
         self.error='';self.provider='';self.collected=set();self.mock_type='COLLECT'
         self.execution=initial_execution();self.trace=[];self.execution_task=None;self.execution_pending=None
         self.execution_error='';self.call_id=None;self.session_id=None
-        self.answer_open=False;self.answer='';self.notice=''
+        self.answer_open=False;self.answer='';self.notice='';self.plan_language='und';self.request_language='en'
 
     @property
     def quest_type(self): return quest_kind(self.plan) if self.plan else self.mock_type
@@ -31,6 +31,7 @@ class Director:
         try: loop=asyncio.get_running_loop()
         except RuntimeError: return False
         body={'session_id':session_id,'language':language,'context':{'quest_id':'first_day','quest_status':'completed','has_badge':True},'retry':retry,'mock_type':self.mock_type}
+        self.request_language=language
         self.session_id=session_id
         self.task=loop.create_task(self.transport(body,'/api/director'));self.state='pending';self.error=''
         return True
@@ -43,6 +44,7 @@ class Director:
             if data.get('error'): raise ValueError(str(data['error'])[:180])
             if data.get('validation',{}).get('valid') is not True or not self.eligible(quest): raise ValueError('Plan niezatwierdzony')
             objects=objects_for_plan(data['plan'],self.scene,self.rules)
+            self.plan_language=data.get('language','und')
             self.plan=data['plan'];self.objects=objects
             self.object=objects[0] if self.quest_type=='COLLECT' else None
             self.provider=data.get('provider','mock');self.call_id=data.get('call_id');self.state='active'
@@ -118,7 +120,7 @@ class Director:
         import pygame
         from game.ui import CYAN,GOLD
         if self.state=='idle':
-            ui.text(screen,'F4: scenariusz mock — '+self.mock_type+' (wybierz przed końcem pierwszego questu)',(34,122),CYAN,True)
+            ui.text(screen,'F4: demo',(850,510),CYAN,True)
             return
         kind=self.quest_type
         for obj in self.objects:
@@ -135,26 +137,28 @@ class Director:
             if self.state=='active' and dist(position,obj['position'])<=obj['interaction_radius']:
                 hint='[E] Odbierz nośnik' if kind=='COLLECT' else '[E] Rozwiąż zagadkę' if kind=='LOGIC_PUZZLE' else '[E] Aktywuj '+label
                 ui.text(screen,hint,(max(20,min(750,x-75)),y-94),color,True)
-        ui.panel(screen,(18,118,924,128))
-        ui.text(screen,'02 / DIRECTOR  •  '+(self.provider or 'oczekiwanie').upper()+'  /  '+kind,(34,130),CYAN,True)
+        ui.panel(screen,(18,108,600,96))
+        ui.text(screen,'ZADANIE',(34,118),CYAN,True)
         if self.state=='pending': lines=['Director przygotowuje kolejny quest… Możesz chodzić po ulicy.']
-        elif self.state=='error': lines=ui.wrap(self.error,880)[:3]+['G: ponów generowanie     R: nowa sesja']
+        elif self.state=='error': lines=ui.wrap(self.error,560)[:3]+['G: ponów generowanie     R: nowa sesja']
         else:
             q=self.plan['create_quest']['quest']
-            lines=[('UKOŃCZONE: ' if self.state=='completed' else '')+q['title']]
-            lines+=ui.wrap(q['completion_message'] if self.state=='completed' else q['objective'],880)[:1]
+            lines=[('UKOŃCZONE: ' if self.state=='completed' else '')+ui.ai_text(q['title'],self.plan_language)]
+            lines+=ui.wrap(ui.ai_text(q['completion_message'] if self.state=='completed' else q['objective'],self.plan_language),560)[:1]
             if self.state=='active':
                 if kind=='SEQUENCE':
                     order=' > '.join(t[-1].upper() for t in self.plan['sequence'])
-                    hint='Kolejność silnika: '+order+f"   Postęp: {self.execution['progress']}/3"
+                    hint='Kolejność: '+order+f"   Postęp: {self.execution['progress']}/3"
                 else:
                     placements=[self.plan['place_object']] if self.plan['schema_version']==1 else self.plan['place_objects']
                     side={'east_side':'PRAWA','west_side':'LEWA','center_side':'ŚRODEK'}[placements[0]['spawn_point']]
-                    hint='Cel silnika: '+side+' strona / miejsce — podejdź do obiektu i naciśnij E.'
+                    hint='Szukaj: '+side+' strona ulicy. Podejdź i naciśnij E.'
                 lines += [hint,self.notice or ('Błędny terminal zeruje kolejność.' if kind=='SEQUENCE' else '')]
-        for i,line in enumerate(lines[:4]): ui.text(screen,line,(34,152+i*20),GOLD if self.state=='completed' else CYAN)
+        for i,line in enumerate(lines[:4]):
+            while ui.small.size(line)[0]>565:line=line[:-2]+'…'
+            ui.text(screen,line,(34,136+i*16),GOLD if self.state=='completed' else CYAN,True)
         if self.answer_open:
             ui.panel(screen,(95,270,770,214));ui.text(screen,'TERMINAL ZAGADKI — wpisz samą liczbę',(115,282),CYAN)
-            for i,line in enumerate(ui.wrap(puzzle_question(self.plan['puzzle']),725)[:4]): ui.text(screen,line,(115,309+i*21))
+            for i,line in enumerate(ui.wrap(__import__('game.i18n',fromlist=['puzzle_text']).puzzle_text(self.plan['puzzle'],self.plan_language),725)[:4]): ui.text(screen,line,(115,309+i*21))
             pygame.draw.rect(screen,CYAN,(112,402,730,36),1);ui.text(screen,self.answer+'|',(123,412),GOLD)
             ui.text(screen,(self.notice or 'Enter: sprawdź odpowiedź     Esc: zamknij')[:95],(115,452),GOLD,True)

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "f33b5859728f4870acf532241c3375ac",
+    "session_id": "demo_bac85eca2767ed920548739e3736b319",
+    "model": "muse-spark-1.3",
+    "usage": {
+      "completion_tokens": 655,
+      "prompt_tokens": 1750,
+      "total_tokens": 2405
+    },
+    "sent_to_model": true,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 1,
+      "summary": "Ulica startowa: Buddy czeka, Security patroluje, Hacker bada terminal, Employee zabiega o uwage.",
+      "decisions": [
+        {
+          "npc_id": "buddy",
+          "goal": "Pilnować rekruta przy buddy_post",
+          "mood": "calm",
+          "actions": [
+            {
+              "action": "WAIT",
+              "target_id": "none",
+              "route": [],
+              "duration_s": 6,
+              "text": "Stoje na posterunku, pilnuje rekruta."
+            }
+          ]
+        },
+        {
+          "npc_id": "security",
+          "goal": "Obserwować terminale i Hackera",
+          "mood": "alert",
+          "actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "security_gate",
+                "center",
+                "data_terminal"
+              ],
+              "duration_s": 12,
+              "text": "Patrol: brama, centrum, terminal danych."
+            }
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "goal": "Zbadać badge_terminal ukradkiem",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 5,
+              "text": "Idę zerknąć na terminal badge."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 7,
+              "text": "Skanuje logi, szukam tropu danych."
+            }
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "goal": "Zaistnieć przed Security i awansować",
+          "mood": "ambitious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "center",
+              "route": [],
+              "duration_s": 4,
+              "text": "Idę na środek być widocznym."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "security",
+              "route": [],
+              "duration_s": 5,
+              "text": "Panie oficerze! Wszystko według procedur, prawda?"
+            }
+          ]
+        }
+      ]
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": []
+    },
+    "error": null
+  }
+]

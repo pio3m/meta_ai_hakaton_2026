@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "locations": {
+    "bar": {
+      "name": "BAR • CYBROSCHLIGGER",
+      "background": "assets/processed/bar.png",
+      "spawn": [
+        110,
+        455
+      ],
+      "exit_position": [
+        65,
+        452
+      ],
+      "street_entry": [
+        900,
+        452
+      ],
+      "return_position": [
+        820,
+        452
+      ],
+      "locations": {
+        "bar_counter": [
+          545,
+          440
+        ],
+        "bar_table": [
+          310,
+          465
+        ],
+        "bar_door": [
+          110,
+          455
+        ],
+        "bar_corner": [
+          800,
+          466
+        ],
+        "bar_market": [
+          750,
+          450
+        ],
+        "bar_storage": [
+          855,
+          470
+        ]
+      },
+      "terminals": [
+        "bar_counter"
+      ],
+      "interactable": {
+        "id": "bar_counter",
+        "label": "Lada baru",
+        "position": [
+          400,
+          452
+        ],
+        "text": "Barman podaje syntetyczny napój. W barze krążą plotki o tajnym archiwum.",
+        "item": "bar_receipt"
+      },
+      "npcs": [
+        {
+          "id": "bartender",
+          "name": "Barman",
+          "position": [
+            545,
+            440
+          ],
+          "color": [
+            227,
+            152,
+            255
+          ],
+          "goal": "Obsługiwać gości i zbierać plotki.",
+          "personality": "Ironiczny gospodarz cyberpunkowego baru.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": "bartender",
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "bar_counter",
+                "bar_table"
+              ],
+              "duration_s": 12,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "bar_guest",
+              "route": [],
+              "duration_s": 8,
+              "text": "Co podać? Dziś plotki są w cenie napoju."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "bar_counter",
+              "route": [],
+              "duration_s": 8,
+              "text": "Zamówienie gotowe. Następny gość!"
+            }
+          ],
+          "player_lines": [
+            "Witaj w Cybroschligger. Co podać?",
+            "Napój i plotka. Podobno w kryjówce działa tajne archiwum.",
+            "Wracaj, kiedy korporacja znowu da ci w kość."
+          ]
+        },
+        {
+          "id": "bar_guest",
+          "name": "Gościni",
+          "position": [
+            310,
+            465
+          ],
+          "color": [
+            111,
+            218,
+            250
+          ],
+          "goal": "Posłuchać plotek i odpocząć po pracy.",
+          "personality": "Towarzyska pracownica znająca tajemnice miasta.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": "bar_guest",
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "bar_table",
+                "bar_corner"
+              ],
+              "duration_s": 12,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "bartender",
+              "route": [],
+              "duration_s": 8,
+              "text": "Jeszcze jeden napój i żadnych raportów!"
+            }
+          ],
+          "player_lines": [
+            "Posłuchać plotek i odpocząć po pracy.",
+            "Każda rozmowa zostawia po sobie ślad."
+          ]
+        },
+        {
+          "id": "merchant",
+          "name": "Nyx",
+          "personality": "Pragmatyczna handlarzyni sprzętem. Lubi konkrety, liczy kredyty, pomaga łowcom cyber-szczurów.",
+          "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+          "mood": "ambitious",
+          "position": [
+            750,
+            450
+          ],
+          "color": [
+            245,
+            201,
+            117
+          ],
+          "speed": 48,
+          "sprite_prefix": "merchant",
+          "player_lines": [
+            "Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.",
+            "Kredyty z kontraktów Barmana zamienisz tu na sprzęt."
+          ],
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "bar_market",
+                "bar_storage"
+              ],
+              "duration_s": 12,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "bartender",
+              "route": [],
+              "duration_s": 8,
+              "text": "Nowy łowca? Mam dla niego sprzęt."
+            }
+          ]
+        }
+      ],
+      "id": "bar",
+      "walkable_bounds": [
+        36,
+        422,
+        924,
+        482
+      ],
+      "blocked_areas": [],
+      "entities": []
+    },
+    "hacker_hideout": {
+      "name": "KRYJÓWKA HAKERÓW",
+      "background": "assets/processed/hacker_hideout.png",
+      "spawn": [
+        110,
+        455
+      ],
+      "exit_position": [
+        65,
+        452
+      ],
+      "street_entry": [
+        100,
+        452
+      ],
+      "return_position": [
+        175,
+        452
+      ],
+      "locations": {
+        "hack_terminal": [
+          650,
+          445
+        ],
+        "archive_terminal": [
+          820,
+          455
+        ],
+        "hack_door": [
+          110,
+          455
+        ],
+        "hack_desk": [
+          350,
+          460
+        ]
+      },
+      "terminals": [
+        "hack_terminal",
+        "archive_terminal"
+      ],
+      "interactable": {
+        "id": "archive_terminal",
+        "label": "Archiwum danych",
+        "position": [
+          820,
+          455
+        ],
+        "text": "Odczytano fragment archiwum: ktoś z korporacji finansuje operację w mieście.",
+        "item": "archive_fragment"
+      },
+      "npcs": [
+        {
+          "id": "hacker_woman",
+          "name": "Cipher",
+          "position": [
+            650,
+            445
+          ],
+          "color": [
+            239,
+            117,
+            226
+          ],
+          "goal": "Odczytać archiwum i chronić kryjówkę.",
+          "personality": "Błyskotliwa, ostrożna hakerka. Hacking jest wyłącznie fikcją świata gry.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": "bar_guest",
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "hack_terminal",
+                "hack_desk"
+              ],
+              "duration_s": 12,
+              "text": ""
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "hack_terminal",
+              "route": [],
+              "duration_s": 8,
+              "text": "Pakiet odszyfrowany. Korporacja czegoś szuka."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "hacker_contact",
+              "route": [],
+              "duration_s": 8,
+              "text": "Pilnuj wejścia. Mamy nowy trop."
+            }
+          ],
+          "player_lines": [
+            "Jestem Cipher. Tutaj nie mówimy prawdziwych nazwisk.",
+            "Terminal po prawej zawiera fragment archiwum. Sprawdź go.",
+            "Ten znak na ścianie oznacza, że dane wciąż są wolne."
+          ]
+        },
+        {
+          "id": "hacker_contact",
+          "name": "Kontakt",
+          "position": [
+            350,
+            460
+          ],
+          "color": [
+            143,
+            213,
+            172
+          ],
+          "goal": "Pilnować wejścia i pomóc Cipher.",
+          "personality": "Cichy kurier danych.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": null,
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "hack_door",
+                "hack_desk"
+              ],
+              "duration_s": 12,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "hacker_woman",
+              "route": [],
+              "duration_s": 8,
+              "text": "Wejście czyste. Możesz czytać dalej."
+            }
+          ],
+          "player_lines": [
+            "Pilnować wejścia i pomóc Cipher.",
+            "Każda rozmowa zostawia po sobie ślad."
+          ]
+        }
+      ],
+      "id": "hacker_hideout",
+      "walkable_bounds": [
+        36,
+        422,
+        924,
+        482
+      ],
+      "blocked_areas": [],
+      "entities": []
+    },
+    "corporate_lobby": {
+      "name": "LOBBY CHESS CORP",
+      "background": "assets/processed/corporate_lobby.png",
+      "spawn": [
+        110,
+        455
+      ],
+      "exit_position": [
+        65,
+        452
+      ],
+      "street_entry": [
+        700,
+        452
+      ],
+      "return_position": [
+        620,
+        452
+      ],
+      "locations": {
+        "reception": [
+          480,
+          440
+        ],
+        "lobby_gate": [
+          710,
+          455
+        ],
+        "lobby_door": [
+          110,
+          455
+        ],
+        "corporate_terminal": [
+          820,
+          450
+        ]
+      },
+      "terminals": [
+        "corporate_terminal"
+      ],
+      "interactable": {
+        "id": "corporate_terminal",
+        "label": "Terminal korporacyjny",
+        "position": [
+          820,
+          450
+        ],
+        "text": "Terminal potwierdza wizytę. W rejestrze widnieje wpis: projekt LIVING WORLD.",
+        "item": "visitor_pass"
+      },
+      "npcs": [
+        {
+          "id": "receptionist",
+          "name": "Recepcja",
+          "position": [
+            480,
+            440
+          ],
+          "color": [
+            245,
+            201,
+            117
+          ],
+          "goal": "Obsługiwać rekrutów i rejestrować wizyty.",
+          "personality": "Uprzejma, formalna recepcjonistka.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": "bar_guest",
+          "local_actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "reception",
+              "route": [],
+              "duration_s": 8,
+              "text": ""
+            },
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 8,
+              "text": "Witamy w Chess Corp. Proszę przygotować identyfikator."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "corporate_terminal",
+              "route": [],
+              "duration_s": 8,
+              "text": "Rejestr wizyt uzupełniony."
+            }
+          ],
+          "player_lines": [
+            "Witamy w Chess Corp. W czym pomóc?",
+            "Terminal po prawej rejestruje wizytę. Buddy czeka na ulicy.",
+            "Nawet tajemnice muszą mieć numer sprawy."
+          ]
+        },
+        {
+          "id": "lobby_guard",
+          "name": "Ochrona",
+          "position": [
+            710,
+            455
+          ],
+          "color": [
+            112,
+            240,
+            159
+          ],
+          "goal": "Patrolować lobby i strzec terminala.",
+          "personality": "Spokojny ochroniarz, skrupulatny i obserwujący otoczenie.",
+          "mood": "curious",
+          "speed": 55,
+          "sprite_prefix": null,
+          "local_actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "lobby_gate",
+                "lobby_door"
+              ],
+              "duration_s": 15,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "receptionist",
+              "route": [],
+              "duration_s": 8,
+              "text": "Obchód zakończony. W lobby spokojnie."
+            }
+          ],
+          "player_lines": [
+            "Patrolować lobby i strzec terminala.",
+            "Każda rozmowa zostawia po sobie ślad."
+          ]
+        }
+      ],
+      "id": "corporate_lobby",
+      "walkable_bounds": [
+        36,
+        422,
+        924,
+        482
+      ],
+      "blocked_areas": [],
+      "entities": []
+    }
+  }
+}

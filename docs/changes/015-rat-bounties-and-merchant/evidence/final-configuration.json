@@ -1,0 +1,29 @@
+{
+  "configuration": {
+    "WORLD_AI_MODE": "meta",
+    "WORLD_AI_ALLOW_PAID_REQUESTS": "true",
+    "WORLD_AI_SESSION_LIMIT": "6",
+    "WORLD_AI_GLOBAL_LIMIT": "12",
+    "WORLD_AI_MIN_INTERVAL_SECONDS": "30",
+    "WORLD_AI_MAX_OUTPUT_TOKENS": "2400",
+    "WORLD_AI_TOKEN_BUDGET": "150000",
+    "WORLD_AI_LEDGER_PATH": "/app/assets/generated/.world-ai-stage-015.json",
+    "BUDDY_MODE": "mock",
+    "DIRECTOR_MODE": "mock",
+    "DIRECTOR_ALLOW_PAID_REQUESTS": "false",
+    "META_ALLOW_PAID_REQUESTS": "false",
+    "ASSET_AI_MODE": "mock",
+    "ASSET_AI_ALLOW_PAID_REQUESTS": "false",
+    "ASSET_AI_GLOBAL_LIMIT": "3"
+  },
+  "paid_calls_already_used": 3,
+  "tokens_used_or_reserved": 8714,
+  "remaining_global_calls": 9,
+  "running_verified": true,
+  "http_health": "ok",
+  "cached_assets": [
+    "hacker_emblem",
+    "cyber_rat",
+    "merchant"
+  ]
+}

@@ -1,0 +1,504 @@
+[
+  {
+    "id": "f1e82db6f0cd451ba84b7308859a08db",
+    "kind": "asset",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-image-1.0",
+    "started_at": "2026-11-04T13:56:59.263431+00:00",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "prompt_tokens": 4100,
+      "completion_tokens": 1287,
+      "total_tokens": 5387
+    },
+    "elapsed_ms": 12056.58,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": null,
+    "plan_source": null,
+    "world_limits": null,
+    "execution": null,
+    "asset": {
+      "id": "hacker_emblem",
+      "source": "META",
+      "model": "muse-image-1.0",
+      "sha256": "1a1df22f0e14a8a091061adfa37241ee8837afda644146dea0115ef7ca6fafd6",
+      "generation_ms": 12033.47,
+      "preview_url": "/api/assets/hacker_emblem.png",
+      "cached": false
+    },
+    "error": null
+  },
+  {
+    "id": "098a8d45b6d14c9788033eee4e824b90",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "started_at": "2026-11-04T14:00:17.220429+00:00",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 997,
+      "prompt_tokens": 1603,
+      "total_tokens": 2600
+    },
+    "elapsed_ms": 12819.65,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 1,
+      "summary": "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania.",
+      "decisions": [
+        {
+          "npc_id": "buddy",
+          "goal": "Przywitać rekruta i trzymać pozycję",
+          "mood": "calm",
+          "actions": [
+            {
+              "action": "WAIT",
+              "target_id": "none",
+              "route": [],
+              "duration_s": 4,
+              "text": "Czekam na rekruta."
+            },
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 5,
+              "text": "Hej rekrucie! Zostań przy mnie, ogarniemy pierwszy dzień."
+            }
+          ]
+        },
+        {
+          "npc_id": "security",
+          "goal": "Pilnować terminali i obserwować Hackera",
+          "mood": "alert",
+          "actions": [
+            {
+              "action": "PATROL",
+              "target_id": "none",
+              "route": [
+                "security_gate",
+                "center"
+              ],
+              "duration_s": 12,
+              "text": "Obchód."
+            }
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "goal": "Znaleźć trop danych przy badge_terminal",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 5,
+              "text": "Idę zerknąć na terminal."
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "badge_terminal",
+              "route": [],
+              "duration_s": 6,
+              "text": "Tylko sprawdzam rozkład, nic więcej."
+            }
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "goal": "Pokazać się z najlepszej strony",
+          "mood": "ambitious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "center",
+              "route": [],
+              "duration_s": 4,
+              "text": "Lecę na środek błysnąć."
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "buddy",
+              "route": [],
+              "duration_s": 5,
+              "text": "Widziałeś mój raport? Szef musi to docenić!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 1,
+      "global_paid_calls": 1,
+      "tokens_used_or_reserved": 2600,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 2
+    },
+    "execution": {
+      "location_id": "corporate_street",
+      "source": "client_telemetry",
+      "completed_actions": [
+        {
+          "npc_id": "buddy",
+          "action": "WAIT",
+          "target_id": "none",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "098a8d45b6d14c9788033eee4e824b90"
+        },
+        {
+          "npc_id": "buddy",
+          "action": "REACT_TO_PLAYER",
+          "target_id": "player",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "098a8d45b6d14c9788033eee4e824b90"
+        }
+      ],
+      "npc_states": [
+        {
+          "npc_id": "buddy",
+          "source": "FALLBACK",
+          "position": [
+            545.9,
+            440.0
+          ],
+          "state": "PATROL",
+          "goal": "Przywitać rekruta i trzymać pozycję",
+          "mood": "calm",
+          "memory": [
+            "Buddy WAIT / completed",
+            "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania.",
+            "Buddy WAIT / completed",
+            "Buddy: Hej rekrucie! Zostań przy mnie, ogarniemy pierwszy dzień.",
+            "Buddy REACT_TO_PLAYER / completed",
+            "Gracz w pobliżu Buddy"
+          ]
+        },
+        {
+          "npc_id": "security",
+          "source": "META",
+          "position": [
+            410.9,
+            459.2
+          ],
+          "state": "WAIT",
+          "goal": "Pilnować terminali i obserwować Hackera",
+          "mood": "alert",
+          "memory": [
+            "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+            "Security PATROL / completed",
+            "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania.",
+            "Gracz w pobliżu Security",
+            "Security: Stój na chwilę. Wszystko w porządku?"
+          ]
+        },
+        {
+          "npc_id": "hacker",
+          "source": "META",
+          "position": [
+            253.8,
+            442.4
+          ],
+          "state": "MOVE_TO",
+          "goal": "Znaleźć trop danych przy badge_terminal",
+          "mood": "curious",
+          "memory": [
+            "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+            "Gracz w pobliżu Hacker",
+            "Hacker: Cicho, pogadajmy. Tylko bez Security.",
+            "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania."
+          ]
+        },
+        {
+          "npc_id": "employee",
+          "source": "META",
+          "position": [
+            405.3,
+            473.0
+          ],
+          "state": "WAIT",
+          "goal": "Pokazać się z najlepszej strony",
+          "mood": "ambitious",
+          "memory": [
+            "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+            "Gracz w pobliżu Employee",
+            "Employee: Masz chwilę? Chodzi o mój awans.",
+            "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania."
+          ]
+        }
+      ],
+      "recent_events": [
+        "Buddy WAIT / completed",
+        "Buddy czeka na rekruta, Security patroluje, Hacker bada terminal, Employee szuka uznania.",
+        "Buddy WAIT / completed",
+        "Buddy: Hej rekrucie! Zostań przy mnie, ogarniemy pierwszy dzień.",
+        "Buddy REACT_TO_PLAYER / completed",
+        "Gracz w pobliżu Security",
+        "Security: Stój na chwilę. Wszystko w porządku?",
+        "Gracz w pobliżu Buddy"
+      ]
+    },
+    "asset": null,
+    "error": null
+  },
+  {
+    "id": "487be7e54992470aa004684e9499cb5b",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "started_at": "2026-11-04T14:00:48.178146+00:00",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 606,
+      "prompt_tokens": 1798,
+      "total_tokens": 2404
+    },
+    "elapsed_ms": 8106.42,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 2,
+      "location_id": "bar",
+      "summary": "Barman wita gracza przy drzwiach, gościni schodzi do stolika i komentuje.",
+      "decisions": [
+        {
+          "npc_id": "bartender",
+          "goal": "Przywitać nowego gościa przy drzwiach.",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 6,
+              "text": "Witaj w Cybroschligger! Siadaj, co polecić?"
+            }
+          ]
+        },
+        {
+          "npc_id": "bar_guest",
+          "goal": "Zrób miejsce i skomentować przybysza.",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "MOVE_TO",
+              "target_id": "bar_table",
+              "route": [],
+              "duration_s": 8,
+              "text": ""
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "bartender",
+              "route": [],
+              "duration_s": 7,
+              "text": "Widziałeś? Nowy gość w drzwiach, daj mu spokój!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 2,
+      "global_paid_calls": 2,
+      "tokens_used_or_reserved": 5004,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 1
+    },
+    "execution": {
+      "location_id": "bar",
+      "source": "client_telemetry",
+      "completed_actions": [
+        {
+          "npc_id": "bar_guest",
+          "action": "MOVE_TO",
+          "target_id": "bar_table",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "487be7e54992470aa004684e9499cb5b"
+        },
+        {
+          "npc_id": "bar_guest",
+          "action": "TALK_TO",
+          "target_id": "bartender",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "487be7e54992470aa004684e9499cb5b"
+        },
+        {
+          "npc_id": "bartender",
+          "action": "REACT_TO_PLAYER",
+          "target_id": "player",
+          "status": "completed",
+          "source": "META",
+          "plan_id": "487be7e54992470aa004684e9499cb5b"
+        }
+      ],
+      "npc_states": [
+        {
+          "npc_id": "bartender",
+          "source": "FALLBACK",
+          "position": [
+            519.4,
+            442.7
+          ],
+          "state": "INSPECT_TERMINAL",
+          "goal": "Przywitać nowego gościa przy drzwiach.",
+          "mood": "curious",
+          "memory": [
+            "Barman REACT_TO_PLAYER / completed",
+            "Gościni: Jeszcze jeden napój i żadnych raportów!",
+            "Barman PATROL / completed",
+            "Barman: Co podać? Dziś plotki są w cenie napoju.",
+            "Barman TALK_TO / completed",
+            "Barman: Zamówienie gotowe. Następny gość!"
+          ]
+        },
+        {
+          "npc_id": "bar_guest",
+          "source": "FALLBACK",
+          "position": [
+            500.0,
+            461.9
+          ],
+          "state": "PATROL",
+          "goal": "Zrób miejsce i skomentować przybysza.",
+          "mood": "curious",
+          "memory": [
+            "Gościni: Widziałeś? Nowy gość w drzwiach, daj mu spokój!",
+            "Gościni TALK_TO / completed",
+            "Gościni PATROL / completed",
+            "Gościni: Jeszcze jeden napój i żadnych raportów!",
+            "Barman: Co podać? Dziś plotki są w cenie napoju.",
+            "Gościni TALK_TO / completed"
+          ]
+        }
+      ],
+      "recent_events": [
+        "Barman REACT_TO_PLAYER / completed",
+        "Gościni PATROL / completed",
+        "Gościni: Jeszcze jeden napój i żadnych raportów!",
+        "Barman PATROL / completed",
+        "Barman: Co podać? Dziś plotki są w cenie napoju.",
+        "Gościni TALK_TO / completed",
+        "Barman TALK_TO / completed",
+        "Barman: Zamówienie gotowe. Następny gość!"
+      ]
+    },
+    "asset": null,
+    "error": null
+  },
+  {
+    "id": "dbbedfe86564463bb4e170f241e0821f",
+    "kind": "world",
+    "state": "ok",
+    "provider": "meta",
+    "model": "muse-spark-1.3",
+    "started_at": "2026-11-04T14:01:19.248499+00:00",
+    "sent_to_model": true,
+    "upstream_status": 200,
+    "usage": {
+      "completion_tokens": 502,
+      "prompt_tokens": 1789,
+      "total_tokens": 2291
+    },
+    "elapsed_ms": 6392.5,
+    "validation": {
+      "valid": true,
+      "errors": []
+    },
+    "validated_plan": {
+      "schema_version": 2,
+      "location_id": "bar",
+      "summary": "Barman wita gracza w drzwiach, gościni zaczepia przybysza i stawia napój.",
+      "decisions": [
+        {
+          "npc_id": "bartender",
+          "goal": "Przywitać nowego gościa przy drzwiach.",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 6,
+              "text": "Witaj w Cybroschligger! Siadaj, co podać?"
+            },
+            {
+              "action": "INSPECT_TERMINAL",
+              "target_id": "bar_counter",
+              "route": [],
+              "duration_s": 7,
+              "text": ""
+            }
+          ]
+        },
+        {
+          "npc_id": "bar_guest",
+          "goal": "Zaczepić przybysza i wrócić do plotek.",
+          "mood": "curious",
+          "actions": [
+            {
+              "action": "REACT_TO_PLAYER",
+              "target_id": "player",
+              "route": [],
+              "duration_s": 5,
+              "text": "O, świeża twarz! Uciekasz przed raportami?"
+            },
+            {
+              "action": "TALK_TO",
+              "target_id": "bartender",
+              "route": [],
+              "duration_s": 7,
+              "text": "Barman, daj mu to samo co mnie, na mój koszt!"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_source": "META",
+    "world_limits": {
+      "session_limit": 3,
+      "global_limit": 3,
+      "session_paid_calls": 3,
+      "global_paid_calls": 3,
+      "tokens_used_or_reserved": 7295,
+      "token_budget": 50000,
+      "max_output_tokens": 1800,
+      "min_interval_seconds": 30.0,
+      "remaining_calls": 0
+    },
+    "execution": {
+      "source": "client_telemetry",
+      "completed_actions": []
+    },
+    "asset": null,
+    "error": null
+  }
+]

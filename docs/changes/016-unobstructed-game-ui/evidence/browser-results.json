@@ -1,0 +1,352 @@
+{
+  "checkpoints": [
+    {
+      "name": "browser-clear-street",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "cyber_rat",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "corporate_street",
+        "journey_events": [],
+        "player_position": [
+          350.0,
+          440.0
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "buddy",
+            "source": "MOCK",
+            "position": [
+              525.3,
+              440.0
+            ],
+            "state": "PATROL",
+            "goal": "Pomóc rekrutowi.",
+            "mood": "calm",
+            "memory": [
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje."
+            ]
+          },
+          {
+            "npc_id": "security",
+            "source": "MOCK",
+            "position": [
+              715.9,
+              451.3
+            ],
+            "state": "PATROL",
+            "goal": "Utrzymać porządek.",
+            "mood": "alert",
+            "memory": [
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje."
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "source": "MOCK",
+            "position": [
+              185.7,
+              465.3
+            ],
+            "state": "INSPECT_TERMINAL",
+            "goal": "Znaleźć trop danych.",
+            "mood": "curious",
+            "memory": [
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje."
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "source": "MOCK",
+            "position": [
+              405.7,
+              473.3
+            ],
+            "state": "WAIT",
+            "goal": "Zasłużyć na awans.",
+            "mood": "ambitious",
+            "memory": [
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+              "Gracz w pobliżu Employee",
+              "Employee: Masz chwilę? Chodzi o mój awans.",
+              "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje."
+            ]
+          }
+        ],
+        "events": [
+          "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+          "Lokalny start: corporate_street",
+          "Gracz w pobliżu Employee",
+          "Employee: Masz chwilę? Chodzi o mój awans.",
+          "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje."
+        ]
+      }
+    },
+    {
+      "name": "browser-compact-quest",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "cyber_rat",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "corporate_street",
+        "journey_events": [],
+        "player_position": [
+          534.8150000000005,
+          440.0
+        ],
+        "first_quest_complete": true,
+        "npcs": [
+          {
+            "npc_id": "buddy",
+            "source": "MOCK",
+            "position": [
+              525.0,
+              440.0
+            ],
+            "state": "WAIT",
+            "goal": "Pomóc rekrutowi.",
+            "mood": "calm",
+            "memory": [
+              "Buddy PATROL / completed",
+              "Buddy REACT_TO_PLAYER / expired",
+              "Buddy WAIT / completed",
+              "Buddy: Hej, rekrucie! Podejdź, porozmawiajmy.",
+              "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+              "Gracz rozmawia z Buddy"
+            ]
+          },
+          {
+            "npc_id": "security",
+            "source": "MOCK",
+            "position": [
+              685.1,
+              452.2
+            ],
+            "state": "TALK_TO",
+            "goal": "Utrzymać porządek.",
+            "mood": "alert",
+            "memory": [
+              "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+              "Security TALK_TO / completed",
+              "Security WAIT / completed",
+              "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+              "Security PATROL / completed",
+              "Security: Widzę cię. Od terminala trzy kroki wstecz."
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "source": "MOCK",
+            "position": [
+              597.2,
+              452.3
+            ],
+            "state": "WAIT",
+            "goal": "Znaleźć trop danych.",
+            "mood": "curious",
+            "memory": [
+              "Hacker INSPECT_TERMINAL / completed",
+              "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+              "Hacker TALK_TO / completed",
+              "Gracz w pobliżu Hacker",
+              "Hacker: Cicho, pogadajmy. Tylko bez Security.",
+              "Security: Widzę cię. Od terminala trzy kroki wstecz."
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "source": "MOCK",
+            "position": [
+              279.2,
+              436.4
+            ],
+            "state": "INSPECT_TERMINAL",
+            "goal": "Zasłużyć na awans.",
+            "mood": "ambitious",
+            "memory": [
+              "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+              "Employee INSPECT_TERMINAL / completed",
+              "Employee: Masz chwilę? Chodzi o mój awans.",
+              "Employee MOVE_TO / completed",
+              "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+              "Employee TALK_TO / completed"
+            ]
+          }
+        ],
+        "events": [
+          "Employee MOVE_TO / completed",
+          "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+          "Gracz w pobliżu Hacker",
+          "Hacker: Cicho, pogadajmy. Tylko bez Security.",
+          "Gracz rozmawia z Buddy",
+          "Employee TALK_TO / completed",
+          "Security PATROL / completed",
+          "Security: Widzę cię. Od terminala trzy kroki wstecz."
+        ]
+      }
+    },
+    {
+      "name": "browser-explicit-barman",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "merchant",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "bar",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER"
+        ],
+        "player_position": [
+          461.5000000000004,
+          455.085
+        ],
+        "first_quest_complete": true,
+        "npcs": [
+          {
+            "npc_id": "bartender",
+            "source": "FALLBACK",
+            "position": [
+              459.6,
+              449.1
+            ],
+            "state": "WAIT",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "memory": [
+              "Barman INSPECT_TERMINAL / completed",
+              "Gracz w pobliżu Barman",
+              "Barman: Witaj w Cybroschligger. Co podać?",
+              "Barman: Witaj w Cybroschligger. Co podać?",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt."
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "source": "FALLBACK",
+            "position": [
+              452.2,
+              458.4
+            ],
+            "state": "WAIT",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "memory": [
+              "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+              "Gościni PATROL / completed",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Gościni TALK_TO / completed",
+              "Gracz w pobliżu Gościni",
+              "Gościni: Posłuchać plotek i odpocząć po pracy."
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "source": "FALLBACK",
+            "position": [
+              798.3,
+              459.4
+            ],
+            "state": "PATROL",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "memory": [
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Nyx TALK_TO / completed",
+              "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+              "Nyx PATROL / completed",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Nyx TALK_TO / completed"
+            ]
+          }
+        ],
+        "events": [
+          "Barman: Witaj w Cybroschligger. Co podać?",
+          "Nyx PATROL / completed",
+          "Gościni: Jeszcze jeden napój i żadnych raportów!",
+          "Gościni TALK_TO / completed",
+          "Gracz w pobliżu Gościni",
+          "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+          "Gościni: Posłuchać plotek i odpocząć po pracy.",
+          "Nyx TALK_TO / completed"
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

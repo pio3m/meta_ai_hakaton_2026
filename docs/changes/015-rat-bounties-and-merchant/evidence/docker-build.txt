@@ -1,0 +1,394 @@
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [backend internal] load build definition from Dockerfile
+#1 transferring dockerfile: 784B done
+#1 DONE 0.0s
+
+#2 [backend] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.8s
+
+#3 [backend] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 ...
+
+#5 [backend internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#5 DONE 0.6s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.7s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 463B done
+#6 DONE 0.0s
+
+#7 [backend internal] load build context
+#7 transferring context: 201.91kB 0.0s done
+#7 DONE 0.0s
+
+#8 [backend] FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#8 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#8 DONE 0.0s
+
+#9 [backend stage-0  1/10] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#9 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 0.0s done
+#9 DONE 0.0s
+
+#10 [backend stage-0  3/10] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /usr/local/bin/uv
+#10 CACHED
+
+#11 [backend stage-0  5/10] RUN uv sync --locked --only-group backend --no-install-project
+#11 CACHED
+
+#12 [backend stage-0  6/10] COPY backend ./backend
+#12 CACHED
+
+#13 [backend stage-0  4/10] COPY pyproject.toml uv.lock ./
+#13 CACHED
+
+#14 [backend stage-0  8/10] COPY assets/generated ./assets/generated
+#14 CACHED
+
+#15 [backend stage-0  7/10] COPY content ./content
+#15 CACHED
+
+#16 [backend stage-0  2/10] WORKDIR /app
+#16 CACHED
+
+#17 [backend stage-0  9/10] COPY game/director_contract.py ./game/director_contract.py
+#17 CACHED
+
+#18 [backend stage-0 10/10] COPY game/world_contract.py ./game/world_contract.py
+#18 CACHED
+
+#19 [backend] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:8a0731ba9ee4afef351341046293ef515b2081cdf5b42bf4b849006800b6f690 done
+#19 exporting config sha256:4f2e0eca012d2f536064633300bdcffca86fd4ebd04a186dd5bb632762780440 done
+#19 exporting attestation manifest sha256:3ec212c8131e32a4be273600f3faedafc5282ffa08e6f957fc19656e3216ee40 0.0s done
+#19 exporting manifest list sha256:fd28f674d4ce143c5d20871b8c90fa4915d068f285741bbd84a7da4ba20e5e5f
+#19 exporting manifest list sha256:fd28f674d4ce143c5d20871b8c90fa4915d068f285741bbd84a7da4ba20e5e5f 0.0s done
+#19 naming to docker.io/library/chess-corp-backend:latest done
+#19 unpacking to docker.io/library/chess-corp-backend:latest 0.0s done
+#19 DONE 0.1s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.1s
+
+#21 [game internal] load build definition from Dockerfile
+#21 transferring dockerfile: 764B done
+#21 DONE 0.0s
+
+#4 [game internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.7s
+
+#22 [game internal] load metadata for docker.io/library/nginx:stable-alpine
+#22 DONE 0.7s
+
+#23 [game internal] load .dockerignore
+#23 transferring context: 463B done
+#23 DONE 0.0s
+
+#24 [game builder  1/12] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+#24 resolve docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1 0.0s done
+#24 DONE 0.0s
+
+#25 [game runtime 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
+#25 resolve docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949 0.0s done
+#25 DONE 0.0s
+
+#26 [game internal] load build context
+#26 transferring context: 327.91kB 0.0s done
+#26 DONE 0.0s
+
+#27 [game builder  3/12] RUN pip install --no-cache-dir pygbag==0.9.3
+#27 CACHED
+
+#28 [game builder  4/12] COPY tools/package_web.py tools/build_web.py ./tools/
+#28 CACHED
+
+#29 [game builder  2/12] WORKDIR /app
+#29 CACHED
+
+#30 [game builder  5/12] RUN python tools/build_web.py --fetch-runtime
+#30 CACHED
+
+#31 [game builder  6/12] COPY main.py ./
+#31 DONE 0.0s
+
+#32 [game builder  7/12] COPY game ./game
+#32 DONE 0.0s
+
+#33 [game builder  8/12] COPY content ./content
+#33 DONE 0.1s
+
+#34 [game builder  9/12] COPY assets/processed ./assets/processed
+#34 DONE 0.1s
+
+#35 [game builder 10/12] COPY assets/generated ./assets/generated
+#35 DONE 0.1s
+
+#36 [game builder 11/12] COPY web ./web
+#36 DONE 0.1s
+
+#37 [game builder 12/12] RUN python tools/build_web.py
+#37 0.411 Web source: /app/web_app
+#37 0.562 /usr/local/lib/python3.12/site-packages/pygbag/optimizing.py:62: UserWarning: Black not found for processing folder=PosixPath('/app/web_app')
+#37 0.562   warnings.warn(f"Black not found for processing {folder=}")
+#37 0.564 /bin/sh: 1: ffmpeg: not found
+#37 1.460  *pygbag 0.9.3*
+#37 1.460 
+#37 1.460 Serving python files from [/app/web_app/build/web]
+#37 1.460 
+#37 1.460 with no security/performance in mind, i'm just a test tool : don't rely on me
+#37 1.460 
+#37 1.460 
+#37 1.460 SUMMARY
+#37 1.460 ________________________
+#37 1.460 
+#37 1.460 # the app folder
+#37 1.460 app_folder=/app/web_app
+#37 1.460 
+#37 1.460 # artefacts directory
+#37 1.460 build_dir=/app/web_app/build/web
+#37 1.460 
+#37 1.460 # cache directory
+#37 1.460 cache=/app/web_app/build/web-cache
+#37 1.460 
+#37 1.460 # the window title and icon name
+#37 1.460 app_name=web_app
+#37 1.460 
+#37 1.460 # package name, better make it unique
+#37 1.460 package=web.pygame.web_app-1793808266
+#37 1.460 
+#37 1.460 # icons:  96x96 for desktop, 16x16 for web
+#37 1.460 icon=favicon.png
+#37 1.460 
+#37 1.460 # js/wasm provider
+#37 1.460 cdn=https://pygame-web.github.io/cdn/0.9.3/
+#37 1.460 
+#37 1.460 now packing application ....
+#37 1.460 
+#37 1.460 
+#37 1.460 WARNING: No pygbag.ini found! See: https://pygame-web.github.io/wiki/pygbag-configuration
+#37 1.460 Ignored dirs: []
+#37 1.460 Ignored files: []
+#37 1.460 Now in /
+#37 1.460      /main.py
+#37 1.460 Now in /assets/generated
+#37 1.460      /assets/generated/cyber_rat_1.png
+#37 1.460      /assets/generated/cyber_rat_2.png
+#37 1.460      /assets/generated/README.md
+#37 1.460      /assets/generated/merchant_2.png
+#37 1.460      /assets/generated/cyber_rat_0.png
+#37 1.460      /assets/generated/hacker_emblem.png
+#37 1.460      /assets/generated/cyber_rat.public.json
+#37 1.460      /assets/generated/merchant_3.png
+#37 1.460      /assets/generated/cyber_rat.png
+#37 1.460      /assets/generated/merchant.png
+#37 1.460      /assets/generated/cyber_rat_3.png
+#37 1.460      /assets/generated/merchant_1.png
+#37 1.460      /assets/generated/merchant_0.png
+#37 1.460      /assets/generated/hacker_emblem.public.json
+#37 1.460      /assets/generated/merchant.public.json
+#37 1.460 Now in /assets/processed
+#37 1.460      /assets/processed/street.png
+#37 1.460      /assets/processed/player_1.png
+#37 1.460      /assets/processed/bar.png
+#37 1.460      /assets/processed/bartender_2.png
+#37 1.460      /assets/processed/bar_guest_2.png
+#37 1.460      /assets/processed/bartender_1.png
+#37 1.460      /assets/processed/corporate_lobby.png
+#37 1.460      /assets/processed/player_2.png
+#37 1.460      /assets/processed/bartender_3.png
+#37 1.460      /assets/processed/original_hologram.png
+#37 1.460      /assets/processed/bar_guest_1.png
+#37 1.460      /assets/processed/buddy.png
+#37 1.460      /assets/processed/font.ttf
+#37 1.460      /assets/processed/bar_guest_3.png
+#37 1.460      /assets/processed/hacker_hideout.png
+#37 1.460      /assets/processed/bar_guest_0.png
+#37 1.460      /assets/processed/bartender_0.png
+#37 1.460      /assets/processed/player_3.png
+#37 1.460      /assets/processed/player_0.png
+#37 1.460 Now in /game
+#37 1.460      /game/director_contract.py
+#37 1.460      /game/ui.py
+#37 1.460      /game/adventure.py
+#37 1.460      /game/living_world.py
+#37 1.460      /game/__init__.py
+#37 1.460      /game/chat.py
+#37 1.460      /game/interactions.py
+#37 1.460      /game/world.py
+#37 1.460      /game/director.py
+#37 1.460      /game/world_contract.py
+#37 1.460      /game/locations.py
+#37 1.460      /game/player.py
+#37 1.460      /game/data.py
+#37 1.460      /game/quests.py
+#37 1.460 Now in /content
+#37 1.460      /content/quest_first_day.json
+#37 1.460      /content/locations.json
+#37 1.460      /content/scene.json
+#37 1.460      /content/adventure.json
+#37 1.460      /content/director_rules.json
+#37 1.460      /content/dialogues.json
+#37 1.460      /content/world_ai.json
+#37 1.460 optimizing /app/web_app
+#37 1.460 	/app/web_app : main.py
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_1.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_2.png
+#37 1.460 	/app/web_app : assets/generated/README.md
+#37 1.460 	/app/web_app : assets/generated/merchant_2.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_0.png
+#37 1.460 	/app/web_app : assets/generated/hacker_emblem.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat.public.json
+#37 1.460 	/app/web_app : assets/generated/merchant_3.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat.png
+#37 1.460 	/app/web_app : assets/generated/merchant.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_3.png
+#37 1.460 	/app/web_app : assets/generated/merchant_1.png
+#37 1.460 	/app/web_app : assets/generated/merchant_0.png
+#37 1.460 	/app/web_app : assets/generated/hacker_emblem.public.json
+#37 1.460 	/app/web_app : assets/generated/merchant.public.json
+#37 1.460 	/app/web_app : assets/processed/street.png
+#37 1.460 	/app/web_app : assets/processed/player_1.png
+#37 1.460 	/app/web_app : assets/processed/bar.png
+#37 1.460 	/app/web_app : assets/processed/bartender_2.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_2.png
+#37 1.460 	/app/web_app : assets/processed/bartender_1.png
+#37 1.460 	/app/web_app : assets/processed/corporate_lobby.png
+#37 1.460 	/app/web_app : assets/processed/player_2.png
+#37 1.460 	/app/web_app : assets/processed/bartender_3.png
+#37 1.460 	/app/web_app : assets/processed/original_hologram.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_1.png
+#37 1.460 	/app/web_app : assets/processed/buddy.png
+#37 1.460 	/app/web_app : assets/processed/font.ttf
+#37 1.460 	/app/web_app : assets/processed/bar_guest_3.png
+#37 1.460 	/app/web_app : assets/processed/hacker_hideout.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_0.png
+#37 1.460 	/app/web_app : assets/processed/bartender_0.png
+#37 1.460 	/app/web_app : assets/processed/player_3.png
+#37 1.460 	/app/web_app : assets/processed/player_0.png
+#37 1.460 	/app/web_app : game/director_contract.py
+#37 1.460 	/app/web_app : game/ui.py
+#37 1.460 	/app/web_app : game/adventure.py
+#37 1.460 	/app/web_app : game/living_world.py
+#37 1.460 	/app/web_app : game/__init__.py
+#37 1.460 	/app/web_app : game/chat.py
+#37 1.460 	/app/web_app : game/interactions.py
+#37 1.460 	/app/web_app : game/world.py
+#37 1.460 	/app/web_app : game/director.py
+#37 1.460 	/app/web_app : game/world_contract.py
+#37 1.460 	/app/web_app : game/locations.py
+#37 1.460 	/app/web_app : game/player.py
+#37 1.460 	/app/web_app : game/data.py
+#37 1.460 	/app/web_app : game/quests.py
+#37 1.460 	/app/web_app : content/quest_first_day.json
+#37 1.460 	/app/web_app : content/locations.json
+#37 1.460 	/app/web_app : content/scene.json
+#37 1.460 	/app/web_app : content/adventure.json
+#37 1.460 	/app/web_app : content/director_rules.json
+#37 1.460 	/app/web_app : content/dialogues.json
+#37 1.460 	/app/web_app : content/world_ai.json
+#37 1.460 	/app/web_app : main.py
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_1.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_2.png
+#37 1.460 	/app/web_app : assets/generated/README.md
+#37 1.460 	/app/web_app : assets/generated/merchant_2.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_0.png
+#37 1.460 	/app/web_app : assets/generated/hacker_emblem.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat.public.json
+#37 1.460 	/app/web_app : assets/generated/merchant_3.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat.png
+#37 1.460 	/app/web_app : assets/generated/merchant.png
+#37 1.460 	/app/web_app : assets/generated/cyber_rat_3.png
+#37 1.460 	/app/web_app : assets/generated/merchant_1.png
+#37 1.460 	/app/web_app : assets/generated/merchant_0.png
+#37 1.460 	/app/web_app : assets/generated/hacker_emblem.public.json
+#37 1.460 	/app/web_app : assets/generated/merchant.public.json
+#37 1.460 	/app/web_app : assets/processed/street.png
+#37 1.460 	/app/web_app : assets/processed/player_1.png
+#37 1.460 	/app/web_app : assets/processed/bar.png
+#37 1.460 	/app/web_app : assets/processed/bartender_2.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_2.png
+#37 1.460 	/app/web_app : assets/processed/bartender_1.png
+#37 1.460 	/app/web_app : assets/processed/corporate_lobby.png
+#37 1.460 	/app/web_app : assets/processed/player_2.png
+#37 1.460 	/app/web_app : assets/processed/bartender_3.png
+#37 1.460 	/app/web_app : assets/processed/original_hologram.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_1.png
+#37 1.460 	/app/web_app : assets/processed/buddy.png
+#37 1.460 	/app/web_app : assets/processed/font.ttf
+#37 1.460 	/app/web_app : assets/processed/bar_guest_3.png
+#37 1.460 	/app/web_app : assets/processed/hacker_hideout.png
+#37 1.460 	/app/web_app : assets/processed/bar_guest_0.png
+#37 1.460 	/app/web_app : assets/processed/bartender_0.png
+#37 1.460 	/app/web_app : assets/processed/player_3.png
+#37 1.460 	/app/web_app : assets/processed/player_0.png
+#37 1.460 	/app/web_app : game/director_contract.py
+#37 1.460 	/app/web_app : game/ui.py
+#37 1.460 	/app/web_app : game/adventure.py
+#37 1.460 	/app/web_app : game/living_world.py
+#37 1.460 	/app/web_app : game/__init__.py
+#37 1.460 	/app/web_app : game/chat.py
+#37 1.460 	/app/web_app : game/interactions.py
+#37 1.460 	/app/web_app : game/world.py
+#37 1.460 	/app/web_app : game/director.py
+#37 1.460 	/app/web_app : game/world_contract.py
+#37 1.460 	/app/web_app : game/locations.py
+#37 1.460 	/app/web_app : game/player.py
+#37 1.460 	/app/web_app : game/data.py
+#37 1.460 	/app/web_app : game/quests.py
+#37 1.460 	/app/web_app : content/quest_first_day.json
+#37 1.460 	/app/web_app : content/locations.json
+#37 1.460 	/app/web_app : content/scene.json
+#37 1.460 	/app/web_app : content/adventure.json
+#37 1.460 	/app/web_app : content/director_rules.json
+#37 1.460 	/app/web_app : content/dialogues.json
+#37 1.460 	/app/web_app : content/world_ai.json
+#37 1.460 packing 56 files complete
+#37 1.460 
+#37 1.460     caching template https://pygame-web.github.io/cdn/0.9.3/default.tmpl
+#37 1.460     cached locally at /app/web_app/build/web-cache/27613e24ba16d44f2a5c88150c6d64e5.tmpl
+#37 1.460     result files will be in /app/web_app/build/web
+#37 1.460 
+#37 1.460 urllib.request.urlretrieve("https://pygame-web.github.io/cdn/0.9.3/default.tmpl", "/app/web_app/build/web-cache/27613e24ba16d44f2a5c88150c6d64e5.tmpl")
+#37 1.460 urllib.request.urlretrieve("https://pygame-web.github.io/cdn/0.9.3/favicon.png", "/app/web_app/build/web-cache/29a2a48092f8c1a6595a20019f830691.png")
+#37 1.460 
+#37 1.460         caching icon https://pygame-web.github.io/cdn/0.9.3/favicon.png
+#37 1.460         cached locally at /app/web_app/build/web-cache/29a2a48092f8c1a6595a20019f830691.png
+#37 1.460         
+#37 1.464 
+#37 1.464     build only requested, not running testserver, files ready here :
+#37 1.464 
+#37 1.464 build_dir = /app/web_app/build/web
+#37 1.464 
+#37 1.464 
+#37 1.488 Bundled pygame WASM SHA256: 4f2caa3020592950565f3649c41e2eeacd001be93da892d60e5a4a43d893a323
+#37 DONE 1.5s
+
+#38 [game runtime 2/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#38 CACHED
+
+#39 [game runtime 3/3] COPY --from=builder /app/web_app/build/web/ /usr/share/nginx/html/
+#39 DONE 0.1s
+
+#40 [game] exporting to image
+#40 exporting layers 0.1s done
+#40 exporting manifest sha256:8eb58a1dac21b0ddd6911c06207b7c29aa2214f66160da08108baecc1b4c25ef 0.0s done
+#40 exporting config sha256:ad52bd47ca77ba6c8785e3dcfe9e56420dc8d4cef2c6335df9d69e432911cd52 0.0s done
+#40 exporting attestation manifest sha256:6a8ef677c827f13f4984ce3281337e61bf195f1763d5d55e9e18b3269fc0edb1 0.0s done
+#40 exporting manifest list sha256:98eb722d9219bce8e976d1c7154acbba7c95f84f15e52f6eedab25664c22545c 0.0s done
+#40 naming to docker.io/library/chess-corp-game:latest done
+#40 unpacking to docker.io/library/chess-corp-game:latest 0.0s done
+#40 DONE 0.3s
+
+#41 [game] resolving provenance for metadata file
+#41 DONE 0.0s
+ backend  Built
+ game  Built

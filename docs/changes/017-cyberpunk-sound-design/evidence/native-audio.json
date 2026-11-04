@@ -1,0 +1,23 @@
+{
+  "available": true,
+  "unlocked": true,
+  "muted": false,
+  "ambient": "corporate_street",
+  "ambient_busy": true,
+  "ambient_starts": {
+    "corporate_street": 1
+  },
+  "sfx_played": {},
+  "loaded_sounds": 14,
+  "errors": [],
+  "native_mixer_format": [
+    44100,
+    -16,
+    2
+  ],
+  "rendered_frames": 60,
+  "fps": 60.25,
+  "sfx_after_play": {
+    "conversation": 1
+  }
+}

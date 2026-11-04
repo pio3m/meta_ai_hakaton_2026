@@ -1,0 +1,808 @@
+{
+  "audio_checkpoints": [
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 1
+        },
+        "sfx_played": {},
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.024935452873798013,
+        "peak": 0.071624755859375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "after-play-click"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 1
+        },
+        "sfx_played": {},
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.021584212485615633,
+        "peak": 0.058685302734375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "street-no-duplicate"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": true,
+        "ambient": null,
+        "ambient_busy": false,
+        "ambient_starts": {
+          "corporate_street": 1
+        },
+        "sfx_played": {},
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0,
+        "peak": 0,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "muted"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 2
+        },
+        "sfx_played": {},
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.023603536971689813,
+        "peak": 0.0670166015625,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "unmuted"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "bar",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 2,
+          "bar": 1
+        },
+        "sfx_played": {
+          "door": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.005351787362907537,
+        "peak": 0.013763427734375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "bar"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "bar",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 2,
+          "bar": 1
+        },
+        "sfx_played": {
+          "door": 1,
+          "conversation": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.006464251267030999,
+        "peak": 0.01690673828125,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "barman"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "bar",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 2,
+          "bar": 1
+        },
+        "sfx_played": {
+          "door": 1,
+          "conversation": 1,
+          "shop_open": 1,
+          "shop_close": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.00558615852205044,
+        "peak": 0.014495849609375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "shop-open-close"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 3,
+          "bar": 1
+        },
+        "sfx_played": {
+          "door": 2,
+          "conversation": 1,
+          "shop_open": 1,
+          "shop_close": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.022714655358645752,
+        "peak": 0.0604248046875,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "street-return"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 3,
+          "bar": 1
+        },
+        "sfx_played": {
+          "door": 2,
+          "conversation": 1,
+          "shop_open": 1,
+          "shop_close": 1,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.02356852533763711,
+        "peak": 0.057464599609375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "combat"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "bar",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 3,
+          "bar": 2
+        },
+        "sfx_played": {
+          "door": 3,
+          "conversation": 2,
+          "shop_open": 1,
+          "shop_close": 1,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3,
+          "credits": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.0059895954847185556,
+        "peak": 0.013763427734375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "contract-credits"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "bar",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 3,
+          "bar": 2
+        },
+        "sfx_played": {
+          "door": 3,
+          "conversation": 2,
+          "shop_open": 2,
+          "shop_close": 1,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3,
+          "credits": 1,
+          "purchase": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.005497844303281645,
+        "peak": 0.01495361328125,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "purchase"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "hacker_hideout",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 4,
+          "bar": 2,
+          "hacker_hideout": 1
+        },
+        "sfx_played": {
+          "door": 5,
+          "conversation": 2,
+          "shop_open": 2,
+          "shop_close": 2,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3,
+          "credits": 1,
+          "purchase": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.010019154904302654,
+        "peak": 0.02435302734375,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "hacker_hideout"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_lobby",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 5,
+          "bar": 2,
+          "hacker_hideout": 1,
+          "corporate_lobby": 1
+        },
+        "sfx_played": {
+          "door": 7,
+          "conversation": 2,
+          "shop_open": 2,
+          "shop_close": 2,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3,
+          "credits": 1,
+          "purchase": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.004975521402696809,
+        "peak": 0.0164794921875,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "corporate_lobby"
+    },
+    {
+      "audio": {
+        "available": true,
+        "unlocked": true,
+        "muted": false,
+        "ambient": "corporate_street",
+        "ambient_busy": true,
+        "ambient_starts": {
+          "corporate_street": 6,
+          "bar": 2,
+          "hacker_hideout": 1,
+          "corporate_lobby": 1
+        },
+        "sfx_played": {
+          "door": 8,
+          "conversation": 2,
+          "shop_open": 2,
+          "shop_close": 2,
+          "heal": 1,
+          "swing": 48,
+          "hit": 6,
+          "rat_down": 3,
+          "credits": 1,
+          "purchase": 1
+        },
+        "loaded_sounds": 14,
+        "errors": []
+      },
+      "meter": {
+        "rms": 0.023944690383813826,
+        "peak": 0.063446044921875,
+        "contexts": [
+          "running"
+        ],
+        "outputNodes": 1
+      },
+      "label": "final-street"
+    }
+  ],
+  "api_errors": [],
+  "world_results": [
+    {
+      "location_id": "corporate_street",
+      "plan": {
+        "schema_version": 1,
+        "summary": "Buddy trzyma posterunek i wita gracza, Security schodzi do centrum, Hacker bada badge terminal, Employee pręży się na środku.",
+        "decisions": [
+          {
+            "npc_id": "buddy",
+            "goal": "Przywitać rekruta i trzymać pozycję przy posterunku.",
+            "mood": "calm",
+            "actions": [
+              {
+                "action": "WAIT",
+                "target_id": "none",
+                "route": [],
+                "duration_s": 3,
+                "text": "Rozglądam się po ulicy, czekam na rekruta."
+              },
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 6,
+                "text": "Hej, nowy! Trzymaj się blisko, załatwimy twój pierwszy dzień."
+              }
+            ]
+          },
+          {
+            "npc_id": "security",
+            "goal": "Pilnować terminali i obserwować Hackera.",
+            "mood": "suspicious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "center",
+                "route": [],
+                "duration_s": 8,
+                "text": "Przesuwam się do centrum, mam oko na całą ulicę."
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "employee",
+                "route": [],
+                "duration_s": 5,
+                "text": "Pracowniku, dokumenty w porządku? Zgłaszaj podejrzane ruchy."
+              }
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "goal": "Zdobyć trop danych unikając Security.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "badge_terminal",
+                "route": [],
+                "duration_s": 6,
+                "text": "Kręcę się przy zachodzie, szukam ciekawych tropów."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "badge_terminal",
+                "route": [],
+                "duration_s": 7,
+                "text": "Tylko zerkam na publiczny ekran, nic podejrzanego."
+              }
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "goal": "Pokazać się z jak najlepszej strony.",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "center",
+                "route": [],
+                "duration_s": 4,
+                "text": "Idę na środek, muszą mnie zauważyć przełożeni."
+              },
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 5,
+                "text": "O, nowy rekrut? Ja już robię nadgodziny do awansu!"
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "meta",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "81acf2d91cdb48ab8394590ef0072929",
+      "limits": {
+        "session_limit": 6,
+        "global_limit": 12,
+        "session_paid_calls": 1,
+        "global_paid_calls": 11,
+        "tokens_used_or_reserved": 31855,
+        "token_budget": 150000,
+        "max_output_tokens": 2400,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 1
+      },
+      "cached": false
+    },
+    {
+      "location_id": "bar",
+      "plan": {
+        "schema_version": 2,
+        "location_id": "bar",
+        "summary": "Bar huczy o deratyzacji: barman daje kontrakt, gosć plotkuje, Nyx szykuje towar.",
+        "decisions": [
+          {
+            "npc_id": "bartender",
+            "goal": "Wysłać łowcę na deratyzację pierwszej zmiany.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 6,
+                "text": "Szczury czekaja! Trzy sztuki, 30 KR czeka. Dasz rade?"
+              }
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "goal": "Plotkować o szczurach i wrócić do stolika.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 7,
+                "text": "Słyszałam o szczurach! Uważaj na ogon, gryzą kable!"
+              },
+              {
+                "action": "MOVE_TO",
+                "target_id": "bar_table",
+                "route": [],
+                "duration_s": 8,
+                "text": ""
+              }
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "goal": "Przygotować sprzęt dla łowcy szczurów.",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_market",
+                  "bar_storage"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 6,
+                "text": "Po robocie wpadnij po apteczki. Mam towar!"
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "meta",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "fcd2ada30461460db1b23cb78b309244",
+      "limits": {
+        "session_limit": 6,
+        "global_limit": 12,
+        "session_paid_calls": 2,
+        "global_paid_calls": 12,
+        "tokens_used_or_reserved": 35076,
+        "token_budget": 150000,
+        "max_output_tokens": 2400,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 0
+      },
+      "cached": false
+    }
+  ],
+  "last_state": {
+    "gameplay": {
+      "health": 70,
+      "max_health": 100,
+      "credits": 18,
+      "medkits": 0,
+      "weapon_upgrade": true,
+      "armor": false,
+      "bounty_state": "claimed",
+      "contract_index": 0,
+      "kills": 3,
+      "target": 3,
+      "claimed_contracts": [
+        0
+      ],
+      "enemies": [
+        {
+          "id": "rat-0-0",
+          "position": [
+            475.6,
+            465.7
+          ],
+          "hp": 0,
+          "max_hp": 2
+        },
+        {
+          "id": "rat-0-1",
+          "position": [
+            418.6,
+            465.8
+          ],
+          "hp": 0,
+          "max_hp": 2
+        },
+        {
+          "id": "rat-0-2",
+          "position": [
+            784.8,
+            451.9
+          ],
+          "hp": 0,
+          "max_hp": 2
+        }
+      ],
+      "events": [
+        "Użyto apteczki: +45 HP",
+        "Zlikwidowano rat-0-2 / +2 KR",
+        "Zlikwidowano rat-0-1 / +2 KR",
+        "Zlikwidowano rat-0-0 / +2 KR",
+        "Ulica oczyszczona. Wróć do Barmana po wypłatę.",
+        "Barman: Kontrakt zamknięty. +30 KR! Sprzęt kupisz u Nyx po prawej.",
+        "Nyx: Witaj u Nyx. Wybierz sprzęt — płacisz kredytami z kontraktów.",
+        "Kupiono: Pałka impulsowa +1"
+      ]
+    },
+    "asset_sources": [
+      {
+        "id": "scene_original",
+        "source": "ORIGINAL",
+        "model": ""
+      },
+      {
+        "id": "cyber_rat",
+        "source": "META",
+        "model": "muse-image-1.0"
+      }
+    ],
+    "location_id": "corporate_street",
+    "journey_events": [
+      "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+      "Gracz odwiedził: ULICA CHESS CORP",
+      "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+      "Gracz odwiedził: ULICA CHESS CORP",
+      "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+      "Gracz odwiedził: ULICA CHESS CORP",
+      "Gracz odwiedził: LOBBY CHESS CORP",
+      "Gracz odwiedził: ULICA CHESS CORP"
+    ],
+    "player_position": [
+      620,
+      452
+    ],
+    "first_quest_complete": false,
+    "npcs": [
+      {
+        "npc_id": "buddy",
+        "source": "FALLBACK",
+        "position": [
+          537.4,
+          440.0
+        ],
+        "state": "PATROL",
+        "goal": "Przywitać rekruta i trzymać pozycję przy posterunku.",
+        "mood": "calm",
+        "memory": [
+          "Buddy PATROL / completed",
+          "Buddy: Spokojnie, rekrucie. Papierologia nie gryzie.",
+          "Buddy REACT_TO_PLAYER / expired",
+          "Buddy WAIT / completed",
+          "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+          "Gracz odwiedził: ULICA CHESS CORP"
+        ]
+      },
+      {
+        "npc_id": "security",
+        "source": "FALLBACK",
+        "position": [
+          662.8,
+          450.9
+        ],
+        "state": "PATROL",
+        "goal": "Pilnować terminali i obserwować Hackera.",
+        "mood": "suspicious",
+        "memory": [
+          "Gracz w pobliżu Security",
+          "Security: Stój na chwilę. Wszystko w porządku?",
+          "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+          "Security TALK_TO / completed",
+          "Security WAIT / completed",
+          "Gracz odwiedził: ULICA CHESS CORP"
+        ]
+      },
+      {
+        "npc_id": "hacker",
+        "source": "FALLBACK",
+        "position": [
+          775.3,
+          449.2
+        ],
+        "state": "TALK_TO",
+        "goal": "Zdobyć trop danych unikając Security.",
+        "mood": "curious",
+        "memory": [
+          "Hacker: Cicho, pogadajmy. Tylko bez Security.",
+          "Hacker MOVE_TO / completed",
+          "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+          "Hacker: Ten terminal skrywa więcej niż raporty.",
+          "Hacker INSPECT_TERMINAL / completed",
+          "Gracz odwiedził: ULICA CHESS CORP"
+        ]
+      },
+      {
+        "npc_id": "employee",
+        "source": "FALLBACK",
+        "position": [
+          448.6,
+          451.9
+        ],
+        "state": "TALK_TO",
+        "goal": "Pokazać się z jak najlepszej strony.",
+        "mood": "ambitious",
+        "memory": [
+          "Employee TALK_TO / completed",
+          "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+          "Employee INSPECT_TERMINAL / completed",
+          "Employee MOVE_TO / completed",
+          "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+          "Gracz odwiedził: ULICA CHESS CORP"
+        ]
+      }
+    ],
+    "events": [
+      "Security WAIT / completed",
+      "Employee INSPECT_TERMINAL / completed",
+      "Hacker: Ten terminal skrywa więcej niż raporty.",
+      "Buddy WAIT / completed",
+      "Employee MOVE_TO / completed",
+      "Hacker INSPECT_TERMINAL / completed",
+      "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+      "Gracz odwiedził: ULICA CHESS CORP"
+    ]
+  }
+}

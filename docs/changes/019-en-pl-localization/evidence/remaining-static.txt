@@ -1,0 +1,37 @@
+   Postęp: 
+ KR + łup. Spacja: cios. H: apteczka.
+ KR! Sprzęt kupisz u Nyx po prawej.
+ strona ulicy. Podejdź i naciśnij E.
+ szczurów. Wróć po nagrodę. Nyx sprzedaje sprzęt.
+, ? (stały przyrost).
+. NPC broni się.
+Chess Corp — Pierwszy dzień
+Gracz uderzył 
+Ja tylko czytam regulamin. Bardzo dokładnie.
+Kolejność: 
+Kolizja ze starą interakcją
+Kontrakt zamknięty. +
+Kto dziś zatwierdza awanse? Pytam dla kolegi.
+Na ulicy zostało 
+Nieobsługiwana wersja schematu
+Nieprawidłowa akcja COLLECT
+Nieprawidłowa akcja SEQUENCE
+Nieprawidłowa liczba obiektów
+Nieprawidłowa pozycja
+Nieprawidłowa próba
+Nieprawidłowa sekwencja
+Nieprawidłowa wersja
+Nieprawidłowe ID zadania
+Nieprawidłowe pola planu
+Nieprawidłowy obiekt lub miejsce
+Nieprawidłowy szablon zagadki
+Nieprawidłowy tekst
+Nieprawidłowy typ zadania
+Nieprawidłowy wygląd
+Niespójny warunek ukończenia
+Podaj następną liczbę: 
+Powtórzone ID lub miejsca
+Raport gotowy. Teraz niech ktoś to doceni.
+Sekwencja musi być permutacją trzech terminali
+Ten terminal skrywa więcej niż raporty.
+Widzę cię. Od terminala trzy kroki wstecz.

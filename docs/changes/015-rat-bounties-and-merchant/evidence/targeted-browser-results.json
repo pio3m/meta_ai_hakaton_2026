@@ -1,0 +1,924 @@
+{
+  "checkpoints": [
+    {
+      "name": "verified-hacker_hideout",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "hacker_emblem",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "hacker_hideout",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW"
+        ],
+        "player_position": [
+          110,
+          455
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "hacker_woman",
+            "source": "FALLBACK",
+            "position": [
+              378.8,
+              458.6
+            ],
+            "state": "PATROL",
+            "goal": "Odczytać archiwum i chronić kryjówkę.",
+            "mood": "curious",
+            "memory": [
+              "Cipher: Pakiet odszyfrowany. Korporacja czegoś szuka.",
+              "Cipher INSPECT_TERMINAL / completed",
+              "Cipher: Pilnuj wejścia. Mamy nowy trop.",
+              "Kontakt: Wejście czyste. Możesz czytać dalej.",
+              "Cipher TALK_TO / completed",
+              "Gracz odwiedził: KRYJÓWKA HAKERÓW"
+            ]
+          },
+          {
+            "npc_id": "hacker_contact",
+            "source": "FALLBACK",
+            "position": [
+              174.8,
+              454.4
+            ],
+            "state": "WAIT",
+            "goal": "Pilnować wejścia i pomóc Cipher.",
+            "mood": "curious",
+            "memory": [
+              "Cipher: Pilnuj wejścia. Mamy nowy trop.",
+              "Kontakt: Wejście czyste. Możesz czytać dalej.",
+              "Kontakt TALK_TO / completed",
+              "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+              "Gracz w pobliżu Kontakt",
+              "Kontakt: Pilnować wejścia i pomóc Cipher."
+            ]
+          }
+        ],
+        "events": [
+          "Cipher INSPECT_TERMINAL / completed",
+          "Cipher: Pilnuj wejścia. Mamy nowy trop.",
+          "Kontakt: Wejście czyste. Możesz czytać dalej.",
+          "Cipher TALK_TO / completed",
+          "Kontakt TALK_TO / completed",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+          "Gracz w pobliżu Kontakt",
+          "Kontakt: Pilnować wejścia i pomóc Cipher."
+        ]
+      }
+    },
+    {
+      "name": "verified-corporate_lobby",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          }
+        ],
+        "location_id": "corporate_lobby",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: LOBBY CHESS CORP"
+        ],
+        "player_position": [
+          110,
+          455
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "receptionist",
+            "source": "FALLBACK",
+            "position": [
+              398.0,
+              435.4
+            ],
+            "state": "INSPECT_TERMINAL",
+            "goal": "Obsługiwać rekrutów i rejestrować wizyty.",
+            "mood": "curious",
+            "memory": [
+              "Ochrona: Obchód zakończony. W lobby spokojnie.",
+              "Recepcja INSPECT_TERMINAL / expired",
+              "Recepcja MOVE_TO / completed",
+              "Gracz odwiedził: LOBBY CHESS CORP",
+              "Recepcja: Witamy w Chess Corp. Proszę przygotować identyfikator.",
+              "Recepcja REACT_TO_PLAYER / completed"
+            ]
+          },
+          {
+            "npc_id": "lobby_guard",
+            "source": "FALLBACK",
+            "position": [
+              501.5,
+              455.0
+            ],
+            "state": "PATROL",
+            "goal": "Patrolować lobby i strzec terminala.",
+            "mood": "curious",
+            "memory": [
+              "Ochrona: Obchód zakończony. W lobby spokojnie.",
+              "Ochrona TALK_TO / completed",
+              "Ochrona PATROL / completed",
+              "Ochrona: Obchód zakończony. W lobby spokojnie.",
+              "Ochrona TALK_TO / completed",
+              "Gracz odwiedził: LOBBY CHESS CORP"
+            ]
+          }
+        ],
+        "events": [
+          "Recepcja REACT_TO_PLAYER / expired",
+          "Ochrona: Obchód zakończony. W lobby spokojnie.",
+          "Ochrona TALK_TO / completed",
+          "Recepcja INSPECT_TERMINAL / expired",
+          "Recepcja MOVE_TO / completed",
+          "Gracz odwiedził: LOBBY CHESS CORP",
+          "Recepcja: Witamy w Chess Corp. Proszę przygotować identyfikator.",
+          "Recepcja REACT_TO_PLAYER / completed"
+        ]
+      }
+    },
+    {
+      "name": "verified-return-street",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "cyber_rat",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "corporate_street",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: LOBBY CHESS CORP",
+          "Gracz odwiedził: ULICA CHESS CORP"
+        ],
+        "player_position": [
+          620,
+          452
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "buddy",
+            "source": "MOCK",
+            "position": [
+              522.3,
+              440.0
+            ],
+            "state": "WAIT",
+            "goal": "Pomóc rekrutowi.",
+            "mood": "calm",
+            "memory": [
+              "Buddy WAIT / completed",
+              "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+              "Gracz odwiedził: ULICA CHESS CORP",
+              "Buddy PATROL / completed",
+              "Buddy: Spokojnie, rekrucie. Papierologia nie gryzie.",
+              "Buddy REACT_TO_PLAYER / completed"
+            ]
+          },
+          {
+            "npc_id": "security",
+            "source": "MOCK",
+            "position": [
+              775.7,
+              456.1
+            ],
+            "state": "PATROL",
+            "goal": "Utrzymać porządek.",
+            "mood": "alert",
+            "memory": [
+              "Security PATROL / completed",
+              "Security: Widzę cię. Od terminala trzy kroki wstecz.",
+              "Security TALK_TO / completed",
+              "Security WAIT / completed",
+              "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+              "Gracz odwiedził: ULICA CHESS CORP"
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "source": "MOCK",
+            "position": [
+              684.7,
+              451.2
+            ],
+            "state": "WAIT",
+            "goal": "Znaleźć trop danych.",
+            "mood": "curious",
+            "memory": [
+              "Hacker INSPECT_TERMINAL / completed",
+              "Hacker: Ja tylko czytam regulamin. Bardzo dokładnie.",
+              "Hacker TALK_TO / completed",
+              "Gracz odwiedził: ULICA CHESS CORP",
+              "Gracz w pobliżu Hacker",
+              "Hacker: Cicho, pogadajmy. Tylko bez Security."
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "source": "MOCK",
+            "position": [
+              364.5,
+              455.7
+            ],
+            "state": "MOVE_TO",
+            "goal": "Zasłużyć na awans.",
+            "mood": "ambitious",
+            "memory": [
+              "Employee MOVE_TO / completed",
+              "Employee: Kto dziś zatwierdza awanse? Pytam dla kolegi.",
+              "Employee TALK_TO / completed",
+              "Gracz odwiedził: ULICA CHESS CORP",
+              "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+              "Employee INSPECT_TERMINAL / completed"
+            ]
+          }
+        ],
+        "events": [
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz w pobliżu Hacker",
+          "Hacker: Cicho, pogadajmy. Tylko bez Security.",
+          "Buddy PATROL / completed",
+          "Buddy: Spokojnie, rekrucie. Papierologia nie gryzie.",
+          "Employee: Raport gotowy. Teraz niech ktoś to doceni.",
+          "Buddy REACT_TO_PLAYER / completed",
+          "Employee INSPECT_TERMINAL / completed"
+        ]
+      }
+    },
+    {
+      "name": "verified-barman-offer",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "available",
+          "contract_index": -1,
+          "kills": 0,
+          "target": 0,
+          "claimed_contracts": [],
+          "enemies": [],
+          "events": []
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "merchant",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "bar",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: LOBBY CHESS CORP",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER"
+        ],
+        "player_position": [
+          386.5750000000002,
+          455.0
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "bartender",
+            "source": "MOCK",
+            "position": [
+              388.7,
+              458.0
+            ],
+            "state": "WAIT",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "memory": [
+              "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+              "Barman PATROL / completed",
+              "Gracz w pobliżu Barman",
+              "Barman: Witaj w Cybroschligger. Co podać?",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt."
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "source": "MOCK",
+            "position": [
+              451.0,
+              458.0
+            ],
+            "state": "WAIT",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "memory": [
+              "Gościni PATROL / completed",
+              "Gracz w pobliżu Gościni",
+              "Gościni: Posłuchać plotek i odpocząć po pracy.",
+              "Gościni: Jeszcze jeden napój i żadnych raportów!",
+              "Gościni TALK_TO / completed",
+              "Gościni: Posłuchać plotek i odpocząć po pracy."
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "source": "MOCK",
+            "position": [
+              548.1,
+              455.5
+            ],
+            "state": "PATROL",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "memory": [
+              "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+              "Nyx PATROL / completed",
+              "Gracz w pobliżu Nyx",
+              "Nyx: Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Nyx TALK_TO / expired"
+            ]
+          }
+        ],
+        "events": [
+          "Gościni: Posłuchać plotek i odpocząć po pracy.",
+          "Gracz w pobliżu Nyx",
+          "Nyx: Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.",
+          "Gościni: Jeszcze jeden napój i żadnych raportów!",
+          "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+          "Nyx TALK_TO / expired",
+          "Gościni TALK_TO / completed",
+          "Gościni: Posłuchać plotek i odpocząć po pracy."
+        ]
+      }
+    },
+    {
+      "name": "verified-shop-no-free-item",
+      "state": {
+        "gameplay": {
+          "health": 100,
+          "max_health": 100,
+          "credits": 0,
+          "medkits": 1,
+          "weapon_upgrade": false,
+          "armor": false,
+          "bounty_state": "active",
+          "contract_index": 0,
+          "kills": 0,
+          "target": 3,
+          "claimed_contracts": [],
+          "enemies": [
+            {
+              "id": "rat-0-0",
+              "position": [
+                170.0,
+                455.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-1",
+              "position": [
+                410.0,
+                465.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            },
+            {
+              "id": "rat-0-2",
+              "position": [
+                740.0,
+                450.0
+              ],
+              "hp": 2,
+              "max_hp": 2
+            }
+          ],
+          "events": [
+            "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka."
+          ]
+        },
+        "asset_sources": [
+          {
+            "id": "scene_original",
+            "source": "ORIGINAL",
+            "model": ""
+          },
+          {
+            "id": "merchant",
+            "source": "META",
+            "model": "muse-image-1.0"
+          }
+        ],
+        "location_id": "bar",
+        "journey_events": [
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: KRYJÓWKA HAKERÓW",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: LOBBY CHESS CORP",
+          "Gracz odwiedził: ULICA CHESS CORP",
+          "Gracz odwiedził: BAR • CYBROSCHLIGGER"
+        ],
+        "player_position": [
+          811.5200000000004,
+          469.195
+        ],
+        "first_quest_complete": false,
+        "npcs": [
+          {
+            "npc_id": "bartender",
+            "source": "MOCK",
+            "position": [
+              328.3,
+              463.1
+            ],
+            "state": "PATROL",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "memory": [
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka.",
+              "Barman: Co podać? Dziś plotki są w cenie napoju.",
+              "Barman TALK_TO / completed",
+              "Barman: Zamówienie gotowe. Następny gość!",
+              "Barman INSPECT_TERMINAL / completed"
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "source": "MOCK",
+            "position": [
+              748.1,
+              465.9
+            ],
+            "state": "WAIT",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "memory": [
+              "Gościni TALK_TO / completed",
+              "Gościni: Posłuchać plotek i odpocząć po pracy.",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka.",
+              "Barman: Co podać? Dziś plotki są w cenie napoju.",
+              "Gracz w pobliżu Gościni",
+              "Gościni: Posłuchać plotek i odpocząć po pracy."
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "source": "MOCK",
+            "position": [
+              807.3,
+              467.4
+            ],
+            "state": "WAIT",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "memory": [
+              "Nyx: Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.",
+              "Nyx: Nowy łowca? Mam dla niego sprzęt.",
+              "Nyx TALK_TO / expired",
+              "Barman: DERATYZACJA / PIERWSZA ZMIANA: pokonaj 3 szczury na ulicy. Nagroda 30 KR + łup. Spacja: cios. H: apteczka.",
+              "Nyx PATROL / completed",
+              "Nyx: Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep."
+            ]
+          }
+        ],
+        "events": [
+          "Barman: Co podać? Dziś plotki są w cenie napoju.",
+          "Nyx PATROL / completed",
+          "Barman TALK_TO / completed",
+          "Nyx: Nyx. Apteczki, pałki impulsowe i pancerz. E otwiera sklep.",
+          "Barman: Zamówienie gotowe. Następny gość!",
+          "Barman INSPECT_TERMINAL / completed",
+          "Gracz w pobliżu Gościni",
+          "Gościni: Posłuchać plotek i odpocząć po pracy."
+        ]
+      }
+    }
+  ],
+  "plans": [
+    {
+      "location_id": "corporate_street",
+      "plan": {
+        "schema_version": 1,
+        "summary": "Lokalny rytm ulicy: patrol, dane i korporacyjne ambicje.",
+        "decisions": [
+          {
+            "npc_id": "buddy",
+            "goal": "Pomóc rekrutowi.",
+            "mood": "calm",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "buddy_left",
+                  "buddy_right"
+                ],
+                "duration_s": 6,
+                "text": ""
+              },
+              {
+                "action": "REACT_TO_PLAYER",
+                "target_id": "player",
+                "route": [],
+                "duration_s": 4,
+                "text": "Spokojnie, rekrucie. Papierologia nie gryzie."
+              },
+              {
+                "action": "WAIT",
+                "target_id": "none",
+                "route": [],
+                "duration_s": 3,
+                "text": ""
+              }
+            ]
+          },
+          {
+            "npc_id": "security",
+            "goal": "Utrzymać porządek.",
+            "mood": "alert",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "security_gate",
+                  "east_corner"
+                ],
+                "duration_s": 8,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "hacker",
+                "route": [],
+                "duration_s": 12,
+                "text": "Widzę cię. Od terminala trzy kroki wstecz."
+              },
+              {
+                "action": "WAIT",
+                "target_id": "none",
+                "route": [],
+                "duration_s": 3,
+                "text": ""
+              }
+            ]
+          },
+          {
+            "npc_id": "hacker",
+            "goal": "Znaleźć trop danych.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "data_terminal",
+                "route": [],
+                "duration_s": 13,
+                "text": "Ten terminal skrywa więcej niż raporty."
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "security",
+                "route": [],
+                "duration_s": 6,
+                "text": "Ja tylko czytam regulamin. Bardzo dokładnie."
+              },
+              {
+                "action": "MOVE_TO",
+                "target_id": "west_corner",
+                "route": [],
+                "duration_s": 12,
+                "text": ""
+              }
+            ]
+          },
+          {
+            "npc_id": "employee",
+            "goal": "Zasłużyć na awans.",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "MOVE_TO",
+                "target_id": "center",
+                "route": [],
+                "duration_s": 4,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "buddy",
+                "route": [],
+                "duration_s": 8,
+                "text": "Kto dziś zatwierdza awanse? Pytam dla kolegi."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "badge_terminal",
+                "route": [],
+                "duration_s": 8,
+                "text": "Raport gotowy. Teraz niech ktoś to doceni."
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "mock",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "eb02d20792714a0e8cb8e3e1f446673f",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 0,
+        "global_paid_calls": 0,
+        "tokens_used_or_reserved": 0,
+        "token_budget": 50000,
+        "max_output_tokens": 1800,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 2
+      },
+      "cached": false
+    },
+    {
+      "location_id": "bar",
+      "plan": {
+        "schema_version": 2,
+        "location_id": "bar",
+        "summary": "Lokalny rytm: BAR • CYBROSCHLIGGER",
+        "decisions": [
+          {
+            "npc_id": "bartender",
+            "goal": "Obsługiwać gości i zbierać plotki.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_counter",
+                  "bar_table"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bar_guest",
+                "route": [],
+                "duration_s": 8,
+                "text": "Co podać? Dziś plotki są w cenie napoju."
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "bar_counter",
+                "route": [],
+                "duration_s": 8,
+                "text": "Zamówienie gotowe. Następny gość!"
+              }
+            ]
+          },
+          {
+            "npc_id": "bar_guest",
+            "goal": "Posłuchać plotek i odpocząć po pracy.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_table",
+                  "bar_corner"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 8,
+                "text": "Jeszcze jeden napój i żadnych raportów!"
+              }
+            ]
+          },
+          {
+            "npc_id": "merchant",
+            "goal": "Sprzedawać legalny sprzęt łowcom i sprawdzać zapasy",
+            "mood": "ambitious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "bar_market",
+                  "bar_storage"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "bartender",
+                "route": [],
+                "duration_s": 8,
+                "text": "Nowy łowca? Mam dla niego sprzęt."
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "mock",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "70005605abfa4a0d8f613d66adc9fbfb",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 0,
+        "global_paid_calls": 0,
+        "tokens_used_or_reserved": 0,
+        "token_budget": 50000,
+        "max_output_tokens": 1800,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 1
+      },
+      "cached": false
+    },
+    {
+      "location_id": "hacker_hideout",
+      "plan": {
+        "schema_version": 2,
+        "location_id": "hacker_hideout",
+        "summary": "Lokalny rytm: KRYJÓWKA HAKERÓW",
+        "decisions": [
+          {
+            "npc_id": "hacker_woman",
+            "goal": "Odczytać archiwum i chronić kryjówkę.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "hack_terminal",
+                  "hack_desk"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "INSPECT_TERMINAL",
+                "target_id": "hack_terminal",
+                "route": [],
+                "duration_s": 8,
+                "text": "Pakiet odszyfrowany. Korporacja czegoś szuka."
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "hacker_contact",
+                "route": [],
+                "duration_s": 8,
+                "text": "Pilnuj wejścia. Mamy nowy trop."
+              }
+            ]
+          },
+          {
+            "npc_id": "hacker_contact",
+            "goal": "Pilnować wejścia i pomóc Cipher.",
+            "mood": "curious",
+            "actions": [
+              {
+                "action": "PATROL",
+                "target_id": "none",
+                "route": [
+                  "hack_door",
+                  "hack_desk"
+                ],
+                "duration_s": 12,
+                "text": ""
+              },
+              {
+                "action": "TALK_TO",
+                "target_id": "hacker_woman",
+                "route": [],
+                "duration_s": 8,
+                "text": "Wejście czyste. Możesz czytać dalej."
+              }
+            ]
+          }
+        ]
+      },
+      "provider": "mock",
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "error_detail": "",
+      "call_id": "9ec75575a92943f499b6bff560aa44e6",
+      "limits": {
+        "session_limit": 3,
+        "global_limit": 3,
+        "session_paid_calls": 0,
+        "global_paid_calls": 0,
+        "tokens_used_or_reserved": 0,
+        "token_budget": 50000,
+        "max_output_tokens": 1800,
+        "min_interval_seconds": 30.0,
+        "remaining_calls": 0
+      },
+      "cached": false
+    }
+  ],
+  "errors": []
+}

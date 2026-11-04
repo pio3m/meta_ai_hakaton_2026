@@ -150,7 +150,8 @@ def test_mock_labels_and_no_estimated_tokens():
         assert row['provider']=='mock' and row['usage'] is None and row['sent_to_model'] is False
         detail=client.get('/admin/api/calls/'+row['id']).json()
         assert detail['request_payload']['messages'][0]['role']=='developer'
-        assert 'context=' in detail['request_payload']['messages'][0]['content']
+        assert 'context=' not in detail['request_payload']['messages'][0]['content']
+        assert any(m['role']=='user' and 'GAME_CONTEXT_DATA' in m['content'] for m in detail['request_payload']['messages'])
 
 
 def test_pending_call_visible_before_reply():

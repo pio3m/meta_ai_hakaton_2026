@@ -1,0 +1,477 @@
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [backend internal] load build definition from Dockerfile
+#1 transferring dockerfile: 922B done
+#1 DONE 0.0s
+
+#2 [backend] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.6s
+
+#3 [backend] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#3 CACHED
+
+#4 [backend internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#4 ...
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.5s
+
+#4 [backend internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#4 DONE 0.6s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 499B done
+#6 DONE 0.0s
+
+#7 [backend internal] load build context
+#7 transferring context: 259.81kB 0.0s done
+#7 DONE 0.0s
+
+#8 [backend] FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#8 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#8 DONE 0.0s
+
+#9 [backend stage-0  1/13] FROM docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30
+#9 resolve docker.io/library/python:3.12-slim@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30 0.0s done
+#9 DONE 0.0s
+
+#10 [backend stage-0  4/13] COPY pyproject.toml uv.lock ./
+#10 CACHED
+
+#11 [backend stage-0  5/13] RUN uv sync --locked --only-group backend --no-install-project
+#11 CACHED
+
+#12 [backend stage-0  3/13] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /usr/local/bin/uv
+#12 CACHED
+
+#13 [backend stage-0  2/13] WORKDIR /app
+#13 CACHED
+
+#14 [backend stage-0  6/13] COPY backend ./backend
+#14 CACHED
+
+#15 [backend stage-0  7/13] COPY content ./content
+#15 DONE 0.0s
+
+#16 [backend stage-0  8/13] COPY assets/generated ./assets/generated
+#16 DONE 0.0s
+
+#17 [backend stage-0  9/13] COPY game/director_contract.py ./game/director_contract.py
+#17 DONE 0.0s
+
+#18 [backend stage-0 10/13] COPY game/world_contract.py ./game/world_contract.py
+#18 DONE 0.0s
+
+#19 [backend stage-0 11/13] COPY game/job_contract.py ./game/job_contract.py
+#19 DONE 0.0s
+
+#20 [backend stage-0 12/13] COPY game/i18n.py ./game/i18n.py
+#20 DONE 0.0s
+
+#21 [backend stage-0 13/13] COPY web/locale_bridge.js ./web/locale_bridge.js
+#21 DONE 0.0s
+
+#22 [backend] exporting to image
+#22 exporting layers
+#22 exporting layers 0.3s done
+#22 exporting manifest sha256:a906cd07bcf8ecdfe903a20a389c50758c045ba0e268c3feaa12c7d7dfff8f27 0.0s done
+#22 exporting config sha256:1534523e2d9b228a30a7845a39392fd678c124ff64de305846e22c1e505a9686 0.0s done
+#22 exporting attestation manifest sha256:c3e99dbe0d9dce902d1a3b159ac9117c3f3f4b0876cc5797f60b5db600e696f2 0.0s done
+#22 exporting manifest list sha256:6470172ad2c5666c9e9478bcb01ecb262c97b908edacee6e525e7d3f55daa7f3 0.0s done
+#22 naming to docker.io/library/chess-corp-backend:latest done
+#22 unpacking to docker.io/library/chess-corp-backend:latest 0.1s done
+#22 DONE 0.5s
+
+#23 [backend] resolving provenance for metadata file
+#23 DONE 0.0s
+
+#24 [game internal] load build definition from Dockerfile
+#24 transferring dockerfile: 798B done
+#24 DONE 0.0s
+
+#5 [game internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 0.5s
+
+#25 [game internal] load metadata for docker.io/library/nginx:stable-alpine
+#25 DONE 0.6s
+
+#26 [game internal] load .dockerignore
+#26 transferring context: 499B done
+#26 DONE 0.0s
+
+#27 [game builder  1/13] FROM docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+#27 resolve docker.io/library/python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1 0.0s done
+#27 DONE 0.0s
+
+#28 [game runtime 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949
+#28 resolve docker.io/library/nginx:stable-alpine@sha256:0e52bd054126cdc040b1276c0af347aeb02a41b9cfe305d6094767ac30e97949 0.0s done
+#28 DONE 0.0s
+
+#29 [game internal] load build context
+#29 transferring context: 1.88MB 0.1s done
+#29 DONE 0.1s
+
+#30 [game builder  3/13] RUN pip install --no-cache-dir pygbag==0.9.3
+#30 CACHED
+
+#31 [game builder  4/13] COPY tools/package_web.py tools/build_web.py ./tools/
+#31 CACHED
+
+#32 [game builder  2/13] WORKDIR /app
+#32 CACHED
+
+#33 [game builder  5/13] RUN python tools/build_web.py --fetch-runtime
+#33 CACHED
+
+#34 [game builder  6/13] COPY main.py ./
+#34 DONE 0.0s
+
+#35 [game builder  7/13] COPY game ./game
+#35 DONE 0.0s
+
+#36 [game builder  8/13] COPY content ./content
+#36 DONE 0.0s
+
+#37 [game builder  9/13] COPY assets/processed ./assets/processed
+#37 DONE 0.0s
+
+#38 [game builder 10/13] COPY assets/audio ./assets/audio
+#38 DONE 0.0s
+
+#39 [game builder 11/13] COPY assets/generated ./assets/generated
+#39 DONE 0.0s
+
+#40 [game builder 12/13] COPY web ./web
+#40 DONE 0.0s
+
+#41 [game builder 13/13] RUN python tools/build_web.py
+#41 0.354 Web source: /app/web_app
+#41 0.500 /usr/local/lib/python3.12/site-packages/pygbag/optimizing.py:62: UserWarning: Black not found for processing folder=PosixPath('/app/web_app')
+#41 0.500   warnings.warn(f"Black not found for processing {folder=}")
+#41 0.500 /bin/sh: 1: ffmpeg: not found
+#41 0.597  *pygbag 0.9.3*
+#41 0.597 
+#41 0.597 Serving python files from [/app/web_app/build/web]
+#41 0.597 
+#41 0.597 with no security/performance in mind, i'm just a test tool : don't rely on me
+#41 0.597 
+#41 0.597 
+#41 0.597 SUMMARY
+#41 0.597 ________________________
+#41 0.597 
+#41 0.597 # the app folder
+#41 0.597 app_folder=/app/web_app
+#41 0.597 
+#41 0.597 # artefacts directory
+#41 0.597 build_dir=/app/web_app/build/web
+#41 0.597 
+#41 0.597 # cache directory
+#41 0.597 cache=/app/web_app/build/web-cache
+#41 0.597 
+#41 0.597 # the window title and icon name
+#41 0.597 app_name=web_app
+#41 0.597 
+#41 0.597 # package name, better make it unique
+#41 0.597 package=web.pygame.web_app-1793829351
+#41 0.597 
+#41 0.597 # icons:  96x96 for desktop, 16x16 for web
+#41 0.597 icon=favicon.png
+#41 0.597 
+#41 0.597 # js/wasm provider
+#41 0.597 cdn=https://pygame-web.github.io/cdn/0.9.3/
+#41 0.597 
+#41 0.597 now packing application ....
+#41 0.597 
+#41 0.597 
+#41 0.597 WARNING: No pygbag.ini found! See: https://pygame-web.github.io/wiki/pygbag-configuration
+#41 0.597 Ignored dirs: []
+#41 0.597 Ignored files: []
+#41 0.597 Now in /
+#41 0.597      /main.py
+#41 0.597 Now in /assets/generated
+#41 0.597      /assets/generated/cyber_rat_1.png
+#41 0.597      /assets/generated/cyber_rat_2.png
+#41 0.597      /assets/generated/README.md
+#41 0.597      /assets/generated/merchant_2.png
+#41 0.597      /assets/generated/cyber_rat_0.png
+#41 0.597      /assets/generated/hacker_emblem.png
+#41 0.597      /assets/generated/cyber_rat.public.json
+#41 0.597      /assets/generated/merchant_3.png
+#41 0.597      /assets/generated/cyber_rat.png
+#41 0.597      /assets/generated/merchant.png
+#41 0.597      /assets/generated/cyber_rat_3.png
+#41 0.597      /assets/generated/merchant_1.png
+#41 0.597      /assets/generated/merchant_0.png
+#41 0.597      /assets/generated/hacker_emblem.public.json
+#41 0.597      /assets/generated/merchant.public.json
+#41 0.597 Now in /assets/audio
+#41 0.597      /assets/audio/LICENSE.md
+#41 0.597      /assets/audio/rat_down.wav
+#41 0.597      /assets/audio/README.md
+#41 0.597      /assets/audio/manifest.json
+#41 0.597      /assets/audio/ambient_hideout.wav
+#41 0.597      /assets/audio/heal.wav
+#41 0.597      /assets/audio/credits.wav
+#41 0.597      /assets/audio/ambient_lobby.wav
+#41 0.597      /assets/audio/shop_open.wav
+#41 0.597      /assets/audio/ambient_bar.wav
+#41 0.597      /assets/audio/shop_close.wav
+#41 0.597      /assets/audio/purchase.wav
+#41 0.597      /assets/audio/swing.wav
+#41 0.597      /assets/audio/ambient_street.wav
+#41 0.597      /assets/audio/door.wav
+#41 0.597      /assets/audio/conversation.wav
+#41 0.597      /assets/audio/hit.wav
+#41 0.597 Now in /assets/processed
+#41 0.597      /assets/processed/street.png
+#41 0.597      /assets/processed/player_1.png
+#41 0.597      /assets/processed/bar.png
+#41 0.597      /assets/processed/bartender_2.png
+#41 0.597      /assets/processed/bar_guest_2.png
+#41 0.597      /assets/processed/bartender_1.png
+#41 0.597      /assets/processed/corporate_lobby.png
+#41 0.597      /assets/processed/player_2.png
+#41 0.597      /assets/processed/bartender_3.png
+#41 0.597      /assets/processed/original_hologram.png
+#41 0.597      /assets/processed/bar_guest_1.png
+#41 0.597      /assets/processed/buddy.png
+#41 0.597      /assets/processed/font.ttf
+#41 0.597      /assets/processed/bar_guest_3.png
+#41 0.597      /assets/processed/hacker_hideout.png
+#41 0.597      /assets/processed/bar_guest_0.png
+#41 0.597      /assets/processed/bartender_0.png
+#41 0.597      /assets/processed/player_3.png
+#41 0.597      /assets/processed/player_0.png
+#41 0.597 Now in /game
+#41 0.597      /game/director_contract.py
+#41 0.597      /game/ui.py
+#41 0.597      /game/session_jobs.py
+#41 0.597      /game/adventure.py
+#41 0.597      /game/living_world.py
+#41 0.597      /game/__init__.py
+#41 0.597      /game/chat.py
+#41 0.597      /game/interactions.py
+#41 0.597      /game/world.py
+#41 0.597      /game/director.py
+#41 0.597      /game/world_contract.py
+#41 0.597      /game/asset_sync.py
+#41 0.597      /game/job_contract.py
+#41 0.597      /game/locations.py
+#41 0.597      /game/i18n.py
+#41 0.597      /game/player.py
+#41 0.597      /game/data.py
+#41 0.597      /game/quests.py
+#41 0.597      /game/audio.py
+#41 0.597 Now in /content
+#41 0.597      /content/quest_first_day.json
+#41 0.597      /content/locations.json
+#41 0.597      /content/scene.json
+#41 0.597      /content/adventure.json
+#41 0.597      /content/director_rules.json
+#41 0.597      /content/dialogues.json
+#41 0.597      /content/world_ai.json
+#41 0.597 Now in /content/i18n
+#41 0.597      /content/i18n/catalog.json
+#41 0.597 NOT optimizing /app/web_app
+#41 0.597 	/app/web_app : main.py
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_1.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_2.png
+#41 0.597 	/app/web_app : assets/generated/README.md
+#41 0.597 	/app/web_app : assets/generated/merchant_2.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_0.png
+#41 0.597 	/app/web_app : assets/generated/hacker_emblem.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat.public.json
+#41 0.597 	/app/web_app : assets/generated/merchant_3.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat.png
+#41 0.597 	/app/web_app : assets/generated/merchant.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_3.png
+#41 0.597 	/app/web_app : assets/generated/merchant_1.png
+#41 0.597 	/app/web_app : assets/generated/merchant_0.png
+#41 0.597 	/app/web_app : assets/generated/hacker_emblem.public.json
+#41 0.597 	/app/web_app : assets/generated/merchant.public.json
+#41 0.597 	/app/web_app : assets/audio/LICENSE.md
+#41 0.597 	/app/web_app : assets/audio/rat_down.wav
+#41 0.597 	/app/web_app : assets/audio/README.md
+#41 0.597 	/app/web_app : assets/audio/manifest.json
+#41 0.597 	/app/web_app : assets/audio/ambient_hideout.wav
+#41 0.597 	/app/web_app : assets/audio/heal.wav
+#41 0.597 	/app/web_app : assets/audio/credits.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_lobby.wav
+#41 0.597 	/app/web_app : assets/audio/shop_open.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_bar.wav
+#41 0.597 	/app/web_app : assets/audio/shop_close.wav
+#41 0.597 	/app/web_app : assets/audio/purchase.wav
+#41 0.597 	/app/web_app : assets/audio/swing.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_street.wav
+#41 0.597 	/app/web_app : assets/audio/door.wav
+#41 0.597 	/app/web_app : assets/audio/conversation.wav
+#41 0.597 	/app/web_app : assets/audio/hit.wav
+#41 0.597 	/app/web_app : assets/processed/street.png
+#41 0.597 	/app/web_app : assets/processed/player_1.png
+#41 0.597 	/app/web_app : assets/processed/bar.png
+#41 0.597 	/app/web_app : assets/processed/bartender_2.png
+#41 0.597 	/app/web_app : assets/processed/bar_guest_2.png
+#41 0.597 	/app/web_app : assets/processed/bartender_1.png
+#41 0.597 	/app/web_app : assets/processed/corporate_lobby.png
+#41 0.597 	/app/web_app : assets/processed/player_2.png
+#41 0.597 	/app/web_app : assets/processed/bartender_3.png
+#41 0.597 	/app/web_app : assets/processed/original_hologram.png
+#41 0.597 	/app/web_app : assets/processed/bar_guest_1.png
+#41 0.597 	/app/web_app : assets/processed/buddy.png
+#41 0.597 	/app/web_app : assets/processed/font.ttf
+#41 0.597 	/app/web_app : assets/processed/bar_guest_3.png
+#41 0.597 	/app/web_app : assets/processed/hacker_hideout.png
+#41 0.597 	/app/web_app : assets/processed/bar_guest_0.png
+#41 0.597 	/app/web_app : assets/processed/bartender_0.png
+#41 0.597 	/app/web_app : assets/processed/player_3.png
+#41 0.597 	/app/web_app : assets/processed/player_0.png
+#41 0.597 	/app/web_app : game/director_contract.py
+#41 0.597 	/app/web_app : game/ui.py
+#41 0.597 	/app/web_app : game/session_jobs.py
+#41 0.597 	/app/web_app : game/adventure.py
+#41 0.597 	/app/web_app : game/living_world.py
+#41 0.597 	/app/web_app : game/__init__.py
+#41 0.597 	/app/web_app : game/chat.py
+#41 0.597 	/app/web_app : game/interactions.py
+#41 0.597 	/app/web_app : game/world.py
+#41 0.597 	/app/web_app : game/director.py
+#41 0.597 	/app/web_app : game/world_contract.py
+#41 0.597 	/app/web_app : game/asset_sync.py
+#41 0.597 	/app/web_app : game/job_contract.py
+#41 0.597 	/app/web_app : game/locations.py
+#41 0.597 	/app/web_app : game/i18n.py
+#41 0.597 	/app/web_app : game/player.py
+#41 0.597 	/app/web_app : game/data.py
+#41 0.597 	/app/web_app : game/quests.py
+#41 0.597 	/app/web_app : game/audio.py
+#41 0.597 	/app/web_app : content/quest_first_day.json
+#41 0.597 	/app/web_app : content/locations.json
+#41 0.597 	/app/web_app : content/scene.json
+#41 0.597 	/app/web_app : content/adventure.json
+#41 0.597 	/app/web_app : content/director_rules.json
+#41 0.597 	/app/web_app : content/dialogues.json
+#41 0.597 	/app/web_app : content/world_ai.json
+#41 0.597 	/app/web_app : content/i18n/catalog.json
+#41 0.597 	/app/web_app : main.py
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_1.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_2.png
+#41 0.597 	/app/web_app : assets/generated/README.md
+#41 0.597 	/app/web_app : assets/generated/merchant_2.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_0.png
+#41 0.597 	/app/web_app : assets/generated/hacker_emblem.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat.public.json
+#41 0.597 	/app/web_app : assets/generated/merchant_3.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat.png
+#41 0.597 	/app/web_app : assets/generated/merchant.png
+#41 0.597 	/app/web_app : assets/generated/cyber_rat_3.png
+#41 0.597 	/app/web_app : assets/generated/merchant_1.png
+#41 0.597 	/app/web_app : assets/generated/merchant_0.png
+#41 0.597 	/app/web_app : assets/generated/hacker_emblem.public.json
+#41 0.597 	/app/web_app : assets/generated/merchant.public.json
+#41 0.597 	/app/web_app : assets/audio/LICENSE.md
+#41 0.597 	/app/web_app : assets/audio/rat_down.wav
+#41 0.597 	/app/web_app : assets/audio/README.md
+#41 0.597 	/app/web_app : assets/audio/manifest.json
+#41 0.597 	/app/web_app : assets/audio/ambient_hideout.wav
+#41 0.597 	/app/web_app : assets/audio/heal.wav
+#41 0.597 	/app/web_app : assets/audio/credits.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_lobby.wav
+#41 0.597 	/app/web_app : assets/audio/shop_open.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_bar.wav
+#41 0.597 	/app/web_app : assets/audio/shop_close.wav
+#41 0.597 	/app/web_app : assets/audio/purchase.wav
+#41 0.597 	/app/web_app : assets/audio/swing.wav
+#41 0.597 	/app/web_app : assets/audio/ambient_street.wav
+#41 0.597 	/app/web_app : assets/audio/door.wav
+#41 0.874 	/app/web_app : assets/audio/conversation.wav
+#41 0.874 	/app/web_app : assets/audio/hit.wav
+#41 0.874 	/app/web_app : assets/processed/street.png
+#41 0.874 	/app/web_app : assets/processed/player_1.png
+#41 0.874 	/app/web_app : assets/processed/bar.png
+#41 0.874 	/app/web_app : assets/processed/bartender_2.png
+#41 0.874 	/app/web_app : assets/processed/bar_guest_2.png
+#41 0.874 	/app/web_app : assets/processed/bartender_1.png
+#41 0.874 	/app/web_app : assets/processed/corporate_lobby.png
+#41 0.874 	/app/web_app : assets/processed/player_2.png
+#41 0.874 	/app/web_app : assets/processed/bartender_3.png
+#41 0.874 	/app/web_app : assets/processed/original_hologram.png
+#41 0.874 	/app/web_app : assets/processed/bar_guest_1.png
+#41 0.874 	/app/web_app : assets/processed/buddy.png
+#41 0.874 	/app/web_app : assets/processed/font.ttf
+#41 0.874 	/app/web_app : assets/processed/bar_guest_3.png
+#41 0.874 	/app/web_app : assets/processed/hacker_hideout.png
+#41 0.874 	/app/web_app : assets/processed/bar_guest_0.png
+#41 0.874 	/app/web_app : assets/processed/bartender_0.png
+#41 0.874 	/app/web_app : assets/processed/player_3.png
+#41 0.874 	/app/web_app : assets/processed/player_0.png
+#41 0.874 	/app/web_app : game/director_contract.py
+#41 0.874 	/app/web_app : game/ui.py
+#41 0.874 	/app/web_app : game/session_jobs.py
+#41 0.874 	/app/web_app : game/adventure.py
+#41 0.874 	/app/web_app : game/living_world.py
+#41 0.874 	/app/web_app : game/__init__.py
+#41 0.874 	/app/web_app : game/chat.py
+#41 0.874 	/app/web_app : game/interactions.py
+#41 0.874 	/app/web_app : game/world.py
+#41 0.874 	/app/web_app : game/director.py
+#41 0.874 	/app/web_app : game/world_contract.py
+#41 0.874 	/app/web_app : game/asset_sync.py
+#41 0.874 	/app/web_app : game/job_contract.py
+#41 0.874 	/app/web_app : game/locations.py
+#41 0.874 	/app/web_app : game/i18n.py
+#41 0.874 	/app/web_app : game/player.py
+#41 0.874 	/app/web_app : game/data.py
+#41 0.874 	/app/web_app : game/quests.py
+#41 0.874 	/app/web_app : game/audio.py
+#41 0.874 	/app/web_app : content/quest_first_day.json
+#41 0.874 	/app/web_app : content/locations.json
+#41 0.874 	/app/web_app : content/scene.json
+#41 0.874 	/app/web_app : content/adventure.json
+#41 0.874 	/app/web_app : content/director_rules.json
+#41 0.874 	/app/web_app : content/dialogues.json
+#41 0.874 	/app/web_app : content/world_ai.json
+#41 0.874 	/app/web_app : content/i18n/catalog.json
+#41 0.874 packing 79 files complete
+#41 0.874 
+#41 0.874     caching template https://pygame-web.github.io/cdn/0.9.3/default.tmpl
+#41 0.874     cached locally at /app/web_app/build/web-cache/27613e24ba16d44f2a5c88150c6d64e5.tmpl
+#41 0.874     result files will be in /app/web_app/build/web
+#41 0.874 
+#41 0.874 urllib.request.urlretrieve("https://pygame-web.github.io/cdn/0.9.3/default.tmpl", "/app/web_app/build/web-cache/27613e24ba16d44f2a5c88150c6d64e5.tmpl")
+#41 0.874 urllib.request.urlretrieve("https://pygame-web.github.io/cdn/0.9.3/favicon.png", "/app/web_app/build/web-cache/29a2a48092f8c1a6595a20019f830691.png")
+#41 0.874 
+#41 0.874         caching icon https://pygame-web.github.io/cdn/0.9.3/favicon.png
+#41 0.874         cached locally at /app/web_app/build/web-cache/29a2a48092f8c1a6595a20019f830691.png
+#41 0.874         
+#41 0.874 
+#41 0.874     build only requested, not running testserver, files ready here :
+#41 0.874 
+#41 0.874 build_dir = /app/web_app/build/web
+#41 0.874 
+#41 0.874 
+#41 0.895 Bundled pygame WASM SHA256: 4f2caa3020592950565f3649c41e2eeacd001be93da892d60e5a4a43d893a323
+#41 DONE 0.9s
+
+#42 [game runtime 2/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#42 CACHED
+
+#43 [game runtime 3/3] COPY --from=builder /app/web_app/build/web/ /usr/share/nginx/html/
+#43 DONE 0.1s
+
+#44 [game] exporting to image
+#44 exporting layers 0.2s done
+#44 exporting manifest sha256:4badb3ad04d16bd182f1f23209722d9e5562c6d29e68c1e165f3a494820958f0 0.0s done
+#44 exporting config sha256:99d675ce56fdf960c7a360b9149f59fe8d4fcc17524a6b6c82f101bff490630f 0.0s done
+#44 exporting attestation manifest sha256:d208a60a7b74f33861a0d5e009eae23b41ac66ec4013ea2d56982b3a80bce5df 0.0s done
+#44 exporting manifest list sha256:783ec5aafdd68851cd2fd4a3533be45df2fb17b4c0dfb1db0d74a87f82096fb4 0.0s done
+#44 naming to docker.io/library/chess-corp-game:latest done
+#44 unpacking to docker.io/library/chess-corp-game:latest 0.0s done
+#44 DONE 0.3s
+
+#45 [game] resolving provenance for metadata file
+#45 DONE 0.0s
+ backend  Built
+ game  Built

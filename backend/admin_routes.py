@@ -89,6 +89,8 @@ def register_inspector(app,settings,store):
 
     @router.get('/assets/{name}')
     async def asset(name: str):
+        if name=='locale.js':return FileResponse(Path(__file__).parent.parent/'web/locale_bridge.js')
+        if name=='i18n.json':return FileResponse(Path(__file__).parent.parent/'content/i18n/catalog.json')
         if name not in ('inspector.css','inspector.js'):
             raise HTTPException(404)
         return FileResponse(ASSETS/name)
@@ -107,7 +109,7 @@ def register_inspector(app,settings,store):
 
     @router.get('/api/calls',dependencies=[Depends(access.owner)])
     async def calls():
-        return {'calls':store.list(),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode}
+        return {'world_text_languages':store.presentation_languages(),'world_state':store.latest_presence(),'calls':store.list(),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode,'world_mode':settings.world_ai_mode}
 
     @router.get('/api/calls/{call_id}',dependencies=[Depends(access.owner)])
     async def detail(call_id: str):
@@ -135,7 +137,7 @@ def register_inspector(app,settings,store):
     @router.get('/jury/api/calls')
     async def jury_calls(request: Request):
         session_id=access.jury_session(request.cookies.get(JURY_COOKIE,''))
-        return {'calls':store.list(session_id=session_id,jury=True),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode}
+        return {'world_text_languages':store.presentation_languages(session_id),'world_state':store.latest_presence(session_id),'calls':store.list(session_id=session_id,jury=True),'limit':200,'mode':settings.mode,'director_mode':settings.director_mode,'world_mode':settings.world_ai_mode}
 
     @router.post('/jury/api/logout')
     async def jury_logout(response: Response):

@@ -13,12 +13,12 @@
   const encodeResponse = (value) => JSON.stringify(value).replace(/[-￿]/g,
     char => '\\u' + char.charCodeAt(0).toString(16).padStart(4, '0'));
   window.chessCorpRequestSend = (encoded, path) => {
-    if (!["/api/chat","/api/director","/api/director/execution"].includes(path)) throw new Error("Invalid endpoint");
+    if (!["/api/chat","/api/director","/api/director/execution","/api/director/jobs","/api/director/jobs/execution","/api/assets/updates","/api/world/plan","/api/world/execution","/api/world/presence"].includes(path)) throw new Error("Invalid endpoint");
     const id = String(++counter);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 35000);
     fetch(path, {
-      method: 'POST', headers: {'Content-Type': 'application/json'},
+      method: 'POST', headers: {'Content-Type': 'application/json','X-Chess-Language':window.chessCorpGetLanguage?.()??'en'},
       body: encoded, signal: controller.signal,
     }).then(async (response) => {
       let data;

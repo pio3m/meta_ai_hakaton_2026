@@ -75,7 +75,8 @@ def patch_html(html):
 #chess-start button{background:#64e0ef;color:#081622;border:0;padding:14px 36px;font-size:20px;cursor:pointer;margin:18px auto}
 #chess-start p{max-width:640px;line-height:1.5}
 #infobox{display:none!important}
-canvas.emscripten{image-rendering:pixelated;object-fit:contain}
+html,body{margin:0;background:#081622;overflow:hidden}
+canvas.emscripten{image-rendering:pixelated;object-fit:contain;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;border:0;outline:none;background:#081622}
 </style>
 <section id="chess-start" aria-label="Uruchamianie gry">
 <h1>CHESS CORP</h1>
@@ -104,15 +105,18 @@ canvas.emscripten{image-rendering:pixelated;object-fit:contain}
 })();
 </script>
 '''
-    return html.replace('</body>', overlay + '</body>')
+    return html.replace('</body>', '<script src="/audio_bridge.js"></script>'+overlay + '<script src="/locale.js"></script></body>')
 
 
 def main():
     subprocess.run([sys.executable, str(ROOT/'tools/package_web.py')], cwd=ROOT, check=True)
-    subprocess.run([sys.executable, '-m', 'pygbag', '--build', 'web_app'], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, '-m', 'pygbag', '--build', '--no_opt', '--disable-sound-format-error', 'web_app'], cwd=ROOT, check=True)
     build = ROOT/'web_app/build/web'
     import shutil
     shutil.copy2(ROOT/'web/chat_bridge.js', build/'chat_bridge.js')
+    shutil.copy2(ROOT/'web/audio_bridge.js', build/'audio_bridge.js')
+    shutil.copy2(ROOT/'web/locale_bridge.js', build/'locale.js')
+    shutil.copy2(ROOT/'content/i18n/catalog.json', build/'i18n.json')
     target = build/'runtime'/WHEEL_PATH
     target.parent.mkdir(parents=True, exist_ok=True)
     payload = fetch_runtime()
