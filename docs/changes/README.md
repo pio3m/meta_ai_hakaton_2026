@@ -41,3 +41,5 @@ Zacznij od [szablonu changelogu](_template/CHANGELOG.md) i [szablonu raportu](_t
 | 020 | Profil płatny do nagrania demo | [Zmiany](020-live-demo-limits/CHANGELOG.md) | [Raport](020-live-demo-limits/REPORT.md) |
 
 | 021 | Publiczne repozytorium GitHub | [Zmiany](021-public-github/CHANGELOG.md) | [Raport](021-public-github/REPORT.md) |
+
+| 022 | Angielski README i archiwum historii | [Zmiany](022-readme-cleanup/CHANGELOG.md) | [Raport](022-readme-cleanup/REPORT.md) |

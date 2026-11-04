@@ -1,254 +1,197 @@
-# Chess Corp — Living AI World
+# Chess Corp
 
-A playable cyberpunk game built with **Pygame CE / pygbag**, **FastAPI** and **Meta Muse Spark**. Explore four connected locations, talk to NPCs with individual identities, complete validated AI-generated quests, fight cyber-rats and buy equipment from Nyx. The AI Inspector exposes model decisions, token usage, validation and execution telemetry.
+**AI-Driven Cyberpunk RPG / Living AI World**
 
-- **EN / PL:** English by default; click the language selector or press F2.
-- **Living World:** shared, structured plans for multiple NPCs, short-term memory and deterministic local execution.
-- **Quest Director:** COLLECT, SEQUENCE and LOGIC_PUZZLE, plus two fresh collection jobs per session. Rat bounty contracts are authored gameplay, not dynamically generated quests.
-- **Safe demo:** mock mode works without an API key; real Meta calls require explicit environment flags and bounded budgets.
-- **Inspector:** owner access at `/admin`; separate, expiring session-scoped jury access at `/admin/jury`.
+Built for the **Meta AI Hackathon 2026**.
+
+Explore a neon corporate district where NPCs have their own goals, memories and conversations. Meta Muse Spark generates dialogue, playable quest plans and coordinated NPC decisions. The game validates those plans and executes them through deterministic rules.
+
+![Chess Corp: the central street, NPCs and English game interface](docs/changes/019-en-pl-localization/evidence/01-en-street.png)
+
+## Demo
+
+**YouTube walkthrough:** link to be added.
+
+To reproduce the demo locally, follow [Quick start](#quick-start), open the game and keep the [AI Inspector](#ai-inspector-and-jury-view) beside it. The public repository starts in MOCK mode; live Meta inference is an explicit opt-in.
+
+## Gameplay
+
+- **Four connected locations:** Chess Corp Street, Cybroschligger Bar, Hacker Hideout and Corporate Lobby. Door transitions preserve quests, inventory, conversations and NPC state within the current run.
+- **NPC identities:** Buddy, Security, Hacker, Employee and location-specific characters, including the bartender, Nyx and corporate staff. NPCs move, patrol, inspect terminals, talk and react to the player. They stop nearby for conversation.
+- **Dynamic quests:** collect objects, activate three terminals in an AI-selected sequence, or solve a constrained logic puzzle. Two additional collection jobs are generated at the start of a fresh backend session.
+- **Deterministic puzzles:** the model personalizes approved arithmetic templates; the engine constructs the question and checks the unique answer. Incorrect terminal order resets sequence progress.
+- **Combat and economy:** fight cyber-rats, complete bartender contracts, collect credits and buy medkits, a weapon upgrade or armour from Nyx. Attacking an NPC can provoke a defensive response.
+- **Inventory and progression:** carry quest items, earn rewards and retain purchases while travelling between locations. Restarting a run resets gameplay progress; this is not a persistent-save RPG.
+- **EN / PL:** English is the default. The language preference survives location changes and page refreshes. Previously generated text in another language remains explicitly marked as original content.
+- **Local audio:** conversation, combat, doors, purchases and rewards have synthesized effects. Interior locations have ambient sound; the street rain/city-noise loop is currently muted.
+
+The introductory badge quest and rat bounty contracts are authored scenarios. The AI-generated collection jobs and Director quests are separate systems; rat contracts are not presented as newly generated model output.
+
+## Three systems powered by Meta Muse Spark
+
+### Buddy AI
+
+Buddy is the player's corporate guide. Text chat also supports nearby NPCs with their own identity, role, goals and conversation history. Requests include bounded game context and use the player's selected language.
+
+The local NPC Guard classifies requests as `ALLOWED`, `OUT_OF_SCOPE` or `BLOCKED`, helping keep conversations inside Chess Corp and resist instruction-extraction and prompt-injection attempts. It does not add a separate paid LLM call to every message and is not a guarantee against every possible attack.
+
+### AI Game Director
+
+After the introductory quest, the Director can choose `COLLECT`, `SEQUENCE` or `LOGIC_PUZZLE`. A separate session-job request creates two collection errands for a fresh backend session, including descriptive text, approved placements and credit rewards.
+
+The model returns a structured JSON plan, never executable code. Pydantic validation and client-side checks constrain allowed actions, object IDs, locations and completion conditions. The engine checks interactions, solves puzzle rules and awards each collection-job reward once.
+
+Press **J** to view session jobs; it opens the journal rather than generating another plan. A new ordinary run creates a new session. For a new jury demonstration, create a new demo session in the owner panel: restarting inside the same demo-session link can reuse that session's accepted jobs.
+
+### Living World AI
+
+One batched request plans behaviour for several NPCs using their current location, goals, moods, short-term memories and recent world events. Approved actions are `MOVE_TO`, `PATROL`, `WAIT`, `TALK_TO`, `INSPECT_TERMINAL` and `REACT_TO_PLAYER`.
+
+Pygame performs movement and action transitions locally. Model updates are rate-limited, not requested every frame. If the API is slow, unavailable or over budget, local behaviour keeps the world active. `MOCK`, `META` and `FALLBACK` remain distinct sources in the Inspector.
+
+## Meta Muse Image assets
+
+The backend integrates Meta Muse Image (`muse-image-1.0`) for a small approved asset registry: a hacker-hideout emblem, a cyber-rat and Nyx. Generated assets are included with public provenance manifests.
+
+Image processing converts results to game-ready PNGs, applies nearest-neighbour scaling and, for sprites, removes the explicitly requested chroma-key background. Four lightweight animation frames are derived locally from a generated sprite; they are not four independent model generations.
+
+Assets are cached on disk and reused. **Starting or refreshing the game does not generate new images.** The authenticated owner panel provides explicit regeneration and cache-clearing controls; the game periodically picks up updated assets. Clearing generated files does not remove original artwork or reset spending records. Missing assets fall back to existing game graphics.
+
+The Inspector distinguishes a cached asset from a new Meta generation and can show its source, model, latency and preview.
+
+## Architecture
+
+| Layer | Implementation |
+|---|---|
+| Game client | Pygame CE, packaged with pygbag for Python/WebAssembly in the browser |
+| Web delivery | Nginx serves the game and forwards API requests to FastAPI |
+| Backend | FastAPI adapters for NPC chat, quests, World AI, assets and Inspector access |
+| AI | Meta Muse Spark for text and structured decisions; Meta Muse Image for assets |
+| Contracts | Closed JSON schemas, Pydantic validation and matching client-side checks |
+| Execution | Deterministic local movement, combat, collection and puzzle rules |
+| State | In-memory sessions and call history; cached assets and configured spending records on disk |
+
+AI selects narrative content and permitted plans; it does not execute code or directly mutate game state. The browser talks to the backend, and the Meta API key stays on the server. The demo runs with Docker Compose and does not require additional cloud or observability services.
+
+## AI Inspector and jury view
+
+Open **[the owner Inspector](http://localhost:8080/admin)** and sign in using the `ADMIN_TOKEN` configured in your local `.env`.
+
+The Inspector retains the latest **200 calls in RAM**, updates automatically and shows:
+
+- Provider and model, latency, token usage when available, and errors.
+- The actual outgoing payload and model response in the authenticated owner view, with secret masking.
+- Generated JSON plans, validation results and reported execution progress.
+- The active location, NPC goals, states, memories and recent events.
+- Asset provenance, generation/cache status and previews.
+
+For a presentation:
+
+1. Create a demo session in the owner panel.
+2. Open the generated **game-session link**.
+3. In a separate browser profile or incognito window, open **[the jury view](http://localhost:8080/admin/jury)** and enter the issued jury token.
+4. Show a `Director / SESSION_JOBS` call beside the matching quests under **J**, then complete a quest and show its execution result.
+
+The jury capability expires after 30 minutes and is limited to its assigned session. Full prompts, conversation histories and session identifiers are hidden from that view. The jury interface defaults to English; the owner panel defaults to Polish and has a language selector. Restarting the backend clears the in-memory Inspector history and access sessions.
 
 ## Quick start
 
-```powershell
-Copy-Item .env.example .env
-# Set a long, random ADMIN_TOKEN in .env to enable the owner Inspector.
-docker compose up --build -d
-```
-
-Open **http://localhost:8080/**. Defaults are MOCK with paid calls disabled. Never commit your `.env`, API key or spending ledgers. Real Meta configuration is described in the reports below; the repository does not include the local paid recording configuration.
-
-Controls: **WASD** move, **E** interact, **T** NPC text chat, **F** doors, **J** session jobs, **Space** attack, **H** heal, **Tab** map, **M** audio, **F2** language, **R** new run.
-
-The original artwork is supplied by the project owner and is not declared open source by this repository. Generated asset provenance is recorded in public manifests. Original synthesized audio has its own license in `assets/audio/LICENSE.md`.
-
-## Development history and Polish documentation
-
-The sections below document successive milestones. Statements about active modes, budgets and test counts are historical; current defaults are defined by `.env.example` and `backend/settings.py`.
-
-# Chess Corp — grywalny POC
-
-## Finał: połączony świat (04.11.2026)
-
-Działają cztery lokacje: **ulica, oryginalny bar Cybroschligger, kryjówka hakerów i lobby**, z 10 NPC łącznie. **F** przy opisanych drzwiach przenosi do lokacji, **E** rozmawia/obsługuje obiekt, **Tab** pokazuje mapę. Questy, ekwipunek, rozmowy i NPC zachowują stan podczas podróży.
-
-Uruchom `docker compose up --build -d`, otwórz nową kartę http://localhost:8080 i kliknij Graj. Drugie okno: http://localhost:8080/admin; dla jury użyj wydzielonej sesji i /admin/jury.
-
-Obecnie **Buddy, Quest Director, World AI i Asset Generator są w mocku, wszystkie płatne zgody false**. Kryjówka zawiera już prawdziwą grafikę Muse Image z cache; nie generuje się przy starcie. Ukończony test: 3 World AI + 1 obraz, 0 płatnych Buddy i Quest Director. Ponowne włączenie World META opisuje raport; budżet domyślny to 3 wywołania na cały backend. Nie trzeba ponawiać obrazu.
-
-[Pełny raport finału, testy, koszty i screenshoty](docs/changes/014-connected-living-world/REPORT.md).
-
-
-NPC zatrzymuje się po podejściu, E wyświetla kolejną kwestię; po odejściu wraca do swoich zajęć. [Raport rozmów z NPC](docs/changes/013-npc-stop-and-talk/REPORT.md).
-
-Bieżąca konfiguracja: **Buddy, Game Director i World AI wyłącznie MOCK; wszystkie zgody na płatne wywołania są wyłączone.** Uproszczony interfejs: jeden dialog, polskie czynności NPC i odsłonięta ulica. [Raport zmiany UI](docs/changes/012-readable-ui/REPORT.md).
-
-## Living AI World — demo dla jury (04.11.2026)
-
-Na ulicy działają czterej animowani NPC: Buddy, Security, Hacker i Employee. Każdy ma cel, nastrój i krótką pamięć. Świat działa od razu lokalnie; nie trzeba ukończyć pierwszego questu. Domyślnie World AI jest w trybie **MOCK**. Lokalne zachowania zastępcze są jawnie oznaczone **FALLBACK**.
-
-Uruchom `docker compose up --build -d`, otwórz http://localhost:8080 i kliknij **Graj**. WASD — ruch, E — interakcja, Esc — zamknięcie rozmowy, R — nowy start. W drugim oknie otwórz http://localhost:8080/admin. Panel właściciela wymaga istniejącego `ADMIN_TOKEN`; do prezentacji utwórz tam sesję demonstracyjną i użyj jej linku gry oraz osobnego widoku `/admin/jury` z tokenem jury, najlepiej w oknie incognito.
-
-Aby włączyć prawdziwe decyzje świata, w lokalnym `.env` ustaw:
-
-```dotenv
-WORLD_AI_MODE=meta
-WORLD_AI_ALLOW_PAID_REQUESTS=true
-WORLD_AI_SESSION_LIMIT=3
-WORLD_AI_GLOBAL_LIMIT=3
-WORLD_AI_MIN_INTERVAL_SECONDS=30
-WORLD_AI_MAX_OUTPUT_TOKENS=1800
-WORLD_AI_TOKEN_BUDGET=50000
-```
-
-Zachowaj istniejący `MODEL_API_KEY` na backendzie i `META_MODEL=muse-spark-1.3`. Po zmianie wykonaj `docker compose up -d --force-recreate backend game` i otwórz nową kartę gry. World AI ma własną zgodę na płatne wywołania; nie wymaga włączania Buddy’ego lub Game Directora. Jeżeli chcesz płacić wyłącznie za świat, ustaw dodatkowo `BUDDY_MODE=mock`, `DIRECTOR_MODE=mock`, `META_ALLOW_PAID_REQUESTS=false` i `DIRECTOR_ALLOW_PAID_REQUESTS=false`.
-
-Planowanie następuje co około 31 sekund, z ostatnimi zdarzeniami i pamięcią NPC. Po trzech płatnych próbach cały backend przestaje generować następne plany i świat kontynuuje lokalnie. Limit globalny dotyczy jednego procesu backendu, wspólnie dla wszystkich okien; licznik RAM zeruje się po jego restarcie. W Compose działa jeden proces. Tokeny bez danych usage pozostają konserwatywnie zarezerwowane. Po pokazie ustaw `WORLD_AI_ALLOW_PAID_REQUESTS=false`, `WORLD_AI_MODE=mock` i odtwórz kontenery tą samą komendą.
-
-W tym etapie wykonano **3 płatne wywołania World AI, 0 Buddy i 0 Game Director**. Wszystkie trzy plany przeszły walidację. Szczegóły, ograniczenia i dowody: [raport Living AI World](docs/changes/011-living-ai-world/REPORT.md).
-
-
-[Dokumentacja projektu i raporty zmian](docs/README.md).
-
-> **POC 04 — NPC Guard:** Buddy ma lokalną ochronę wejścia, kontekstu, historii i odpowiedzi. Inspector pokazuje **ALLOWED / OUT_OF_SCOPE / BLOCKED** oraz powód decyzji i odpowiedź dostarczoną graczowi. Jawne ataki i rozpoznane prośby spoza gry otrzymują odpowiedź lokalną, bez wywołania modelu; dozwolona rozmowa korzysta z dotychczasowego pojedynczego wywołania. [Raport POC 04](docs/changes/010-npc-guard/REPORT.md).
-
-Guard działa w mocku i Meta bez dodatkowej usługi. Nie zmienia zasad questów. To ochrona warstwowa oparta na regułach i instrukcji postaci, nie gwarancja rozpoznania każdego możliwego jailbreaku. Instrukcja bezkosztowych testów znajduje się w raporcie.
-
-
-> **POC 03.5 — Dynamic Quests & Puzzles:** Director obsługuje **COLLECT**, **SEQUENCE** i **LOGIC_PUZZLE**. W trybie mock naciśnij **F4 przed ukończeniem pierwszego questu**, aby wybrać scenariusz. Zagadkę otwiera **E**, cyfry wpisują odpowiedź, **Enter** sprawdza, **Esc** zamyka. Błędna kolejność terminali zeruje sekwencję. [Raport i wyniki POC 03.5](docs/changes/008-dynamic-quests-puzzles/REPORT.md).
-
-Aktualizacja: `docker compose up --build -d`, potem zamknij starą kartę i otwórz [grę](http://localhost:8080/) w nowej. Inspector `/admin` pokazuje typ questu, plan, walidację i wynik wykonania. Nowe plany mają wersję 2; plany wersji 1 nadal działają jako COLLECT. Director pozostaje domyślnie mock, z `DIRECTOR_ALLOW_PAID_REQUESTS=false`.
-
-
-> **POC 03 — AI Game Director:** po ukończeniu pierwszego questu automatycznie powstaje zadanie zebrania nośnika danych. Podejdź do wskazanego obiektu i naciśnij **E**. **Esc** zamyka rozmowę, **G** ponawia nieudaną generację, **R** rozpoczyna nową sesję. Director domyślnie działa jako **mock**, także gdy Buddy korzysta z Meta. [Raport POC 03 i instrukcja konfiguracji](docs/changes/006-ai-game-director/REPORT.md).
-
-Historyczna weryfikacja POC 03: **75 testów**, Pygame **12 klatek**, pełne przejście obu questów w przeglądarce przez Docker Compose. Wyniki dalszych sekcji dotyczą historycznie POC 01. Do rozmów i Directora potrzebny jest uruchomiony backend; najprościej użyć `docker compose up --build -d`. Szczegóły aktualnych testów i ograniczeń są w raporcie POC 03.
-
-
-> **AI Inspector:** [panel właściciela](http://localhost:8080/admin) i [widok jury](http://localhost:8080/admin/jury). Logowanie właściciela: `ADMIN_TOKEN` z lokalnego `.env`. [Instrukcja prezentacji i zabezpieczeń](docs/AI_INSPECTOR.md).
-
-> **POC 02 jest zaimplementowany.** Uruchomienie: `docker compose up --build -d`, gra: http://localhost:8080. Domyślnie działa mock bez wywołań Meta. Podejdź do Buddy'ego, E, przewiń dialog zadania E/Enter; potem wpisuj wiadomość i wysyłaj Enter. Esc zamyka rozmowę. [Szczegółowy raport POC 02](docs/POC02_REPORT.md).
-
-Jedna neonowa ulica z oryginalnych grafik, ruch WASD po ograniczonym pasie chodnika, cztery klatki animacji, Buddy, dialogi i zadanie: rozmowa → identyfikator przy wejściu po lewej → powrót. Dane sceny, dialogów i questu w `content/*.json`. POC 02 dodaje backend rozmów FastAPI; domyślny tryb mock nie korzysta z płatnych usług. Oryginały `grafika/` nie były zmieniane.
-
-## Uruchomienie lokalne (PowerShell)
-
-Wymagane: Python 3.12+ i uv. Sprawdzone: Python 3.13.3, uv 0.8.22, pygame-ce 2.5.8.
-
-```powershell
-cd C:\Users\piotr\projects\hakaton_meta\chess-corp-poc-codex
-uv sync --locked
-uv run python main.py
-```
-
-Po pierwszej instalacji gra działa lokalnie bez Internetu. Bez uv można użyć istniejącego środowiska: `.venv\Scripts\python.exe main.py`.
-
-- A/D: lewo/prawo; W/S: głębia chodnika.
-- E przy Buddy'm: rozmowa. E/Enter: następna wypowiedź; Esc: zamknięcie dialogu.
-- Po rozmowie idź w lewo do turkusowego terminala „CHESS CORP”, wciśnij E, potem wróć do Buddy'ego i ponownie E.
-- R poza dialogiem: nowa rozgrywka. Zamknięcie okna kończy grę.
-
-Postęp aktualizuje się po rozpoczęciu właściwej interakcji. Zamknięcie dialogu Esc nie cofa odebranego przedmiotu. Ruch jest wstrzymany podczas dialogu. W scenie nie ma dodatkowych przeszkód wewnątrz pasa ruchu; granice chodnika blokują wejście w budynki i ulicę.
-
-## Testy
-
-```powershell
-uv run python -m pytest -q
-$env:SDL_VIDEODRIVER = 'dummy'
-$env:SDL_AUDIODRIVER = 'dummy'
-uv run python main.py --smoke
-Remove-Item Env:SDL_VIDEODRIVER
-Remove-Item Env:SDL_AUDIODRIVER
-uv run python main.py --smoke
-```
-
-Wynik: **6 passed**. Pokryte: referencje JSON, kolejność etapów, brak przedwczesnego odbioru, brak podwójnej nagrody, promień i priorytet interakcji, ruch delta time, granice, blokady oraz przejście całego questu przez handler klawiszy z renderowaniem dialogów i restartem. Smoke test dummy: **12 klatek**. Start z rzeczywistym oknem SDL Windows: **12 klatek**, kod wyjścia 0. Zrzut: `docs/smoke.png`; został obejrzany podczas weryfikacji. Test integracyjny ustawia pozycje gracza, więc nie zastępuje pełnego ręcznego przejścia WASD.
-
-## Przeglądarka — pygbag
-
-```powershell
-uv run python tools/build_web.py
-uv run python -m http.server 8000 --bind 127.0.0.1 --directory web_app/build/web
-```
-
-Otwórz http://127.0.0.1:8000, poczekaj na pobranie runtime i kliknij obszar gry, aby nadać mu fokus. Serwer zatrzymasz Ctrl+C. Alternatywny serwer deweloperski: `uv run python -m pygbag web_app` (adres poda konsola). Nie otwieraj HTML przez `file://`.
-
-Budowa z pygbag 0.9.3 zakończyła się kodem 0; wynik: `web_app/build/web/index.html` i `web_app.apk`. Skrypt pakuje wyłącznie pliki gry, JSON i pochodne grafiki; nie dodaje oryginałów ani środowiska uv. Po każdej zmianie kodu ponów pakowanie i budowę. Pętla `async def main()` oddaje sterowanie przez `await asyncio.sleep(0)` w każdej klatce, a zasoby są lokalizowane względem plików projektu. Wersja przeglądarkowa pobiera runtime z CDN pygame-web, dlatego pierwszy start wymaga Internetu.
-
-## Zasoby i ograniczenia
-
-Pełna inwentaryzacja 476 plików, parametry alfa i sposób cięcia: `docs/ASSET_REPORT.md`. Podgląd oryginałów: `docs/contact_sheet.png`. Wybrane grafiki pochodne są już dołączone, nie trzeba uruchamiać Pillow, by grać.
-
-POC ma stały obszar renderowania 960×540, sterowanie klawiaturą, jedną scenę i jeden quest. Brak zapisu postępu, audio i sterowania dotykowego. Nie wprowadzono AI, walki ani innych mechanik.
-
-### Wynik testu w przeglądarce
-
-27.10.2026 uruchomiono zbudowany HTML w przeglądarce wbudowanej Codex. Po pobraniu runtime i kliknięciu ekranu wykonano pełną ścieżkę klawiaturą: D do Buddy'ego, E i Enter, A do terminala, E i Enter, D do Buddy'ego, E i Enter. HUD potwierdził odebranie identyfikatora, trzy zaliczone etapy i komunikat „ZADANIE UKOŃCZONE”. Dowód: `docs/web_completed.png`. Komunikaty runtime „MEDIA USER ACTION REQUIRED” przed pierwszym kliknięciem oznaczały oczekiwanie na gest użytkownika; po kliknięciu gra ruszyła.
-
-Zauważone ograniczenie: domyślny szablon pygbag rozciąga canvas do rozmiaru dostępnego obszaru; w wąskim panelu proporcje są zniekształcone. Lokalny ekran 960×540 zachowuje proporcje. Następny najmniejszy krok: dopracować responsywne proporcje canvas w szablonie HTML i sprawdzić drugi rozmiar okna.
-
-## Docker Compose — najprostszy start w przeglądarce
-
-Wymagany działający Docker z Compose (na Windows: Docker Desktop w trybie kontenerów Linux; w WSL: integracja Docker Desktop z daną dystrybucją). Python ani uv na hoście nie są potrzebne. Polecenia wykonuj w katalogu zawierającym `compose.yaml`.
-
-PowerShell:
-
-```powershell
-cd C:\Users\piotr\projects\hakaton_meta\chess-corp-poc-codex
-docker compose up --build -d
-```
-
-WSL:
+**Requirements:** Git and Docker with Compose. On Windows, use Docker Desktop with Linux containers; WSL can use Docker Desktop integration. No host Python installation is required for this path. The first build and initial browser runtime loading require internet access.
 
 ```bash
-cd /mnt/c/Users/piotr/projects/hakaton_meta/chess-corp-poc-codex
+git clone https://github.com/pio3m/meta_ai_hakaton_2026.git
+cd meta_ai_hakaton_2026
+```
+
+On a fresh clone, create your local configuration using either shell:
+
+```powershell
+# Windows PowerShell
+Copy-Item .env.example .env
+```
+
+```bash
+# Linux, macOS or WSL
+cp .env.example .env
+```
+
+Set `ADMIN_TOKEN` to a long, randomly generated value of at least 32 characters in `.env` if you want to use the Inspector. Do not overwrite an existing configuration when updating the project.
+
+```bash
 docker compose up --build -d
 ```
 
-Otwórz **http://localhost:8080**, poczekaj na runtime i kliknij ekran gry. Sterowanie: WASD, E, Enter, Esc, R. Pierwsza budowa pobiera obrazy i pygbag, a przeglądarka pobiera runtime z CDN — wymagany Internet. Gra wykonuje się w przeglądarce; kontener Nginx dostarcza pliki statyczne.
+Open **[http://localhost:8080/](http://localhost:8080/)**, wait for loading and click **Play**. Click the game to give it keyboard focus. After rebuilding, refresh the page with **Ctrl+F5**.
 
 ```bash
 docker compose ps
-docker compose logs --tail=50 game
+docker compose logs --tail=50 backend game
 docker compose down
 ```
 
-Po zmianach w kodzie wykonaj ponownie `docker compose up --build -d` i odśwież stronę. Budowa samodzielnie przygotowuje paczkę pygbag z bieżących źródeł; nie wymaga istniejącego `web_app/`, `.venv` ani oryginalnego `grafika/`. `.dockerignore` ogranicza kontekst do plików gry i przetworzonych zasobów. Port jest dostępny tylko na komputerze lokalnym.
+The Compose port is bound to the local computer. To use another port, set `CHESS_CORP_PORT` in your local `.env` and recreate the containers. The included Compose setup is a local demo, not a public hosted game service.
 
-Jeżeli port 8080 jest zajęty, w WSL użyj `CHESS_CORP_PORT=8081 docker compose up --build -d`; w PowerShell najpierw `$env:CHESS_CORP_PORT='8081'`, potem `docker compose up --build -d`. Otwórz wtedy http://localhost:8081.
+## MOCK defaults and live Meta access
 
-Konfiguracja budowy opiera się na [oficjalnej specyfikacji Compose](https://docs.docker.com/reference/compose-file/build/).
+The public defaults in [`.env.example`](.env.example) use **MOCK** and disable paid requests. You can explore the world, use mock chat, generate mock quests and inspect simulated calls without a Meta API key. A mock result is not a live model decision; a cached Meta image is not a new image-generation call.
 
-Weryfikacja Docker (28.10.2026): `docker compose config --quiet` bez błędów; `docker compose up --build -d` zakończone powodzeniem. Budowa użyła Linux/Python 3.12 i pygbag 0.9.3. GET `/` i `/web_app.apk` zwracają HTTP 200. Kontekst budowy miał około 160 kB. Ostrzeżenia pygbag o braku opcjonalnych Black i ffmpeg nie przerwały budowy (gra nie zawiera audio ani wideo).
+Live inference requires your own authorized Meta API credentials in `MODEL_API_KEY`, access to the configured models, and explicit paid-request flags:
 
-Kontener osiągnął status `healthy`. W przeglądarce potwierdzono wyrenderowanie sceny, ruch D i rozmowę E z Buddy'm wraz ze zmianą celu. Zrzut: `docs/docker_running.png`. Kontener pozostawiono uruchomiony pod http://localhost:8080.
+| System | Mode | Required paid-request switches |
+|---|---|---|
+| Buddy / NPC chat | `BUDDY_MODE=meta` | `META_ALLOW_PAID_REQUESTS=true` |
+| Quest Director and fresh session jobs | `DIRECTOR_MODE=meta` | `META_ALLOW_PAID_REQUESTS=true` and `DIRECTOR_ALLOW_PAID_REQUESTS=true` |
+| Living World AI | `WORLD_AI_MODE=meta` | `WORLD_AI_ALLOW_PAID_REQUESTS=true` |
+| Manual asset generation | `ASSET_AI_MODE=meta` | `ASSET_AI_ALLOW_PAID_REQUESTS=true` |
 
-## Naprawa szarego ekranu pod localhost (28.10.2026)
+The text adapter defaults to `META_MODEL=muse-spark-1.3`. Configure limits before enabling live calls: World AI has per-session/global call caps, a minimum interval and a token budget; session jobs and image generation have separate caps. Persistent World AI spending tracking requires a configured `WORLD_AI_LEDGER_PATH`; an empty value uses the legacy in-memory budget. Do not delete spending records to renew an allowance.
 
-Odtworzono błąd pod `http://localhost:8080/`: pygbag 0.9.3 wybierał deweloperski adres pakietów `http://localhost:8000/cdn/`, a pobranie Pygame kończyło się `Failed to fetch`. Wcześniejszy test pod `127.0.0.1` nie obejmował tego zachowania.
+After changing local settings, apply them with:
 
-`tools/build_web.py` dołącza teraz przeglądarkowy pakiet pygame-ce 2.5.7 (CPython 3.12 / WebAssembly) do katalogu `runtime/`, sprawdza jego SHA256 i ustawia loader na bieżący origin kontenera. Wersja desktopowa nadal używa zależności z uv.lock. Ekran startu ma przycisk „Graj”, polskie komunikaty, obsługę błędów i możliwość ponowienia. Znika dopiero po pierwszej wyrenderowanej klatce. HTML ma nagłówek Cache-Control: no-store.
+```bash
+docker compose up -d --force-recreate backend game
+```
 
-Sprawdzenie: 8 testów pytest przeszło; w przeglądarce na dokładnym adresie `http://localhost:8080/` kliknięto Graj i ukończono cały quest klawiaturą. Pobranie `/runtime/cp312/pygame_ce-2.5.7-cp312-cp312-wasm32_bi_emscripten.whl` zwróciło HTTP 200; nie było próby pobrania Pygame z portu 8000. Dowód: `docs/localhost_fixed.png`. Nie przeprowadzono osobnego testu w oknie Chrome użytkownika — dostęp do niego zakończył się limitem czasu.
+Paid modes can incur charges as you play or start fresh sessions. Image generation remains an explicit owner action. The repository does not distribute credentials, private request metadata or the local recording-session spending counters.
 
-Po aktualizacji: `docker compose up --build -d`, następnie zamknij starą kartę gry i otwórz nową pod http://localhost:8080. Jeśli nadal widzisz starą wersję, użyj Ctrl+Shift+R. Internet jest nadal potrzebny do pobrania interpretera Python/WASM z CDN.
+## Controls
 
+| Key | Action |
+|---|---|
+| **WASD** | Move along the scene's walkable area |
+| **E** | Interact, advance authored dialogue, collect an object or use a terminal |
+| **T** | Open text chat with a nearby NPC |
+| **Enter** | Advance dialogue, send a message, submit a puzzle answer or confirm a purchase |
+| **F** | Enter or leave a location through a nearby doorway |
+| **J** | Open the two session collection jobs |
+| **Space** | Melee attack; hold to keep attacking |
+| **H** | Use a medkit |
+| **Up / Down** | Select an item while the Nyx shop is open |
+| **Tab** | Open the location map |
+| **Esc** | Close the current dialogue, journal or panel |
+| **M** | Toggle audio outside text-entry handling |
+| **F2** | Switch EN / PL |
+| **R** | Start a new run when no blocking panel is open |
+| **F4** | Select a mock Director scenario before completing the introductory quest |
 
-## Finał 015 — cyber-szczury, kontrakty Barmana i Nyx
+## Development and validation
 
-Gra: http://localhost:8080. Uruchom w katalogu projektu: `docker compose up --build -d`.
-Otwórz świeżą kartę (stara karta zachowuje poprzedni kod WASM).
+For Python development, install Python 3.12+ and `uv`, then run:
 
-1. Wejdź do BARU prawymi drzwiami ulicy: WASD i **F**.
-2. Podejdź do **Barmana** i naciśnij **E**, aby przyjąć deratyzację. NPC zatrzyma się przy graczu.
-3. Wróć na ulicę przez lewe drzwi baru (**F**). **Spacja**: cios pałką, można przytrzymać; **H**: apteczka. Walcz blisko szczura, patrząc w jego stronę.
-4. Pokonaj 3 szczury. Łup: 2 KR za każdego. Wróć do Barmana i **E**: wypłata 30 KR. Razem 36 KR.
-5. W barze po prawej znajdziesz **Nyx**. **E** otwiera sklep; góra/dół wybiera, Enter/E kupuje, Esc zamyka. Apteczka 8 KR, pałka +1 za 18 KR, pancerz za 22 KR.
-6. Kolejne **E** u Barmana rozpoczyna trudniejszy kontrakt: 5 szczurów, 3 KR łupu/szt. i 60 KR nagrody. Po śmierci Enter przywraca gracza za maksymalnie 5 KR; zabite szczury i questy pozostają zaliczone.
-7. Pierwszy quest, Buddy, Guard, questy Director COLLECT/SEQUENCE/LOGIC_PUZZLE, mapa i wszystkie cztery lokacje działają niezależnie. Zmiana lokacji zachowuje ekwipunek, HP, kredyty i zakupy. R/odświeżenie zaczyna nową grę.
+```bash
+uv sync --locked
+uv run python -m pytest -q
+```
 
-Szczur i Nyx są rzeczywistymi assetami `muse-image-1.0` zapisanymi w cache. Ich cztery klatki to lokalna animacja pochodna; kolejne szczury nie generują kosztów. Dawne grafiki, bar i poster Meta w kryjówce pozostają dostępne.
+The test suite covers game rules, schema validation, guard behaviour, mock integrations, localization, audio and session isolation. Browser walkthroughs and historical validation records are preserved in the [change reports](docs/changes/README.md). Live-test scripts are records of controlled paid experiments, not part of the default test command.
 
-W lokalnym `.env` finał ma **World AI META**, osobną zgodę i limity: 6 planów/sesję, 12 płatnych prób łącznie dla etapu 015, minimum 30 sekund, do 2400 tokenów odpowiedzi, budżet 150000 tokenów. Trwały licznik `assets/generated/.world-ai-stage-015.json` obejmuje trzy już wykonane próby LIVE. Nie usuwaj go, aby restart nie odnawiał budżetu. Po wyczerpaniu limitu działa jawny FALLBACK. Buddy i Quest Director pozostają mock; generowanie kolejnych obrazów jest wyłączone, gotowy cache działa nadal.
+## Assets and licensing
 
-Aby wyłączyć koszty: w `.env` ustaw `WORLD_AI_MODE=mock` i `WORLD_AI_ALLOW_PAID_REQUESTS=false`, następnie `docker compose up -d --force-recreate backend game`. `.env.example` celowo ma bezpieczne domyślne mock/false. Pliki `.env`, prywatne metadane generacji i liczniki nie trafiają do Git ani paczki WWW.
+- **Original artwork:** supplied by the project owner in [`grafika/`](grafika/). Original files are preserved; processed derivatives are in [`assets/processed/`](assets/processed/). Public availability does not grant a blanket open-source license to the artwork. See the [asset inventory](docs/ASSET_REPORT.md) for provenance and processing details.
+- **Meta-generated artwork:** cached under [`assets/generated/`](assets/generated/) with public model/source manifests. Private generation metadata is excluded. The audio dedication does not apply to these images.
+- **Synthesized audio:** original local WAV effects and ambient tracks contain no third-party samples. The audio and its generator are dedicated under [CC0 1.0](assets/audio/LICENSE.md); see the [audio notes](assets/audio/README.md) and [manifest](assets/audio/manifest.json).
+- **Dependencies and bundled fonts:** retain their respective upstream licensing terms; no project-wide license grant is implied for third-party material.
 
-Inspector: http://localhost:8080/admin. World pokazuje kontekst walki/kontraktów, NPC, plany i wykonanie. Asset Generator pokazuje szczura i Nyx, model, źródło, czas i podgląd. Wczytanie cache nie jest nowym wywołaniem Meta. Dla jury korzystaj z osobnego, wygasającego widoku `/admin/jury` i sesji utworzonej w panelu właściciela.
+## Development archive
 
-Testy: `uv run pytest -q`. Dodatkowe scenariusze klawiaturowe w `tools/browser015.py` i `tools/browser015_final_mock.py` wymagają testowego Playwright + Chrome i trzech integracji w mocku; sprawdzają tryby przed uruchomieniem. Skrypty `*live*015*` / `browser015_live*` dokumentują jednorazowy kontrolowany test; nie są instrukcją uruchamiania kolejnych płatnych prób.
-
-Szczegółowy raport: [015 — kontrakty i Nyx](docs/changes/015-rat-bounties-and-merchant/REPORT.md).
-
-
-## POC 016 — Cyberpunk Sound Design (zmiana 017)
-
-Dźwięk uruchamia się po kliknięciu **Graj** lub pierwszej interakcji. **M** włącza/wyłącza audio; wyciszenie oznacza tylko mały napis przy dole ekranu. Podczas wpisywania tekstu Buddy’emu litera M pozostaje częścią wiadomości. Ustawienie wyciszenia utrzymuje się po R w tej samej karcie.
-
-Cztery lokalne, zapętlone ambienty: deszcz/miasto na ulicy, przytłumiony klub w barze, serwery w kryjówce i wentylacja/elektronika w lobby. Jeden kanał ambientu zapobiega nakładaniu lokacji; przejścia mają krótki fade. Efekty obejmują rozmowę E, drzwi, sklep, zakup, wypłatę kontraktu, zamach/trafienie/pokonanie szczura i apteczkę. Brak urządzenia lub uszkodzony plik nie blokuje gry.
-
-Wszystkie 14 plików WAV w `assets/audio/` powstały lokalnie z oscylatorów i szumu, bez nagrań osób trzecich i bez płatnego API. Pochodzenie, formaty i hashe: `assets/audio/manifest.json`. Audio i jego generator są dedykowane CC0-1.0; nie zmienia to licencji oryginalnych grafik. Odtwarzanie nie pobiera plików z sieci — pliki są w paczce gry. Ponowna synteza wyłącznie w fazie przygotowania: `uv run python tools/generate_audio.py`.
-
-Start bez zmian: `docker compose up --build -d`, następnie świeża karta http://localhost:8080 i Graj. Pygbag pakuje krótkie, sprawdzone PCM WAV bez automatycznego konwertowania przez ffmpeg. Nie trzeba instalować nowych usług. Jeśli przeglądarka blokuje audio, kliknij płótno gry lub naciśnij klawisz; M sprawdza wyciszenie. To dotyczy polityki audio przeglądarki, nie dostępu do Meta.
-
-Zgodnie z późniejszym poleceniem użytkownika lokalna konfiguracja Buddy, Quest Director i World AI jest teraz META. Testy audio w przeglądarce odbywają się z rzeczywistym World LLM; koszt dotyczy istniejącego planowania NPC, nigdy generacji audio. Liczników nie zerowano. Po późniejszym zatwierdzeniu limit World AI wynosi 6/sesję i 50 globalnie, bez resetowania wykorzystanych prób; po wykorzystaniu budżetu działa jawny FALLBACK, nie mock. Nie zmieniano mechaniki questów ani stanów gry.
-
-Raport audio: [017 — POC 016 Sound Design](docs/changes/017-cyberpunk-sound-design/REPORT.md).
-
-
-## Aktualne sterowanie — zmiana 018
-
-**Spacja** atakuje stale także poza kontraktem. Trafiony NPC odpowiada walką; ważne postacie po ogłuszeniu wracają, aby nie blokować gry. Pałka od Nyx zwiększa obrażenia. **T przy NPC** otwiera jego osobny czat META z własną tożsamością i historią. **E** zachowuje akcje fabularne i sklep.
-
-**J** pokazuje dwie nowe misje zbierackie generowane przez META na świeżą sesję, bez czekania na ukończenie pierwszego dnia. Zbieraj złote przedmioty E; nagroda 15–45 KR za zlecenie trafia do portfela automatycznie i tylko raz. R albo nowe uruchomienie tworzy nowe zapytanie do Directora. Dotychczasowe questy są zachowane.
-
-W /admin jest wybór grafiki i przyciski **Wygeneruj nowy asset** oraz **Usuń zapisane pliki assetu**. Regeneracja jest jawna, płatna i nie powtarza tego samego żądania. Czyszczenie nie usuwa oryginałów ani liczników wydatków. Gra odbiera nowe wersje obrazów w ciągu około 10 s, bez przebudowy Dockera. Grafiki nie generują się automatycznie przy każdym starcie — zgodnie z wyborem użytkownika.
-
-Uruchomienie nadal: `docker compose up --build -d`, http://localhost:8080 i świeża karta/Ctrl+F5. [Raport 018](docs/changes/018-npc-combat-chat-and-session-jobs/REPORT.md).
-
-### Język EN / PL
-
-Gra i widok `/admin/jury` domyślnie używają angielskiego. Kliknij **EN / PL** w nagłówku gry albo naciśnij **F2**. Wybór jest zachowany przy zmianie lokacji i odświeżeniu strony. Panel `/admin` domyślnie używa polskiego i ma własny przełącznik języka.
-
-Nowe odpowiedzi NPC i plany AI otrzymują instrukcję wybranego języka. Starsze wyniki w innym języku pozostają oznaczonym oryginałem. Identyfikatory i surowe dane techniczne JSON pozostają bez zmian.
-
-Raport: [lokalizacja EN/PL](docs/changes/019-en-pl-localization/REPORT.md).
+The previous README and its milestone-by-milestone Polish development history are preserved in the [Polish development archive](docs/DEVELOPMENT_HISTORY_PL.md).
