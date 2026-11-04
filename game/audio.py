@@ -70,7 +70,7 @@ class AudioManager:
             try:
                 if self.current!=self.desired:
                     self.level=max(0.,self.level-dt/.25)
-                    self.ambient_channel.set_volume(.22*self.level)
+                    self.ambient_channel.set_volume((0. if self.current=='corporate_street' else .22)*self.level)
                     if self.level==0:
                         self.ambient_channel.stop();self.current=None
                         name=AMBIENTS[self.desired]
@@ -79,7 +79,7 @@ class AudioManager:
                             self.current=self.desired;self.ambient_starts[self.current]+=1
                 else:
                     self.level=min(1.,self.level+dt/.45)
-                    self.ambient_channel.set_volume(.22*self.level)
+                    self.ambient_channel.set_volume((0. if self.current=='corporate_street' else .22)*self.level)
             except (pygame.error,OSError) as error:self._error(error);self.available=False
         # Read-only, bounded local diagnostics for browser QA. No network or game UI.
         if sys.platform=='emscripten' and self.clock>=self.report_due:

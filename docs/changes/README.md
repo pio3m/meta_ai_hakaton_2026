@@ -39,3 +39,5 @@ Zacznij od [szablonu changelogu](_template/CHANGELOG.md) i [szablonu raportu](_t
 | 019 | Lokalizacja EN/PL | [Zmiany](019-en-pl-localization/CHANGELOG.md) | [Raport](019-en-pl-localization/REPORT.md) |
 
 | 020 | Profil płatny do nagrania demo | [Zmiany](020-live-demo-limits/CHANGELOG.md) | [Raport](020-live-demo-limits/REPORT.md) |
+
+| 021 | Publiczne repozytorium GitHub | [Zmiany](021-public-github/CHANGELOG.md) | [Raport](021-public-github/REPORT.md) |

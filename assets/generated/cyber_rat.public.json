@@ -2,7 +2,7 @@
   "id": "cyber_rat",
   "source": "META",
   "model": "muse-image-1.0",
-  "sha256": "a62cf794f6ec7f76737cd0af2cae2e61068c66fc2927f82f88da08ab89c71ccf",
-  "generation_ms": 13173.02,
+  "sha256": "f1a0d0f28e267cb9d154b0a48ef5a7f92a4fb6f1ebb18a3c76c378572e088233",
+  "generation_ms": 11223.73,
   "preview_url": "/api/assets/cyber_rat.png"
 }

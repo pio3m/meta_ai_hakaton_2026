@@ -1,3 +1,31 @@
+# Chess Corp — Living AI World
+
+A playable cyberpunk game built with **Pygame CE / pygbag**, **FastAPI** and **Meta Muse Spark**. Explore four connected locations, talk to NPCs with individual identities, complete validated AI-generated quests, fight cyber-rats and buy equipment from Nyx. The AI Inspector exposes model decisions, token usage, validation and execution telemetry.
+
+- **EN / PL:** English by default; click the language selector or press F2.
+- **Living World:** shared, structured plans for multiple NPCs, short-term memory and deterministic local execution.
+- **Quest Director:** COLLECT, SEQUENCE and LOGIC_PUZZLE, plus two fresh collection jobs per session. Rat bounty contracts are authored gameplay, not dynamically generated quests.
+- **Safe demo:** mock mode works without an API key; real Meta calls require explicit environment flags and bounded budgets.
+- **Inspector:** owner access at `/admin`; separate, expiring session-scoped jury access at `/admin/jury`.
+
+## Quick start
+
+```powershell
+Copy-Item .env.example .env
+# Set a long, random ADMIN_TOKEN in .env to enable the owner Inspector.
+docker compose up --build -d
+```
+
+Open **http://localhost:8080/**. Defaults are MOCK with paid calls disabled. Never commit your `.env`, API key or spending ledgers. Real Meta configuration is described in the reports below; the repository does not include the local paid recording configuration.
+
+Controls: **WASD** move, **E** interact, **T** NPC text chat, **F** doors, **J** session jobs, **Space** attack, **H** heal, **Tab** map, **M** audio, **F2** language, **R** new run.
+
+The original artwork is supplied by the project owner and is not declared open source by this repository. Generated asset provenance is recorded in public manifests. Original synthesized audio has its own license in `assets/audio/LICENSE.md`.
+
+## Development history and Polish documentation
+
+The sections below document successive milestones. Statements about active modes, budgets and test counts are historical; current defaults are defined by `.env.example` and `backend/settings.py`.
+
 # Chess Corp — grywalny POC
 
 ## Finał: połączony świat (04.11.2026)
